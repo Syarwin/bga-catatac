@@ -1,0 +1,82 @@
+<?php
+
+/*
+ * Game options
+ */
+
+
+/*
+ * User preferences
+ */
+const OPTION_CONFIRM = 103;
+const OPTION_CONFIRM_DISABLED = 0;
+const OPTION_CONFIRM_ENABLED = 2;
+const OPTION_CONFIRM_TIMER = 3;
+
+
+/*
+ * State constants
+ */
+
+const GAME = 'game';
+const MULTI = 'multipleactiveplayer';
+const PRIVATESTATE = 'private';
+const END_TURN = 'endTurn';
+const ACTIVE_PLAYER = 'activeplayer';
+
+const ST_GAME_SETUP = 1;
+const ST_SETUP_BRANCH = 2;
+
+// Setup
+const ST_SETUP_DEBUG = 3;
+
+const ST_NEW_ROUND = 10;
+const ST_START_TURN = 11;
+const ST_END_TURN = 12;
+
+// Atomic actions
+const ST_CHOOSE_CARD = 30;
+
+// Engine state
+const ST_GENERIC_AUTOMATIC = 88;
+const ST_RESOLVE_STACK = 90;
+const ST_RESOLVE_CHOICE = 91;
+const ST_IMPOSSIBLE_MANDATORY_ACTION = 92;
+const ST_CONFIRM_TURN = 93;
+const ST_CONFIRM_PARTIAL_TURN = 94;
+
+const ST_GENERIC_NEXT_PLAYER = 97;
+const ST_END_SCENARIO = 86;
+const ST_PRE_END_OF_GAME = 98;
+const ST_END_GAME = 99;
+
+/*
+ * ENGINE
+ */
+const NODE_SEQ = 'seq';
+const NODE_OR = 'or';
+const NODE_XOR = 'xor';
+const NODE_PARALLEL = 'parallel';
+const NODE_LEAF = 'leaf';
+
+const ZOMBIE = 98;
+const PASS = 99;
+
+/*
+ * Atomic action
+ */
+
+const CHOOSE_CARD = 'ChooseCard';
+
+/*
+ * MISC
+ */
+
+const TOKEN = 'token';
+
+/******************
+ ****** STATS ******
+ ******************/
+
+const STAT_TURNS = 10;
+const STAT_POSITION = 11;

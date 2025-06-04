@@ -1,0 +1,81 @@
+// #logs .log.notif_startingIncomePhase .roundedbox,
+// .chatwindowlogs_zone .log.notif_startingIncomePhase .roundedbox {
+//   background: #b2cbec;
+//   text-align: center;
+//   color: black;
+//   border: 1px solid #7b7f88;
+//   font-weight: bold;
+//   font-size: 15px;
+//   padding: 3px 2px 3px;
+//   font-family: "Garamond";
+// }
+
+/* Undo here logs */
+#logs .log.notif_newUndoableStep {
+  margin-top: 0px;
+
+  .roundedbox {
+    display: none;
+    text-align: center;
+    cursor: pointer;
+    background-color: #c4c2c2;
+    font-size: 12px;
+    padding: 2px 5px;
+
+    &::before,
+    &::after {
+      content: "\f0e2";
+      font: normal normal normal 12px/1 FontAwesome;
+      margin: 0px 10px;
+    }
+  }
+
+  &.selectable .roundedbox {
+    display: block;
+  }
+}
+
+.chatwindowlogs_zone .log.notif_newUndoableStep {
+  margin-bottom: -4px;
+  padding: 0px;
+  display: none !important;
+
+  &.selectable {
+    display: block !important;
+
+    .roundedboxinner {
+      text-align: center;
+      cursor: pointer;
+      background-color: #c4c2c2;
+      font-size: 12px;
+      padding: 2px 5px;
+
+      &::before,
+      &::after {
+        content: "\f0e2";
+        font: normal normal normal 12px/1 FontAwesome;
+        margin: 0px 10px;
+      }
+
+      .msgtime {
+        display: none;
+      }
+    }
+  }
+}
+
+/* Cancelled notification messages */
+.log.cancel {
+  color: #c62828 !important;
+  text-decoration: line-through;
+}
+
+/* Desktop logs */
+.log.cancel .roundedbox {
+  background-color: rgba(240, 186, 117, 0.6) !important;
+}
+
+/* Mobile logs */
+.log.cancel.roundedbox {
+  background-color: #ef9a9a;
+}

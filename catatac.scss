@@ -1,0 +1,119 @@
+/**
+ *------
+ * BGA framework: © Gregory Isabelli <gisabelli@boardgamearena.com> & Emmanuel Colin <ecolin@boardgamearena.com>
+ * Catatac implementation : © Timothée Pecatte <tim.pecatte@gmail.com>, Vincent Toper <vincent.toper@gmail.com>
+ *
+ * This code has been produced on the BGA studio platform for use on http://boardgamearena.com.
+ * See http://en.boardgamearena.com/#!doc/Studio for more information.
+ * -----
+ *
+ * catatac.scss
+ *
+ * Catatac stylesheet
+ *
+ */
+
+html {
+}
+
+@import "modules/css/nouislider";
+@import "modules/css/variables";
+@import "modules/css/cards";
+@import "modules/css/icons";
+@import "modules/css/meeples";
+@import "modules/css/central-board";
+@import "modules/css/player-panel";
+@import "modules/css/modals";
+@import "modules/css/log";
+
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+// * {
+//   box-shadow: none !important;
+//   filter: none !important;
+// }
+
+.phantom {
+  visibility: hidden;
+}
+
+#pagemaintitletext {
+  position: relative;
+}
+
+#restartAction {
+  margin-left: 15px;
+}
+
+[data-undobuttons="0"] #btnUndoLastStep {
+  display: none;
+}
+[data-undobuttons="2"] #btnRestartTurn {
+  display: none;
+}
+
+#pagesubtitle:not(:empty) {
+  padding: 3px 0px;
+}
+
+#customActions .bgabutton.disabled {
+  opacity: 0.5;
+  background: linear-gradient(rgba(189, 189, 189, 0.59), rgba(166, 165, 165, 0.45));
+  cursor: not-allowed;
+  pointer-events: all;
+}
+
+#customActions .bgabutton.selected,
+#income-track-header .bgabutton.selected {
+  background: linear-gradient(rgba(89, 219, 78, 0.87), rgba(87, 149, 59, 0.89));
+}
+
+#maintitlebar_content {
+  .action-button ~ .action-button {
+    margin-left: 15px;
+  }
+}
+
+#customActions .action-button.bgabutton,
+#customActions .bgabutton {
+  text-overflow: initial;
+}
+
+#ebd-body.help-mode {
+  .tooltipable {
+    cursor: help;
+  }
+}
+
+.help-marker {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  z-index: 900;
+  border: 1px solid black;
+  border-radius: 50%;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+#ebd-body:not(.help-mode) {
+  .help-marker {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* Hide the "You may note something for next time..." popup that would appear. */
+#turnBasedNotesIncent {
+  display: none;
+}

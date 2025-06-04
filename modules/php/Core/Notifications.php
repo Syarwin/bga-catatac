@@ -1,0 +1,238 @@
+<?php
+
+namespace Bga\Games\Catatac\Core;
+
+use Bga\Games\Catatac\Game;
+use Bga\Games\Catatac\Helpers\Collection;
+use Bga\Games\Catatac\Managers\Cards;
+use Bga\Games\Catatac\Managers\Players;
+use Bga\Games\Catatac\Models\Card;
+use Bga\Games\Catatac\Models\Meeple;
+use Bga\Games\Catatac\Models\Player;
+use Bga\Games\Catatac\Models\Tile;
+
+
+class Notifications
+{
+
+
+  ////////////////////////////////////////////
+  //   ____                      _      
+  //  / ___| ___ _ __   ___ _ __(_) ___ 
+  // | |  _ / _ \ '_ \ / _ \ '__| |/ __|
+  // | |_| |  __/ | | |  __/ |  | | (__ 
+  //  \____|\___|_| |_|\___|_|  |_|\___|
+  ////////////////////////////////////////////
+
+  protected static function notifyAll($name, $msg, $data)
+  {
+    self::updateArgs($data);
+    self::updateIfNeeded($data, $name, 'public');
+    Game::get()->notifyAllPlayers($name, $msg, $data);
+  }
+
+  protected static function notify($player, $name, $msg, $data)
+  {
+    $pId = is_int($player) ? $player : $player->getId();
+    self::updateArgs($data, $name, 'private');
+    Game::get()->notifyPlayer($pId, $name, $msg, $data);
+  }
+
+  public static function message($txt, $args = [])
+  {
+    self::notifyAll('midmessage', $txt, $args);
+  }
+
+  public static function messageTo($player, $txt, $args = [])
+  {
+    $pId = is_int($player) ? $player : $player->getId();
+    self::notify($pId, 'message', $txt, $args);
+  }
+
+  public static function newUndoableStep($player, $stepId)
+  {
+    self::notify($player, 'newUndoableStep', clienttranslate('Undo here'), [
+      'stepId' => $stepId,
+      'preserve' => ['stepId'],
+    ]);
+  }
+
+  public static function clearTurn($player, $notifIds)
+  {
+    self::notifyAll('clearTurn', clienttranslate('${player_name} restarts their turn'), [
+      'player' => $player,
+      'notifIds' => $notifIds,
+    ]);
+  }
+
+  public static function refreshUI(array $datas)
+  {
+    // // Keep only the thing that matters
+    $fDatas = [
+      'players' => $datas['players'],
+      'cards' => $datas['cards'],
+      'meeples' => $datas['meeples'],
+      'tiles' => $datas['tiles'],
+      'cardHelpers' => $datas['cardHelpers'] ?? null,
+    ];
+
+    foreach ($fDatas['players'] as &$player) {
+      $player['hand'] = []; // Hide hand !
+    }
+
+    self::notifyAll('refreshUI', '', [
+      'datas' => $fDatas,
+    ]);
+  }
+
+  public static function refreshHand(Player $player, Collection $hand)
+  {
+    self::notify($player, 'refreshHand', '', [
+      'player' => $player,
+      'hand' => $hand->toArray(),
+    ]);
+  }
+
+  /////////////////////////////////////
+  //    ____           _          
+  //   / ___|__ _  ___| |__   ___ 
+  //  | |   / _` |/ __| '_ \ / _ \
+  //  | |__| (_| | (__| | | |  __/
+  //   \____\__,_|\___|_| |_|\___|
+  /////////////////////////////////////
+
+  protected static $listeners = [
+    // [
+    //   'name' => 'income',
+    //   'player' => true,
+    //   'method' => 'getMoneyIncome',
+    // ],
+    // [
+    //   'name' => 'score',
+    //   'player' => true,
+    //   'method' => 'updateScore',
+    // ],
+  ];
+  protected static $ignoredNotifs = [];
+
+  protected static $cachedValues = [];
+  public static function resetCache()
+  {
+    foreach (self::$listeners as $listener) {
+      $method = $listener['method'];
+      if ($listener['player'] ?? false) {
+        foreach (Players::getAll() as $pId => $player) {
+          self::$cachedValues[$listener['name']][$pId] = $player->$method();
+        }
+      } else {
+        self::$cachedValues[$listener['name']] = call_user_func($method);
+      }
+    }
+  }
+
+  public static function updateIfNeeded(&$args, $notifName, $notifType)
+  {
+    foreach (self::$listeners as $listener) {
+      $name = $listener['name'];
+      $method = $listener['method'];
+
+      if ($listener['player'] ?? false) {
+        foreach (Players::getAll() as $pId => $player) {
+          $val = $player->$method();
+          if ($val !== (self::$cachedValues[$name][$pId] ?? null)) {
+            $args['infos'][$name][$pId] = $val;
+            // Only bust cache when a public non-ignored notif is sent to make sure everyone gets the info
+            if ($notifType == 'public' && !in_array($notifName, self::$ignoredNotifs)) {
+              self::$cachedValues[$name][$pId] = $val;
+            }
+          }
+        }
+      } else {
+        $val = call_user_func($method);
+        if ($val !== (self::$cachedValues[$name] ?? null)) {
+          $args['infos'][$name] = $val;
+          // Only bust cache when a public non-ignored notif is sent to make sure everyone gets the info
+          if ($notifType == 'public' && !in_array($notifName, self::$ignoredNotifs)) {
+            self::$cachedValues[$name] = $val;
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+  ///////////////////////////////////////////////////////////////
+  //  _   _           _       _            _
+  // | | | |_ __   __| | __ _| |_ ___     / \   _ __ __ _ ___
+  // | | | | '_ \ / _` |/ _` | __/ _ \   / _ \ | '__/ _` / __|
+  // | |_| | |_) | (_| | (_| | ||  __/  / ___ \| | | (_| \__ \
+  //  \___/| .__/ \__,_|\__,_|\__\___| /_/   \_\_|  \__, |___/
+  //       |_|                                      |___/
+  ///////////////////////////////////////////////////////////////
+
+  /*
+   * Automatically adds some standard field about player and/or card
+   */
+  protected static function updateArgs(&$data)
+  {
+    if (isset($data['player'])) {
+      $data['player_name'] = $data['player']->getName();
+      $data['player_id'] = $data['player']->getId();
+      unset($data['player']);
+    }
+    if (isset($data['player2'])) {
+      $data['player_name2'] = $data['player2']->getName();
+      $data['player_id2'] = $data['player2']->getId();
+      unset($data['player2']);
+    }
+    if (isset($data['player3'])) {
+      $data['player_name3'] = $data['player3']->getName();
+      $data['player_id3'] = $data['player3']->getId();
+      unset($data['player3']);
+    }
+    if (isset($data['players'])) {
+      $args = [];
+      $logs = [];
+      foreach ($data['players'] as $i => $player) {
+        $logs[] = '${player_name' . $i . '}';
+        $args['player_name' . $i] = $player->getName();
+      }
+      $data['players_names'] = [
+        'log' => join(', ', $logs),
+        'args' => $args,
+      ];
+      $data['i18n'][] = 'players_names';
+      unset($data['players']);
+    }
+
+    if (isset($data['card'])) {
+      $data['card_id'] = $data['card']->getId();
+      $data['card_name'] = $data['card']->getName();
+      $data['i18n'][] = 'card_name';
+      $data['preserve'][] = 'card_id';
+    }
+
+    if (isset($data['cards'])) {
+      $args = [];
+      $logs = [];
+      foreach ($data['cards'] as $i => $card) {
+        $logs[] = '${card_name_' . $i . '}';
+        $args['i18n'][] = 'card_name_' . $i;
+        $args['card_name_' . $i] = [
+          'log' => '${card_name}',
+          'args' => [
+            'i18n' => ['card_name'],
+            'card_name' => is_array($card) ? $card['name'] : $card->getName(),
+          ],
+        ];
+      }
+      $data['card_names'] = [
+        'log' => join(', ', $logs),
+        'args' => $args,
+      ];
+      $data['i18n'][] = 'card_names';
+    }
+  }
+}

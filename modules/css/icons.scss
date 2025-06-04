@@ -1,0 +1,318 @@
+.icon-container {
+  display: inline-block;
+  // vertical-align: bottom;
+  vertical-align: middle;
+  margin: 0 0.08em;
+  font-size: 1em;
+
+  .icon-canal-era,
+  .icon-rail-era {
+    height: 1.4em;
+  }
+
+  .icon-income {
+    height: 1.2em;
+
+    text-align: center;
+    span {
+      font-family: "Garamond";
+      font-size: 0.6em;
+      line-height: 1.6em;
+    }
+  }
+
+  .icon-coin {
+    height: 1.2em;
+  }
+
+  .icon-coal {
+    height: 1.4em;
+  }
+
+  .icon-iron {
+    height: 1.4em;
+  }
+
+  .icon-coal-mine,
+  .icon-cotton-mill,
+  .icon-iron-works,
+  .icon-port,
+  .icon-shipyard {
+    height: 1.4em;
+  }
+}
+
+#animation-coin {
+  background: rgba(255, 255, 255, 0.747);
+  padding: 4px 7px;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-size: 24px;
+  font-family: "Garamond";
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+
+@mixin icon-barrel {
+  background: url("img/icons.png") no-repeat;
+  background-position: 2.4301336573511545% 2.3419203747072603%;
+  background-size: 509.452736318408%;
+  aspect-ratio: 201 / 170;
+}
+@mixin icon-boat {
+  background: url("img/icons.png") no-repeat;
+  background-position: 21.974965229485395% 84.61538461538461%;
+  background-size: 335.73770491803276%;
+  aspect-ratio: 305 / 114;
+}
+@mixin icon-canal-era {
+  background: url("img/icons.png") no-repeat;
+  background-position: 27.598152424942263% 68.12933025404158%;
+  background-size: 648.1012658227849%;
+  aspect-ratio: 158 / 158;
+}
+@mixin icon-coal {
+  background: url("img/icons.png") no-repeat;
+  background-position: 28.18713450292398% 2.3419203747072603%;
+  background-size: 605.9171597633136%;
+  aspect-ratio: 169 / 170;
+}
+@mixin icon-coal-mine {
+  background: url("img/icons.png") no-repeat;
+  background-position: 51.55875299760192% 2.3419203747072603%;
+  background-size: 538.9473684210526%;
+  aspect-ratio: 190 / 170;
+}
+@mixin icon-coal-small {
+  background: url("img/icons.png") no-repeat;
+  background-position: 96.96663296258848% 32.76036400404449%;
+  background-size: 2925.714285714286%;
+  aspect-ratio: 35 / 35;
+}
+@mixin icon-coin {
+  background: url("img/icons.png") no-repeat;
+  background-position: 75.65011820330969% 2.3419203747072603%;
+  background-size: 575.2808988764045%;
+  aspect-ratio: 178 / 170;
+}
+@mixin icon-coin-spent {
+  background: url("img/icons.png") no-repeat;
+  background-position: 29.905437352245862% 46.8384074941452%;
+  background-size: 575.2808988764045%;
+  aspect-ratio: 178 / 170;
+}
+@mixin icon-connection {
+  background: url("img/icons.png") no-repeat;
+  background-position: 2.3446658851113718% 24.59016393442623%;
+  background-size: 598.8304093567251%;
+  aspect-ratio: 171 / 170;
+}
+@mixin icon-cotton-mill {
+  background: url("img/icons.png") no-repeat;
+  background-position: 25.178997613365155% 24.59016393442623%;
+  background-size: 550.5376344086022%;
+  aspect-ratio: 186 / 170;
+}
+@mixin icon-hand {
+  background: url("img/icons.png") no-repeat;
+  background-position: 2.4242424242424243% 68.28703703703704%;
+  background-size: 514.572864321608%;
+  aspect-ratio: 199 / 160;
+}
+@mixin icon-income {
+  background: url("img/icons.png") no-repeat;
+  background-position: 92.80177187153932% 2.3419203747072603%;
+  background-size: 846.2809917355372%;
+  aspect-ratio: 121 / 170;
+}
+@mixin icon-income-val {
+  background: url("img/icons.png") no-repeat;
+  background-position: 49.23258559622196% 24.59016393442623%;
+  background-size: 578.5310734463277%;
+  aspect-ratio: 177 / 170;
+}
+@mixin icon-iron {
+  background: url("img/icons.png") no-repeat;
+  background-position: 71.81286549707603% 24.59016393442623%;
+  background-size: 605.9171597633136%;
+  aspect-ratio: 169 / 170;
+}
+@mixin icon-iron-small {
+  background: url("img/icons.png") no-repeat;
+  background-position: 97.06477732793523% 27.125506072874494%;
+  background-size: 2844.4444444444443%;
+  aspect-ratio: 36 / 36;
+}
+@mixin icon-iron-works {
+  background: url("img/icons.png") no-repeat;
+  background-position: 2.466091245376079% 46.8384074941452%;
+  background-size: 480.7511737089202%;
+  aspect-ratio: 213 / 170;
+}
+@mixin icon-light {
+  background: url("img/icons.png") no-repeat;
+  background-position: 90.42792792792793% 24.59016393442623%;
+  background-size: 752.9411764705882%;
+  aspect-ratio: 136 / 170;
+}
+@mixin icon-lock {
+  background: url("img/icons.png") no-repeat;
+  background-position: 2.207505518763797% 84.89525909592062%;
+  background-size: 867.7966101694915%;
+  aspect-ratio: 118 / 117;
+}
+@mixin icon-modal-close {
+  background: url("img/icons.png") no-repeat;
+  background-position: 97.16312056737588% 21.29817444219067%;
+  background-size: 2767.5675675675675%;
+  aspect-ratio: 37 / 38;
+}
+@mixin icon-port {
+  background: url("img/icons.png") no-repeat;
+  background-position: 51.89873417721519% 46.8384074941452%;
+  background-size: 660.6451612903226%;
+  aspect-ratio: 155 / 170;
+}
+@mixin icon-rail-era {
+  background: url("img/icons.png") no-repeat;
+  background-position: 48.15242494226328% 68.12933025404158%;
+  background-size: 648.1012658227849%;
+  aspect-ratio: 158 / 158;
+}
+@mixin icon-shipyard {
+  background: url("img/icons.png") no-repeat;
+  background-position: 71.78899082568807% 46.8384074941452%;
+  background-size: 673.6842105263157%;
+  aspect-ratio: 152 / 170;
+}
+@mixin icon-trade {
+  background: url("img/icons.png") no-repeat;
+  background-position: 51.824034334763944% 78.57142857142857%;
+  background-size: 1113.0434782608695%;
+  aspect-ratio: 92 / 44;
+}
+@mixin icon-train {
+  background: url("img/icons.png") no-repeat;
+  background-position: 82.06896551724138% 66.96935300794551%;
+  background-size: 342.47491638795987%;
+  aspect-ratio: 299 / 143;
+}
+@mixin icon-vp {
+  background: url("img/icons.png") no-repeat;
+  background-position: 90.99201824401368% 46.8384074941452%;
+  background-size: 696.5986394557823%;
+  aspect-ratio: 147 / 170;
+}
+
+.catatac-icon {
+  background: url("img/icons.png");
+  background-repeat: no-repeat;
+
+  &.icon-barrel {
+    @include icon-barrel;
+  }
+
+  &.icon-boat {
+    @include icon-boat;
+  }
+
+  &.icon-canal-era {
+    @include icon-canal-era;
+  }
+
+  &.icon-coal {
+    @include icon-coal;
+  }
+
+  &.icon-coal-mine {
+    @include icon-coal-mine;
+  }
+
+  &.icon-coal-small {
+    @include icon-coal-small;
+  }
+
+  &.icon-coin {
+    @include icon-coin;
+  }
+
+  &.icon-coin-spent {
+    @include icon-coin-spent;
+  }
+
+  &.icon-connection {
+    @include icon-connection;
+  }
+
+  &.icon-cotton-mill {
+    @include icon-cotton-mill;
+  }
+
+  &.icon-hand {
+    @include icon-hand;
+  }
+
+  &.icon-income {
+    @include icon-income;
+  }
+
+  &.icon-income-val {
+    @include icon-income-val;
+  }
+
+  &.icon-iron {
+    @include icon-iron;
+  }
+
+  &.icon-iron-small {
+    @include icon-iron-small;
+  }
+
+  &.icon-iron-works {
+    @include icon-iron-works;
+  }
+
+  &.icon-light {
+    @include icon-light;
+  }
+
+  &.icon-lock {
+    @include icon-lock;
+  }
+
+  &.icon-modal-close {
+    @include icon-modal-close;
+  }
+
+  &.icon-port {
+    @include icon-port;
+  }
+
+  &.icon-rail-era {
+    @include icon-rail-era;
+  }
+
+  &.icon-shipyard {
+    @include icon-shipyard;
+  }
+
+  &.icon-trade {
+    @include icon-trade;
+  }
+
+  &.icon-train {
+    @include icon-train;
+  }
+
+  &.icon-vp {
+    @include icon-vp;
+  }
+}

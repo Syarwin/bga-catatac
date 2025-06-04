@@ -1,0 +1,19 @@
+#pagemaintitletext,
+#gameaction_status {
+    .catatac-meeple {
+        position: absolute;
+    }
+}
+
+.catatac-meeple {
+    display: inline-block;
+    vertical-align: middle;
+
+    &.icon-token {
+        height: 30px;
+        width: 30px;
+        background-image: url("img/token.jpg");
+        background-size: 200% 100%;
+        border-radius: 50%;
+    }
+}

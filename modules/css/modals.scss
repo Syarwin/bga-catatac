@@ -1,0 +1,32 @@
+#popin_showSettings_underlay {
+    background-color: black !important;
+    opacity: 0.6;
+}
+
+.catatac_popin {
+    background-color: #ebd5bd;
+    position: relative;
+
+    .catatac_popin_closeicon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        font-size: 90%;
+        z-index: 2;
+        color: transparent !important;
+
+        &:hover {
+            // color: #ccc !important;
+            transform: scale(1.1);
+        }
+
+        i {
+            margin-top: -2px;
+        }
+    }
+}
