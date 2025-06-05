@@ -134,6 +134,18 @@
                     font-size: 20px;
                 }
             }
+
+            #catatac-deck {
+                background-image: url("img/base-game.jpg");
+                background-size: 800% 600%;
+                background-position: 1 * 100%/7 4 * 100%/5;
+            }
+
+            #catatac-points-deck {
+                background-image: url("img/base-game.jpg");
+                background-size: 800% 600%;
+                background-position: 2 * 100%/7 5 * 100%/5;
+            }
         }
 
         #catatac-hand {

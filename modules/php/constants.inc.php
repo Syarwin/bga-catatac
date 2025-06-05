@@ -74,6 +74,20 @@ const CHOOSE_CARD = 'ChooseCard';
 
 const TOKEN = 'token';
 
+const BASIC = 'Basic';
+const CHARGE = 'Charge';
+const SPRINT = 'Sprint';
+const STOP = 'Stop';
+const CAPTURE = 'Capture';
+const SMASH = 'Smash';
+const COURAGE = 'Courage';
+const IMPACT = 'Impact';
+const MIRACLE = 'Miracle';
+const BINGO = 'Bingo';
+const FIDO = 'Fido';
+const JOKER = 'Joker';
+
+
 /******************
  ****** STATS ******
  ******************/

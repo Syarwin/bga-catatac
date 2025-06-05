@@ -12,8 +12,8 @@
 
 .catatac-card {
     position: relative;
-    width: calc(var(--catatacCardScale) * 375px);
-    height: calc(var(--catatacCardScale) * 525px);
+    width: calc(var(--catatacCardScale) * 312px);
+    height: calc(var(--catatacCardScale) * 437px);
 
     &.unselectable {
         cursor: not-allowed;
@@ -39,26 +39,27 @@
     }
 
     .catatac-card-wrapper {
-        width: 373px;
-        height: 520px;
+        width: 312px;
+        height: 437px;
         transform-origin: top left;
         transform: scale(var(--catatacCardScale));
-        border-radius: 8px;
-        box-shadow: 2px 2px 3px 1px black;
-        background-image: url("img/cards.jpg");
-        background-size: 600% 500%;
+        border-radius: 12px;
+        box-shadow: 2px 2px 5px 2px black;
+        background-image: url("img/base-game.jpg");
+        background-size: 800% 600%;
         position: absolute;
+        box-sizing: border-box;
 
-        display: flex;
-        justify-content: center;
-        align-items: baseline;
+        // display: flex;
+        // justify-content: center;
+        // align-items: baseline;
     }
 
     @each $type in $cardTypes {
         $i: index($cardTypes, $type) - 1;
         &[data-type="#{$type}"] .catatac-card-wrapper {
-            background-position-x: ($i % 6) * 100% / 5;
-            background-position-y: (($i - ($i % 6)) / 6) * 100% / 4;
+            background-position-x: ($i % 8) * 100% / 7;
+            background-position-y: (($i - ($i % 8)) / 8) * 100% / 5;
         }
     }
 }

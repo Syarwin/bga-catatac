@@ -278,7 +278,7 @@
   right: 28px; }
 
 :root {
-  --catatacCardScale: 0.35; }
+  --catatacCardScale: 0.47; }
 
 #pagemaintitletext .catatac-card,
 #gameaction_status .catatac-card,
@@ -290,8 +290,8 @@
 
 .catatac-card {
   position: relative;
-  width: calc(var(--catatacCardScale) * 375px);
-  height: calc(var(--catatacCardScale) * 525px); }
+  width: calc(var(--catatacCardScale) * 312px);
+  height: calc(var(--catatacCardScale) * 437px); }
   .catatac-card.unselectable {
     cursor: not-allowed;
     filter: grayscale(80%);
@@ -309,21 +309,145 @@
     box-shadow: 0px 0px 10px 0px #2bff00;
     border-radius: 4px; }
   .catatac-card .catatac-card-wrapper {
-    width: 373px;
-    height: 520px;
+    width: 312px;
+    height: 437px;
     transform-origin: top left;
     transform: scale(var(--catatacCardScale));
-    border-radius: 8px;
-    box-shadow: 2px 2px 3px 1px black;
-    background-image: url("img/cards.jpg");
-    background-size: 600% 500%;
+    border-radius: 12px;
+    box-shadow: 2px 2px 5px 2px black;
+    background-image: url("img/base-game.jpg");
+    background-size: 800% 600%;
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: baseline; }
-  .catatac-card[data-type="Test"] .catatac-card-wrapper {
+    box-sizing: border-box; }
+  .catatac-card[data-type="1-Charge"] .catatac-card-wrapper {
     background-position-x: 0%;
     background-position-y: 0%; }
+  .catatac-card[data-type="1-Basic"] .catatac-card-wrapper {
+    background-position-x: 14.2857142857%;
+    background-position-y: 0%; }
+  .catatac-card[data-type="1-Sprint"] .catatac-card-wrapper {
+    background-position-x: 28.5714285714%;
+    background-position-y: 0%; }
+  .catatac-card[data-type="1-Stop"] .catatac-card-wrapper {
+    background-position-x: 42.8571428571%;
+    background-position-y: 0%; }
+  .catatac-card[data-type="2-Capture"] .catatac-card-wrapper {
+    background-position-x: 57.1428571429%;
+    background-position-y: 0%; }
+  .catatac-card[data-type="2-Charge"] .catatac-card-wrapper {
+    background-position-x: 71.4285714286%;
+    background-position-y: 0%; }
+  .catatac-card[data-type="2-Basic"] .catatac-card-wrapper {
+    background-position-x: 85.7142857143%;
+    background-position-y: 0%; }
+  .catatac-card[data-type="2-Sprint"] .catatac-card-wrapper {
+    background-position-x: 100%;
+    background-position-y: 0%; }
+  .catatac-card[data-type="3-Capture"] .catatac-card-wrapper {
+    background-position-x: 0%;
+    background-position-y: 20%; }
+  .catatac-card[data-type="3-Charge"] .catatac-card-wrapper {
+    background-position-x: 14.2857142857%;
+    background-position-y: 20%; }
+  .catatac-card[data-type="3-Basic"] .catatac-card-wrapper {
+    background-position-x: 28.5714285714%;
+    background-position-y: 20%; }
+  .catatac-card[data-type="3-Smash"] .catatac-card-wrapper {
+    background-position-x: 42.8571428571%;
+    background-position-y: 20%; }
+  .catatac-card[data-type="4-Capture"] .catatac-card-wrapper {
+    background-position-x: 57.1428571429%;
+    background-position-y: 20%; }
+  .catatac-card[data-type="4-Charge"] .catatac-card-wrapper {
+    background-position-x: 71.4285714286%;
+    background-position-y: 20%; }
+  .catatac-card[data-type="4-Basic"] .catatac-card-wrapper {
+    background-position-x: 85.7142857143%;
+    background-position-y: 20%; }
+  .catatac-card[data-type="4-Smash"] .catatac-card-wrapper {
+    background-position-x: 100%;
+    background-position-y: 20%; }
+  .catatac-card[data-type="5-Capture"] .catatac-card-wrapper {
+    background-position-x: 0%;
+    background-position-y: 40%; }
+  .catatac-card[data-type="5-Basic"] .catatac-card-wrapper {
+    background-position-x: 14.2857142857%;
+    background-position-y: 40%; }
+  .catatac-card[data-type="5-Smash"] .catatac-card-wrapper {
+    background-position-x: 28.5714285714%;
+    background-position-y: 40%; }
+  .catatac-card[data-type="5-Stop"] .catatac-card-wrapper {
+    background-position-x: 42.8571428571%;
+    background-position-y: 40%; }
+  .catatac-card[data-type="6-Courage"] .catatac-card-wrapper {
+    background-position-x: 57.1428571429%;
+    background-position-y: 40%; }
+  .catatac-card[data-type="6-Impact"] .catatac-card-wrapper {
+    background-position-x: 71.4285714286%;
+    background-position-y: 40%; }
+  .catatac-card[data-type="6-Miracle"] .catatac-card-wrapper {
+    background-position-x: 85.7142857143%;
+    background-position-y: 40%; }
+  .catatac-card[data-type="6-Basic"] .catatac-card-wrapper {
+    background-position-x: 100%;
+    background-position-y: 40%; }
+  .catatac-card[data-type="7-Courage"] .catatac-card-wrapper {
+    background-position-x: 0%;
+    background-position-y: 60%; }
+  .catatac-card[data-type="7-Impact"] .catatac-card-wrapper {
+    background-position-x: 14.2857142857%;
+    background-position-y: 60%; }
+  .catatac-card[data-type="7-Mircle"] .catatac-card-wrapper {
+    background-position-x: 28.5714285714%;
+    background-position-y: 60%; }
+  .catatac-card[data-type="7-Basic"] .catatac-card-wrapper {
+    background-position-x: 42.8571428571%;
+    background-position-y: 60%; }
+  .catatac-card[data-type="8-Bingo"] .catatac-card-wrapper {
+    background-position-x: 57.1428571429%;
+    background-position-y: 60%; }
+  .catatac-card[data-type="8-Courage"] .catatac-card-wrapper {
+    background-position-x: 71.4285714286%;
+    background-position-y: 60%; }
+  .catatac-card[data-type="8-Fido"] .catatac-card-wrapper {
+    background-position-x: 85.7142857143%;
+    background-position-y: 60%; }
+  .catatac-card[data-type="8-Basic"] .catatac-card-wrapper {
+    background-position-x: 100%;
+    background-position-y: 60%; }
+  .catatac-card[data-type="0-Joker"] .catatac-card-wrapper {
+    background-position-x: 0%;
+    background-position-y: 80%; }
+  .catatac-card[data-type="Back"] .catatac-card-wrapper {
+    background-position-x: 14.2857142857%;
+    background-position-y: 80%; }
+  .catatac-card[data-type="Points-0-Green"] .catatac-card-wrapper {
+    background-position-x: 28.5714285714%;
+    background-position-y: 80%; }
+  .catatac-card[data-type="Points-1-Blue"] .catatac-card-wrapper {
+    background-position-x: 42.8571428571%;
+    background-position-y: 80%; }
+  .catatac-card[data-type="Points-1-Grey"] .catatac-card-wrapper {
+    background-position-x: 57.1428571429%;
+    background-position-y: 80%; }
+  .catatac-card[data-type="Points-1-Yellow"] .catatac-card-wrapper {
+    background-position-x: 71.4285714286%;
+    background-position-y: 80%; }
+  .catatac-card[data-type="Points-1-Red"] .catatac-card-wrapper {
+    background-position-x: 85.7142857143%;
+    background-position-y: 80%; }
+  .catatac-card[data-type="Points-Black"] .catatac-card-wrapper {
+    background-position-x: 100%;
+    background-position-y: 80%; }
+  .catatac-card[data-type="Points-2-Multi"] .catatac-card-wrapper {
+    background-position-x: 0%;
+    background-position-y: 100%; }
+  .catatac-card[data-type="Points-White"] .catatac-card-wrapper {
+    background-position-x: 14.2857142857%;
+    background-position-y: 100%; }
+  .catatac-card[data-type="Points-Back"] .catatac-card-wrapper {
+    background-position-x: 28.5714285714%;
+    background-position-y: 100%; }
 
 .icon-container {
   display: inline-block;
@@ -609,7 +733,18 @@
           border-radius: 50%;
           border: 1px solid black;
           box-shadow: 1px 1px 1px black;
-          translate: -50% -50%; }
+          translate: -50% -50%;
+          background: #e6e6e6;
+          font-weight: bold;
+          font-size: 20px; }
+      #catatac-main-container #catatac-cards-wrapper #catatac-deck-discard-wrapper #catatac-deck {
+        background-image: url("img/base-game.jpg");
+        background-size: 800% 600%;
+        background-position: 14.2857142857% 80%; }
+      #catatac-main-container #catatac-cards-wrapper #catatac-deck-discard-wrapper #catatac-points-deck {
+        background-image: url("img/base-game.jpg");
+        background-size: 800% 600%;
+        background-position: 28.5714285714% 100%; }
     #catatac-main-container #catatac-cards-wrapper #catatac-hand {
       flex-grow: 1;
       margin-left: 10px;

@@ -26,10 +26,16 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
         return card.id;
       });
       document.querySelectorAll('.catatac-card').forEach((oCard) => {
-        if (!cardIds.includes(oCard.getAttribute('data-id')) && !oCard.parentNode.classList.contains('player-board-hand')) {
+        if (
+          !cardIds.includes(parseInt(oCard.getAttribute('data-id'))) &&
+          !oCard.parentNode.classList.contains('player-board-hand')
+        ) {
           this.destroy(oCard);
         }
       });
+
+      $('catatac-deck').dataset.n = this.gamedatas.deckCount;
+      $('catatac-points-deck').dataset.n = this.gamedatas.pointsDeckCount;
     },
 
     addCard(card, container = null) {
@@ -78,7 +84,10 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
     getCardContainer(card) {
       let t = card.location.split('-');
       if (t[0] == 'hand') {
-        return $(`hand-${t[1]}`);
+        return $(`catatac-hand`);
+      }
+      if (card.location == 'discard') {
+        return $('catatac-discard');
       }
 
       return $('test-cards');

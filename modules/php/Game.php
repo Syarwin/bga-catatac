@@ -77,6 +77,7 @@ class Game extends \Table
             'players' => Players::getUiData($currentPId),
             'cards' => Cards::getUiData(),
             'deckCount' => Cards::getCardsLeft(),
+            'pointsDeckCount' => Cards::getPointsCardsLeft(),
         ];
 
         return $datas;
