@@ -37,12 +37,10 @@ class Meeples extends CachedPieces
   /* Creation of various meeples */
   public static function setupNewGame(array $players, array $options)
   {
-    // $meeples = [];
-    // for ($i = 0; $i < 8; $i++) {
-    //   $meeples[] = ['type' => COAL, 'location' => "market-coal-$i"];
-    //   $meeples[] = ['type' => IRON, 'location' => "market-iron-$i"];
-    // }
+    $meeples = [];
 
-    // return self::create($meeples);
+    $meeples[] = ['type' => TOKEN, 'location' => NEUTRAL_STREET, 'state' => bga_rand(0, 1)];
+
+    return self::create($meeples);
   }
 }

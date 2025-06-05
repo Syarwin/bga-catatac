@@ -625,12 +625,38 @@
 .catatac-meeple {
   display: inline-block;
   vertical-align: middle; }
-  .catatac-meeple.icon-token {
-    height: 30px;
-    width: 30px;
-    background-image: url("img/token.jpg");
-    background-size: 200% 100%;
-    border-radius: 50%; }
+
+.catatac-meeple[data-type="token"] {
+  width: 90px;
+  height: 90px; }
+  .catatac-meeple[data-type="token"] .catatac-meeple-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    transform: rotateY(0deg); }
+    .catatac-meeple[data-type="token"] .catatac-meeple-inner .catatac-meeple-front,
+    .catatac-meeple[data-type="token"] .catatac-meeple-inner .catatac-meeple-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      /* Safari */
+      backface-visibility: hidden;
+      transform: rotateY(0deg);
+      box-sizing: border-box;
+      border-radius: 50%;
+      box-shadow: 2px 2px 5px 2px black;
+      background-image: url("img/token.jpg");
+      background-size: 200% 100%;
+      border: 1px solid black;
+      background-clip: border-box; }
+    .catatac-meeple[data-type="token"] .catatac-meeple-inner .catatac-meeple-back {
+      background-position: 100% 0%;
+      transform: rotateY(180deg); }
+  .catatac-meeple[data-type="token"][data-state="1"] .catatac-meeple-inner {
+    transform: rotateY(180deg); }
 
 #catatac-main-container {
   position: relative;
@@ -648,7 +674,10 @@
       width: 165px;
       height: 222px;
       top: 33px;
-      border-radius: 10px; }
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
       #catatac-main-container #catatac-board .board-slot#white-points {
         left: 52px; }
       #catatac-main-container #catatac-board .board-slot#white-hideout {

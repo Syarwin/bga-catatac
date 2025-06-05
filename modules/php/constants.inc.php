@@ -73,6 +73,8 @@ const CHOOSE_CARD = 'ChooseCard';
  */
 
 const TOKEN = 'token';
+const BLACK_SIDE = 0;
+const WHITE_SIDE = 1;
 
 const BASIC = 'Basic';
 const CHARGE = 'Charge';
@@ -87,6 +89,12 @@ const BINGO = 'Bingo';
 const FIDO = 'Fido';
 const JOKER = 'Joker';
 
+
+const WHITE_HIDEOUT = 0;
+const WHITE_STREET = 1;
+const NEUTRAL_STREET = 2;
+const BLACK_STREET = 3;
+const BLACK_HIDEOUT = 4;
 
 /******************
  ****** STATS ******

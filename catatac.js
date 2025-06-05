@@ -27,8 +27,9 @@ define([
   g_gamethemeurl + 'modules/js/Core/modal.js',
   g_gamethemeurl + 'modules/js/Players.js',
   g_gamethemeurl + 'modules/js/Cards.js',
-], function (dojo, declare, Panzoom) {
-  return declare('bgagame.catatac', [customgame.game, catatac.players, catatac.cards], {
+  g_gamethemeurl + 'modules/js/Meeples.js',
+], function (dojo, declare) {
+  return declare('bgagame.catatac', [customgame.game, catatac.players, catatac.cards, catatac.meeples], {
     constructor() {
       this._inactiveStates = [];
       this._notifications = ['clearTurn', 'refreshUI', 'refreshHand', 'midMessage'];
@@ -62,7 +63,7 @@ define([
       this.setupPlayers();
       this.setupCards();
       this.updateHandCards();
-      // this.setupMeeples();
+      this.setupMeeples();
       this.inherited(arguments);
     },
 
