@@ -473,6 +473,10 @@
   .icon-container .icon-8-black,
   .icon-container .icon-8-white {
     height: 1.4em; }
+  .icon-container .icon-cat-white,
+  .icon-container .icon-cat-black {
+    height: 2em;
+    margin: -0.2em 0.1em -0.15em; }
 
 #animation-coin {
   background: rgba(255, 255, 255, 0.747);

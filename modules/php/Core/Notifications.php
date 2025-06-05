@@ -17,8 +17,8 @@ class Notifications
   public static function playCard(Player $player, Card $card, int $n, bool $isPair)
   {
     $msg = $isPair ?
-      clienttranslate('${player_name} plays a ${card_name}, making a pair!') :
-      clienttranslate('${player_name} plays a ${card_name}');
+      clienttranslate('${teamIcon}${player_name} plays a ${card_name}, making a pair!') :
+      clienttranslate('${teamIcon}${player_name} plays a ${card_name}');
 
     self::notifyAll('discardCard', $msg, [
       'player' => $player,
@@ -55,10 +55,25 @@ class Notifications
 
   public static function moveBall(Player $player, int $n, Meeple $ball)
   {
-    self::notifyAll('moveBall', clienttranslate('${player_name} moves the ball ${n} step(s) to their side'), [
+    $msgs = [
+      WHITE_STREET => clienttranslate('${teamIcon}${player_name} moves the ball ${n} step(s) to the white street'),
+      NEUTRAL_STREET => clienttranslate('${teamIcon}${player_name} moves the ball ${n} step(s) to the neutral street'),
+      BLACK_STREET => clienttranslate('${teamIcon}${player_name} moves the ball ${n} step(s) to the black street'),
+    ];
+
+    $newLocation = $ball->getLocation();
+    self::notifyAll('moveBall', $msgs[$newLocation], [
       'player' => $player,
       'n' => $n,
-      'location' => $ball->getLocation(),
+      'location' => $newLocation,
+    ]);
+  }
+
+  public static function stealBall(Player $player, Meeple $ball)
+  {
+    self::notifyAll('stealBall', clienttranslate('${teamIcon}${player_name} steals the ball'), [
+      'player' => $player,
+      'side' => $ball->getState(),
     ]);
   }
 
@@ -225,6 +240,8 @@ class Notifications
     if (isset($data['player'])) {
       $data['player_name'] = $data['player']->getName();
       $data['player_id'] = $data['player']->getId();
+      $data['teamIcon'] = $data['player']->getTeam() == WHITE_SIDE ? '<cat-white>' : '<cat-black>';
+      $data['i18n'][] = 'teamIcon';
       unset($data['player']);
     }
     if (isset($data['player2'])) {

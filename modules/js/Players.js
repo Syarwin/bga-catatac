@@ -22,13 +22,6 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
 
         // Panels
         this.place('tplPlayerPanel', player, `overall_player_board_${player.id}`);
-
-        if (i == 0) {
-          $('catatac-main-container').insertAdjacentHTML(
-            'beforeend',
-            `<div id="hand-${player.id}" class="player-board-hand"></div>`
-          );
-        }
       });
       // this.setupPlayersCounters();
 

@@ -37,6 +37,9 @@ class StealToken extends \Bga\Games\Catatac\Models\Action
 
   public function actStealToken()
   {
-    die("test");
+    $player = Players::getActive();
+    $ball = Meeples::getBall();
+    $ball->setState($player->getTeam());
+    Notifications::stealBall($player, $ball);
   }
 }

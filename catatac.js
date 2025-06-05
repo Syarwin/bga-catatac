@@ -41,6 +41,7 @@ define([
         'drawCards',
         'pDrawCards',
         'moveBall',
+        'stealBall',
       ];
     },
 
@@ -268,8 +269,8 @@ define([
         this.gamedatas[value] = args.datas[value];
       });
       this.setupCards();
-      // this.setupMeeples();
-      // this.updatePlayersCounters();
+      this.setupMeeples();
+      this.updatePlayersCounters();
     },
 
     notif_refreshHand(args) {
@@ -425,7 +426,18 @@ define([
     },
 
     formatString(str) {
-      const ICONS = ['1-black', '2-black', '3-black', '4-black', '5-black', '6-black', '7-black', '8-black'];
+      const ICONS = [
+        '1-black',
+        '2-black',
+        '3-black',
+        '4-black',
+        '5-black',
+        '6-black',
+        '7-black',
+        '8-black',
+        'cat-white',
+        'cat-black',
+      ];
 
       ICONS.forEach((name) => {
         const regex = new RegExp('<' + name + ':([^>]+)>', 'g');
@@ -447,6 +459,10 @@ define([
           args.processed = true;
 
           log = this.formatString(_(log));
+
+          if (args.teamIcon) {
+            args.teamIcon = this.formatString(args.teamIcon);
+          }
 
           if (args.card_name) {
             args.card_name = `<span class='log-catatac-card-name'>${args.card_name}</span>`;

@@ -26,7 +26,7 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
         return card.id;
       });
       document.querySelectorAll('.catatac-card').forEach((oCard) => {
-        if (!cardIds.includes(parseInt(oCard.getAttribute('data-id'))) && !oCard.parentNode.id != 'catatac-hand') {
+        if (!cardIds.includes(parseInt(oCard.getAttribute('data-id'))) && oCard.parentNode.id != 'catatac-hand') {
           this.destroy(oCard);
         }
       });
@@ -63,19 +63,15 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
 
     updateHandCards() {
       if (this.isSpectator) return;
-      this.empty(`hand-${this.player_id}`);
+      this.empty(`catatac-hand`);
       let hand = this.gamedatas.players[this.player_id].hand;
       hand.forEach((card) => {
         if ($(`card-${card.id}`)) {
-          $(`hand-${this.player_id}`).insertAdjacentElement('beforeend', $(`card-${card.id}`));
+          $(`catatac-hand`).insertAdjacentElement('beforeend', $(`card-${card.id}`));
         } else {
           this.addCard(card);
         }
       });
-    },
-
-    getHandCards() {
-      return [...$(`hand-${this.player_id}`).querySelectorAll('.catatac-card')];
     },
 
     getCardContainer(card) {

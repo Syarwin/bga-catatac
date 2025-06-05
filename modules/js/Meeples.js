@@ -80,5 +80,10 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
     async notif_moveBall(args) {
       await this.slide('meeple-1', $(ballLocationMap[args.location]));
     },
+
+    async notif_stealBall(args) {
+      $('meeple-1').dataset.state = args.side;
+      await this.wait(800);
+    },
   });
 });
