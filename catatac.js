@@ -32,7 +32,7 @@ define([
   return declare('bgagame.catatac', [customgame.game, catatac.players, catatac.cards, catatac.meeples], {
     constructor() {
       this._inactiveStates = [];
-      this._notifications = ['clearTurn', 'refreshUI', 'refreshHand', 'midMessage'];
+      this._notifications = ['clearTurn', 'refreshUI', 'refreshHand', 'midMessage', 'discardCard', 'drawCards', 'pDrawCards'];
     },
 
     async notif_midmessage(args) {
@@ -133,8 +133,6 @@ define([
     /////////////////////////////////////////////////////////////////
 
     clearPossible() {
-      dojo.empty('pagesubtitle');
-
       let toRemove = [];
       toRemove.forEach((eltId) => {
         if ($(eltId)) $(eltId).remove();
@@ -369,6 +367,17 @@ define([
     //  /_/   \_\___|\__|_|\___/|_| |_|___/
     ///////////////////////////////////////
 
+    onEnteringStateChooseCard(args) {
+      let elements = {};
+      args._private.cardIds.forEach((cardId) => (elements[cardId] = $(`card-${cardId}`)));
+
+      this.onSelectN({
+        elements,
+        n: 1,
+        callback: (selection) => this.takeAtomicAction('actChooseCard', [selection[0]]),
+      });
+    },
+
     ////////////////////////////////////////////////////////////
     // _____                          _   _   _
     // |  ___|__  _ __ _ __ ___   __ _| |_| |_(_)_ __   __ _
@@ -407,7 +416,7 @@ define([
     },
 
     formatString(str) {
-      const ICONS = [];
+      const ICONS = ['1-black', '2-black', '3-black', '4-black', '5-black', '6-black', '7-black', '8-black'];
 
       ICONS.forEach((name) => {
         const regex = new RegExp('<' + name + ':([^>]+)>', 'g');

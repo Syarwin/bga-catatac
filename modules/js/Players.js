@@ -1,4 +1,8 @@
 define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
+  const PLAYER_COUNTERS = ['handCount'];
+  const RESOURCES = [];
+  const ALL_PLAYER_COUNTERS = PLAYER_COUNTERS.concat(RESOURCES);
+
   return declare('catatac.players', null, {
     getPlayers() {
       return Object.values(this.gamedatas.players);
@@ -36,6 +40,8 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
         'beforeend',
         `<div id="team-white">${this.formatIcon('cat-white')} ${teams[1].join(', ')} ${this.formatIcon('cat-white')}</div>`
       );
+
+      this.setupPlayersCounters();
     },
 
     tplPlayerPanel(player) {
@@ -49,6 +55,44 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
           ${this.formatIcon('hand')}
         </div>
       </div>`;
+    },
+
+    ////////////////////////////////////////////////////
+    //   ____                  _
+    //  / ___|___  _   _ _ __ | |_ ___ _ __ ___
+    // | |   / _ \| | | | '_ \| __/ _ \ '__/ __|
+    // | |__| (_) | |_| | | | | ||  __/ |  \__ \
+    //  \____\___/ \__,_|_| |_|\__\___|_|  |___/
+    //
+    ////////////////////////////////////////////////////
+    /**
+     * Create all the counters for player panels
+     */
+    setupPlayersCounters() {
+      this._playerCounters = {};
+      this._playerCountersMeeples = {};
+      this._scoreCounters = {};
+      this.forEachPlayer((player) => {
+        this._playerCounters[player.id] = {};
+        this._playerCountersMeeples[player.id] = {};
+        ALL_PLAYER_COUNTERS.forEach((res) => {
+          let v = player[res];
+          this._playerCounters[player.id][res] = this.createCounter(`counter-${player.id}-${res}`, v);
+        });
+      });
+      this.updatePlayersCounters(false);
+    },
+
+    /**
+     * Update all the counters in player panels according to gamedatas, useful for reloading
+     */
+    updatePlayersCounters(anim = true) {
+      this.forEachPlayer((player) => {
+        PLAYER_COUNTERS.forEach((res) => {
+          let value = player[res];
+          this._playerCounters[player.id][res].goTo(value, anim);
+        });
+      });
     },
   });
 });

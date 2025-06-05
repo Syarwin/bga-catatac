@@ -14,7 +14,7 @@ use Bga\Games\Catatac\Helpers\Utils;
 class Actions
 {
   static $classes = [
-    BUILD => 'Build',
+    CHOOSE_CARD => 'ChooseCard',
   ];
 
   public static function get($actionId, &$ctx = null)

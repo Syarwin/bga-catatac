@@ -131,15 +131,15 @@ $machinestates = [
   //
   ////////////////////////////////////////////////////////////////////////////
 
-  // ST_CHOOSE_ACTION => [
-  //   'name' => 'chooseAction',
-  //   'description' => clienttranslate('${actplayer} must choose an action ${count}'),
-  //   'descriptionmyturn' => clienttranslate('${you} must choose an action ${count}'),
-  //   'args' => 'argsAtomicAction',
-  //   'action' => 'stAtomicAction',
-  //   'type' => 'activeplayer',
-  //   'possibleactions' => ['actChooseAction', 'actRestart', 'actPassOptionalAction'],
-  // ],
+  ST_CHOOSE_CARD => [
+    'name' => 'chooseCard',
+    'description' => clienttranslate('${actplayer} must choose a card'),
+    'descriptionmyturn' => clienttranslate('${you} must choose a card'),
+    'args' => 'argsAtomicAction',
+    'action' => 'stAtomicAction',
+    'type' => 'activeplayer',
+    'possibleactions' => ['actChooseCard', 'actRestart', 'actPassOptionalAction'],
+  ],
 
 
   //////////////////////////////////////////////////////////////////

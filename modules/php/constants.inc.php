@@ -59,6 +59,8 @@ const NODE_XOR = 'xor';
 const NODE_PARALLEL = 'parallel';
 const NODE_LEAF = 'leaf';
 
+const PRE_ACTION_DONE = 'done';
+
 const ZOMBIE = 98;
 const PASS = 99;
 

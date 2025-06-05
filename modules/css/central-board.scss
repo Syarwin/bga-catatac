@@ -172,12 +172,34 @@
                 background-image: url("img/base-game.jpg");
                 background-size: 800% 600%;
                 background-position: 1 * 100%/7 4 * 100%/5;
+
+                position: relative;
+                .catatac-card {
+                    position: absolute;
+                    top: 1px;
+                    left: 1px;
+                }
             }
 
             #catatac-points-deck {
                 background-image: url("img/base-game.jpg");
                 background-size: 800% 600%;
                 background-position: 2 * 100%/7 5 * 100%/5;
+            }
+
+            #catatac-discard {
+                position: relative;
+                opacity: 0.6;
+                filter: grayscale(80%);
+                -webkit-transform: translateZ(0);
+                -webkit-perspective: 1000;
+                -webkit-backface-visibility: hidden;
+
+                .catatac-card {
+                    position: absolute;
+                    top: 1px;
+                    left: 1px;
+                }
             }
         }
 

@@ -40,11 +40,11 @@ trait SetupTrait
   // SETUP BRANCH : might be useful for later and can be used for debugging launch
   public function stSetupBranch()
   {
-    $debug = true;
+    $debug = false;
     if ($debug) {
       $this->gamestate->jumpToState(ST_SETUP_DEBUG);
     } else {
-      $this->gamestate->jumpToState(ST_NEW_ROUND);
+      $this->initCustomDefaultTurnOrder('turn', ST_START_TURN, '', true);
     }
   }
 }

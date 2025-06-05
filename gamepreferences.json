@@ -1,1 +1,70 @@
-{}
+{
+  "200": {
+    "name": "Display tooltips",
+    "needReload": false,
+    "generic": true,
+    "values": [
+      {
+        "name": "Enabled"
+      },
+      {
+        "name": "Disabled"
+      }
+    ]
+  },
+  "103": {
+    "name": "Turn confirmation",
+    "needReload": false,
+    "default": 2,
+    "values": {
+      "2": {
+        "name": "Enabled"
+      },
+      "0": {
+        "name": "Disabled"
+      },
+      "3": {
+        "name": "Enabled with timer"
+      }
+    }
+  },
+  "104": {
+    "name": "Undoable actions confirmation",
+    "needReload": false,
+    "default": 2,
+    "values": {
+      "2": {
+        "name": "Enabled"
+      },
+      "0": {
+        "name": "Disabled"
+      }
+    }
+  },
+
+  "111": {
+    "name": "Animations speed",
+    "needReload": false,
+    "default": 3,
+    "values": {
+      "5": {
+        "name": "Very slow"
+      },
+      "4": {
+        "name": "Slow"
+      },
+      "3": {
+        "name": "Regular"
+      },
+      "2": {
+        "name": "Fast"
+      },
+      "1": {
+        "name": "Very fast"
+      },
+      "0": {
+        "name": "Instant (no animation)"
+      }
+    }
+  }
+}

@@ -16,4 +16,14 @@ class Card extends \Bga\Games\Catatac\Helpers\DB_Model
   protected string $location;
   protected int $state;
   protected string $type;
+
+  public function getNumber(): int
+  {
+    return -1;
+  }
+
+  public function getName(): string|array
+  {
+    return $this->type; // TODO
+  }
 }

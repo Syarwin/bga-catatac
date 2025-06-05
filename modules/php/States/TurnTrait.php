@@ -13,21 +13,8 @@ use Bga\Games\Catatac\Core\Engine;
 use Bga\Games\Catatac\Core\Globals;
 use Bga\Games\Catatac\Core\Notifications;
 
-trait RoundTrait
+trait TurnTrait
 {
-  /**
-   * State function when starting a round
-   */
-  function stNewRound()
-  {
-    // Increment round counter
-    $round = Globals::incRound();
-    Notifications::startNewRound($round);
-
-    $this->initCustomDefaultTurnOrder('turn', ST_START_TURN, 'stEndOfRound');
-  }
-
-
   /**
    * Custom turn order for player's individual turns
    */
@@ -43,16 +30,13 @@ trait RoundTrait
     // Give extra time
     self::giveExtraTime($player->getId());
 
-    // Only one action for the very first turn of the game
-    $max = Globals::getEra() == CANAL_ERA && Globals::getRound() == 1 ? 1 : 2;
     // Setup engine
     $node = [
       'pId' => $player->getId(),
       'childs' => [
         [
-          'action' => CHOOSE_ACTION,
+          'action' => CHOOSE_CARD,
           'pId' => $player->getId(),
-          'args' => ['max' => $max]
         ],
       ],
     ];
@@ -66,14 +50,13 @@ trait RoundTrait
   {
     $player = Players::getActive();
 
-    // Refill to 8 cards
+    // Refill to 6 cards
     if (Cards::countInLocation('deck') > 0) {
       $pId = $player->getId();
-      $nCardsToDraw = 8 - $player->getHand()->count(); // should be always 2 except for 1st turn
-      $cards = Cards::draw($player, $nCardsToDraw, "deck", "hand-$pId");
+      $nCardsToDraw = 6 - $player->getHand()->count();
+      $cards = Cards::draw($nCardsToDraw, "deck", "hand-$pId");
       Notifications::replenishCards($player, $cards);
     }
-    Notifications::endOfTurn($player);
 
     $this->nextPlayerCustomOrder('turn');
   }

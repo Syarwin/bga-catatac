@@ -31,13 +31,13 @@ use Bga\Games\Catatac\Models\Card;
 use Bga\Games\Catatac\States\EndOfGameTrait;
 use Bga\Games\Catatac\States\EngineTrait;
 use Bga\Games\Catatac\States\SetupTrait;
-use Bga\Games\Catatac\States\RoundTrait;
+use Bga\Games\Catatac\States\TurnTrait;
 
 class Game extends \Table
 {
     use SetupTrait;
     use DebugTrait;
-    use RoundTrait;
+    use TurnTrait;
     use EngineTrait;
     use EndOfGameTrait;
 

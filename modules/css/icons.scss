@@ -5,39 +5,22 @@
   margin: 0 0.08em;
   font-size: 1em;
 
-  .icon-canal-era,
-  .icon-rail-era {
-    height: 1.4em;
-  }
-
-  .icon-income {
-    height: 1.2em;
-
-    text-align: center;
-    span {
-      font-family: "Garamond";
-      font-size: 0.6em;
-      line-height: 1.6em;
-    }
-  }
-
-  .icon-coin {
-    height: 1.2em;
-  }
-
-  .icon-coal {
-    height: 1.4em;
-  }
-
-  .icon-iron {
-    height: 1.4em;
-  }
-
-  .icon-coal-mine,
-  .icon-cotton-mill,
-  .icon-iron-works,
-  .icon-port,
-  .icon-shipyard {
+  .icon-1-black,
+  .icon-1-white,
+  .icon-2-black,
+  .icon-2-white,
+  .icon-3-black,
+  .icon-3-white,
+  .icon-4-black,
+  .icon-4-white,
+  .icon-5-black,
+  .icon-5-white,
+  .icon-6-black,
+  .icon-6-white,
+  .icon-7-black,
+  .icon-7-white,
+  .icon-8-black,
+  .icon-8-white {
     height: 1.4em;
   }
 }
@@ -63,289 +46,295 @@
 
 @mixin icon-0-black {
   background: url("img/icons.png") no-repeat;
-  background-position: 1.0875475802066341% 1.0875475802066341%;
+  background-position: 15.00815660685155% 1.0875475802066341%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-0-white {
   background: url("img/icons.png") no-repeat;
-  background-position: 13.539967373572596% 1.0875475802066341%;
+  background-position: 27.460576400217505% 1.0875475802066341%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-1-black {
   background: url("img/icons.png") no-repeat;
-  background-position: 25.992387166938553% 1.0875475802066341%;
+  background-position: 39.91299619358347% 1.0875475802066341%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-1-white {
   background: url("img/icons.png") no-repeat;
-  background-position: 38.44480696030451% 1.0875475802066341%;
+  background-position: 52.36541598694943% 1.0875475802066341%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-2-black {
   background: url("img/icons.png") no-repeat;
-  background-position: 50.89722675367048% 1.0875475802066341%;
+  background-position: 64.81783578031539% 1.0875475802066341%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-2-white {
   background: url("img/icons.png") no-repeat;
-  background-position: 63.34964654703643% 1.0875475802066341%;
+  background-position: 77.27025557368134% 1.0875475802066341%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-3-black {
   background: url("img/icons.png") no-repeat;
-  background-position: 75.80206634040239% 1.0875475802066341%;
+  background-position: 89.72267536704732% 1.0875475802066341%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-3-white {
   background: url("img/icons.png") no-repeat;
-  background-position: 88.25448613376835% 1.0875475802066341%;
+  background-position: 1.0875475802066341% 15.00815660685155%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-4-black {
   background: url("img/icons.png") no-repeat;
-  background-position: 1.0875475802066341% 13.539967373572596%;
+  background-position: 13.539967373572596% 15.00815660685155%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-4-white {
   background: url("img/icons.png") no-repeat;
-  background-position: 13.539967373572596% 13.539967373572596%;
+  background-position: 25.992387166938553% 15.00815660685155%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-5-black {
   background: url("img/icons.png") no-repeat;
-  background-position: 25.992387166938553% 13.539967373572596%;
+  background-position: 38.44480696030451% 15.00815660685155%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-5-white {
   background: url("img/icons.png") no-repeat;
-  background-position: 38.44480696030451% 13.539967373572596%;
+  background-position: 50.89722675367048% 15.00815660685155%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-6-black {
   background: url("img/icons.png") no-repeat;
-  background-position: 50.89722675367048% 13.539967373572596%;
+  background-position: 63.34964654703643% 15.00815660685155%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-6-white {
   background: url("img/icons.png") no-repeat;
-  background-position: 63.34964654703643% 13.539967373572596%;
+  background-position: 75.80206634040239% 15.00815660685155%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-7-black {
   background: url("img/icons.png") no-repeat;
-  background-position: 75.80206634040239% 13.539967373572596%;
+  background-position: 88.25448613376835% 15.00815660685155%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-7-white {
   background: url("img/icons.png") no-repeat;
-  background-position: 88.25448613376835% 13.539967373572596%;
+  background-position: 1.0875475802066341% 27.460576400217505%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-8-black {
   background: url("img/icons.png") no-repeat;
-  background-position: 1.0875475802066341% 25.992387166938553%;
+  background-position: 13.539967373572596% 27.460576400217505%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-8-white {
   background: url("img/icons.png") no-repeat;
-  background-position: 13.539967373572596% 25.992387166938553%;
+  background-position: 25.992387166938553% 27.460576400217505%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-cat-black {
   background: url("img/icons.png") no-repeat;
-  background-position: 25.992387166938553% 25.992387166938553%;
+  background-position: 38.44480696030451% 27.460576400217505%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-cat-white {
   background: url("img/icons.png") no-repeat;
-  background-position: 38.44480696030451% 25.992387166938553%;
+  background-position: 50.89722675367048% 27.460576400217505%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-coop {
   background: url("img/icons.png") no-repeat;
-  background-position: 50.89722675367048% 25.992387166938553%;
+  background-position: 63.34964654703643% 27.460576400217505%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
+@mixin icon-hand {
+  background: url("img/icons.png") no-repeat;
+  background-position: 1.1037527593818985% 1.1037527593818985%;
+  background-size: 867.7966101694915%;
+  aspect-ratio: 236 / 236;
+}
 @mixin icon-pass-1 {
   background: url("img/icons.png") no-repeat;
-  background-position: 63.34964654703643% 25.992387166938553%;
+  background-position: 75.80206634040239% 27.460576400217505%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-pass-2 {
   background: url("img/icons.png") no-repeat;
-  background-position: 75.80206634040239% 25.992387166938553%;
+  background-position: 88.25448613376835% 27.460576400217505%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-replay {
   background: url("img/icons.png") no-repeat;
-  background-position: 88.25448613376835% 25.992387166938553%;
+  background-position: 1.0875475802066341% 39.91299619358347%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-sardine-black {
   background: url("img/icons.png") no-repeat;
-  background-position: 1.0875475802066341% 38.44480696030451%;
+  background-position: 13.539967373572596% 39.91299619358347%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-sardine-green {
   background: url("img/icons.png") no-repeat;
-  background-position: 13.539967373572596% 38.44480696030451%;
+  background-position: 25.992387166938553% 39.91299619358347%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-set-chaos-black {
   background: url("img/icons.png") no-repeat;
-  background-position: 94.29735234215886% 1.0183299389002036%;
+  background-position: 95.67209775967413% 1.0183299389002036%;
   background-size: 2438.095238095238%;
   aspect-ratio: 84 / 84;
 }
 @mixin icon-set-chaos-white {
   background: url("img/icons.png") no-repeat;
-  background-position: 94.29735234215886% 6.313645621181263%;
+  background-position: 95.67209775967413% 6.313645621181263%;
   background-size: 2438.095238095238%;
   aspect-ratio: 84 / 84;
 }
 @mixin icon-set-distraction-black {
   background: url("img/icons.png") no-repeat;
-  background-position: 94.29735234215886% 12.678207739307535%;
+  background-position: 94.29735234215886% 14.052953156822811%;
   background-size: 2438.095238095238%;
   aspect-ratio: 84 / 84;
 }
 @mixin icon-set-distraction-white {
   background: url("img/icons.png") no-repeat;
-  background-position: 94.29735234215886% 17.973523421588595%;
+  background-position: 94.29735234215886% 19.34826883910387%;
   background-size: 2438.095238095238%;
   aspect-ratio: 84 / 84;
 }
 @mixin icon-set-equations-black {
   background: url("img/icons.png") no-repeat;
-  background-position: 94.29735234215886% 24.338085539714868%;
+  background-position: 94.29735234215886% 25.712830957230143%;
   background-size: 2438.095238095238%;
   aspect-ratio: 84 / 84;
 }
 @mixin icon-set-equations-white {
   background: url("img/icons.png") no-repeat;
-  background-position: 94.29735234215886% 29.633401221995925%;
+  background-position: 94.29735234215886% 31.008146639511203%;
   background-size: 2438.095238095238%;
   aspect-ratio: 84 / 84;
 }
 @mixin icon-set-interferences-black {
   background: url("img/icons.png") no-repeat;
-  background-position: 94.29735234215886% 35.997963340122205%;
+  background-position: 94.29735234215886% 37.372708757637476%;
   background-size: 2438.095238095238%;
   aspect-ratio: 84 / 84;
 }
 @mixin icon-set-interferences-white {
   background: url("img/icons.png") no-repeat;
-  background-position: 94.29735234215886% 41.293279022403254%;
+  background-position: 94.29735234215886% 42.66802443991853%;
   background-size: 2438.095238095238%;
   aspect-ratio: 84 / 84;
 }
 @mixin icon-set-momentum-black {
   background: url("img/icons.png") no-repeat;
-  background-position: 35.997963340122205% 47.657841140529534%;
+  background-position: 47.657841140529534% 49.032586558044805%;
   background-size: 2438.095238095238%;
   aspect-ratio: 84 / 84;
 }
 @mixin icon-set-momentum-white {
   background: url("img/icons.png") no-repeat;
-  background-position: 41.293279022403254% 47.657841140529534%;
+  background-position: 52.953156822810584% 49.032586558044805%;
   background-size: 2438.095238095238%;
   aspect-ratio: 84 / 84;
 }
 @mixin icon-set-pizza-white {
   background: url("img/icons.png") no-repeat;
-  background-position: 46.58859470468432% 47.657841140529534%;
+  background-position: 58.248472505091655% 49.032586558044805%;
   background-size: 2438.095238095238%;
   aspect-ratio: 84 / 84;
 }
 @mixin icon-set-sardines-black {
   background: url("img/icons.png") no-repeat;
-  background-position: 51.88391038696538% 47.657841140529534%;
+  background-position: 63.543788187372705% 49.032586558044805%;
   background-size: 2438.095238095238%;
   aspect-ratio: 84 / 84;
 }
 @mixin icon-set-sardines-white {
   background: url("img/icons.png") no-repeat;
-  background-position: 57.17922606924644% 47.657841140529534%;
+  background-position: 68.83910386965377% 49.032586558044805%;
   background-size: 2438.095238095238%;
   aspect-ratio: 84 / 84;
 }
 @mixin icon-skip {
   background: url("img/icons.png") no-repeat;
-  background-position: 25.992387166938553% 38.44480696030451%;
+  background-position: 38.44480696030451% 39.91299619358347%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-stockage-1 {
   background: url("img/icons.png") no-repeat;
-  background-position: 38.44480696030451% 38.44480696030451%;
+  background-position: 50.89722675367048% 39.91299619358347%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-stockage-2 {
   background: url("img/icons.png") no-repeat;
-  background-position: 50.89722675367048% 38.44480696030451%;
+  background-position: 63.34964654703643% 39.91299619358347%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-stockage-3 {
   background: url("img/icons.png") no-repeat;
-  background-position: 63.34964654703643% 38.44480696030451%;
+  background-position: 75.80206634040239% 39.91299619358347%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-stop-stockage {
   background: url("img/icons.png") no-repeat;
-  background-position: 75.80206634040239% 38.44480696030451%;
+  background-position: 88.25448613376835% 39.91299619358347%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-token-flip {
   background: url("img/icons.png") no-repeat;
-  background-position: 88.25448613376835% 38.44480696030451%;
+  background-position: 1.0875475802066341% 52.36541598694943%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-token-myself {
   background: url("img/icons.png") no-repeat;
-  background-position: 1.0875475802066341% 50.89722675367048%;
+  background-position: 13.539967373572596% 52.36541598694943%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-token-opponent {
   background: url("img/icons.png") no-repeat;
-  background-position: 13.539967373572596% 50.89722675367048%;
+  background-position: 25.992387166938553% 52.36541598694943%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
 @mixin icon-token-steal {
   background: url("img/icons.png") no-repeat;
-  background-position: 25.992387166938553% 50.89722675367048%;
+  background-position: 38.44480696030451% 52.36541598694943%;
   background-size: 979.9043062200957%;
   aspect-ratio: 209 / 209;
 }
@@ -436,6 +425,10 @@
 
   &.icon-coop {
     @include icon-coop;
+  }
+
+  &.icon-hand {
+    @include icon-hand;
   }
 
   &.icon-pass-1 {

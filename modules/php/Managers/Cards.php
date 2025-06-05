@@ -5,6 +5,7 @@ namespace Bga\Games\Catatac\Managers;
 use Bga\Games\Catatac\Helpers\CachedPieces;
 use Bga\Games\Catatac\Models\Card;
 use Bga\Games\Catatac\Helpers\Collection;
+use Bga\Games\Catatac\Models\PawnCard;
 
 class Cards extends CachedPieces
 {
@@ -15,14 +16,24 @@ class Cards extends CachedPieces
   protected static bool $autoremovePrefix = false;
   protected static bool $autoIncrement = true;
 
-  protected static function cast($row): Card
+  protected static function cast($row): Card|PawnCard
   {
+    $t = explode("-", $row['type']);
+    if (is_numeric($t[0])) {
+      return new PawnCard($row);
+    }
+
     return new Card($row);
   }
 
   public static function getUiData(): array
   {
-    return self::getInLocation('discard')->toArray();
+    return self::getInLocation('discard')->orderBy('state')->toArray();
+  }
+
+  public static function getTopDiscardCard(): Card
+  {
+    return self::getTopOf('discard', 1)->first();
   }
 
   public static array $baseGameDeck = [

@@ -26,10 +26,7 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
         return card.id;
       });
       document.querySelectorAll('.catatac-card').forEach((oCard) => {
-        if (
-          !cardIds.includes(parseInt(oCard.getAttribute('data-id'))) &&
-          !oCard.parentNode.classList.contains('player-board-hand')
-        ) {
+        if (!cardIds.includes(parseInt(oCard.getAttribute('data-id'))) && !oCard.parentNode.id != 'catatac-hand') {
           this.destroy(oCard);
         }
       });
@@ -109,93 +106,97 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
     </div>`;
     },
 
-    // async discardCard(card, pId) {
-    //   let o = $(`card-${card.id}`);
-    //   if (o) {
-    //     await this.slide(`card-${card.id}`, this.getVisibleTitleContainer(), { destroy: true });
-    //     this._playerCounters[pId]['handCount'].incValue(-1);
-    //   }
-    //   // Opponents => slide the tile and cards from player panels
-    //   else {
-    //     const playerPanel = $(`overall_player_board_${pId}`);
-    //     this.addCard(card, playerPanel);
-    //     await this.slide(`card-${card.id}`, this.getVisibleTitleContainer(), { destroy: true });
-    //     this._playerCounters[pId]['handCount'].incValue(-1);
-    //   }
-    // },
+    async discardCard(card, pId) {
+      let o = $(`card-${card.id}`);
+      if (o) {
+        await this.slide(`card-${card.id}`, $('catatac-discard'));
+        this._playerCounters[pId]['handCount'].incValue(-1);
+      }
+      // Opponents => slide the tile and cards from player panels
+      else {
+        const playerPanel = $(`overall_player_board_${pId}`);
+        this.addCard(card, playerPanel);
+        await this.slide(`card-${card.id}`, $('catatac-discard'));
+        this._playerCounters[pId]['handCount'].incValue(-1);
+      }
+    },
 
-    // async notif_discardCard(args) {
-    //   debug('Notif: discarding card', args);
-    //   await this.discardCard(args.card, args.player_id);
-    // },
+    async notif_discardCard(args) {
+      debug('Notif: discarding card', args);
+      await this.discardCard(args.card, args.player_id);
+    },
 
-    // /**
-    //  * Private notification for the player drawing the card :
-    //  *  create the cards and slide them in hand
-    //  */
-    // async notif_pDrawCards(args) {
-    //   debug('Notif: private drawing cards', args);
-    //   let counter = 'handCount';
+    /**
+     * Private notification for the player drawing the card :
+     *  create the cards and slide them in hand
+     */
+    async notif_pDrawCards(args) {
+      debug('Notif: private drawing cards', args);
+      let counter = 'handCount';
 
-    //   if (this.isFastMode()) {
-    //     args.cards.forEach((card) => {
-    //       this.addCard(card);
-    //     });
-    //     this._playerCounters[this.player_id][counter].incValue(args.cards.length);
-    //     return;
-    //   }
+      if (this.isFastMode()) {
+        args.cards.forEach((card) => {
+          this.addCard(card);
+        });
+        this._playerCounters[this.player_id][counter].incValue(args.cards.length);
+        $('catatac-deck').dataset.n = +$('catatac-deck').dataset.n - args.cards.length;
+        return;
+      }
 
-    //   await Promise.all(
-    //     args.cards.map((card, i) => {
-    //       return this.wait(100 * i).then(() => {
-    //         this.addCard(card);
+      await Promise.all(
+        args.cards.map((card, i) => {
+          return this.wait(100 * i).then(() => {
+            this.addCard(card);
 
-    //         let to = null;
-    //         let container = this.getCardContainer(card);
-    //         if (!isVisible(container)) to = $('floating-hand-button');
-    //         let source = this.getVisibleTitleContainer();
+            let to = null;
+            let container = this.getCardContainer(card);
+            if (!isVisible(container)) to = $('floating-hand-button');
+            let source = $('catatac-deck');
 
-    //         return this.slide(`card-${card.id}`, container, {
-    //           from: source,
-    //           duration: 1000,
-    //           to,
-    //         });
-    //       });
-    //     })
-    //   );
+            return this.slide(`card-${card.id}`, container, {
+              from: source,
+              duration: 1000,
+              to,
+            });
+          });
+        })
+      );
 
-    //   this._playerCounters[this.player_id][counter].incValue(args.cards.length);
-    // },
+      this._playerCounters[this.player_id][counter].incValue(args.cards.length);
+      $('catatac-deck').dataset.n = +$('catatac-deck').dataset.n - args.cards.length;
+    },
 
-    // /**
-    //  * Public notification when drawing cards:
-    //  *  ignore if current player is the one drawing card
-    //  *  slide fakes cards from titlebar to player panel and increase hand count
-    //  */
-    // async notif_drawCards(args) {
-    //   debug('Notif: public drawing cards', args);
-    //   let counter = 'handCount';
+    /**
+     * Public notification when drawing cards:
+     *  ignore if current player is the one drawing card
+     *  slide fakes cards from titlebar to player panel and increase hand count
+     */
+    async notif_drawCards(args) {
+      debug('Notif: public drawing cards', args);
+      let counter = 'handCount';
 
-    //   let nCards = args.n;
-    //   if (this.isFastMode()) {
-    //     this._playerCounters[args.player_id][counter].incValue(nCards);
-    //     return;
-    //   }
+      let nCards = args.n;
+      if (this.isFastMode()) {
+        this._playerCounters[args.player_id][counter].incValue(nCards);
+        $('catatac-deck').dataset.n = +$('catatac-deck').dataset.n - nCards;
+        return;
+      }
 
-    //   await Promise.all(
-    //     Array.from(Array(nCards), (x, i) => i).map((i) => {
-    //       return this.wait(100 * i).then(() => {
-    //         this.addCard({ id: i, fake: true }, this.getVisibleTitleContainer());
-    //         return this.slide(`card-${i}`, `counter-${args.player_id}-${counter}`, {
-    //           duration: 1000,
-    //           destroy: true,
-    //           phantom: false,
-    //         });
-    //       });
-    //     })
-    //   );
+      await Promise.all(
+        Array.from(Array(nCards), (x, i) => i).map((i) => {
+          return this.wait(100 * i).then(() => {
+            this.addCard({ id: i, fake: true }, $('catatac-deck'));
+            return this.slide(`card-${i}`, `counter-${args.player_id}-${counter}`, {
+              duration: 1000,
+              destroy: true,
+              phantom: false,
+            });
+          });
+        })
+      );
 
-    //   this._playerCounters[args.player_id][counter].incValue(nCards);
-    // },
+      this._playerCounters[args.player_id][counter].incValue(nCards);
+      $('catatac-deck').dataset.n = +$('catatac-deck').dataset.n - nCards;
+    },
   });
 });

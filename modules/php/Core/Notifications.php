@@ -14,6 +14,44 @@ use Bga\Games\Catatac\Models\Tile;
 
 class Notifications
 {
+  public static function playCard(Player $player, Card $card, int $n, bool $isPair)
+  {
+    $msg = $isPair ?
+      clienttranslate('${player_name} plays a ${card_name}, making a pair!') :
+      clienttranslate('${player_name} plays a ${card_name}');
+
+    self::notifyAll('discardCard', $msg, [
+      'player' => $player,
+      'card' => $card,
+    ]);
+  }
+
+  public static function replenishCards(Player $player, Collection $cards)
+  {
+    self::drawCards($player, $cards);
+  }
+
+  public static function drawCards(Player $player, Collection $cards, ?string $privateMsg = null, ?string $publicMsg = null, array $args = [])
+  {
+    self::notify(
+      $player,
+      'pDrawCards',
+      $privateMsg ?? clienttranslate('${player_name}: you draw ${card_names} from the deck'),
+      $args + [
+        'player' => $player,
+        'cards' => is_array($cards) ? $cards : $cards->toArray(),
+      ]
+    );
+    self::notifyAll(
+      'drawCards',
+      $publicMsg ?? clienttranslate('${player_name} draws ${n} card(s) from the deck'),
+      $args + [
+        'player' => $player,
+        'n' => count($cards),
+        'ignore' => $player->getId(),
+      ]
+    );
+  }
 
 
   ////////////////////////////////////////////
@@ -72,8 +110,6 @@ class Notifications
       'players' => $datas['players'],
       'cards' => $datas['cards'],
       'meeples' => $datas['meeples'],
-      'tiles' => $datas['tiles'],
-      'cardHelpers' => $datas['cardHelpers'] ?? null,
     ];
 
     foreach ($fDatas['players'] as &$player) {

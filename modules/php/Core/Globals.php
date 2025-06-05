@@ -22,6 +22,7 @@ class Globals extends DB_Manager
 
     'firstPlayer' => 'int',
     'turnOrder' => 'obj',
+    'skippedPlayers' => 'obj',
 
     // Game options
   ];
