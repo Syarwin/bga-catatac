@@ -10,6 +10,36 @@
         width: 1479px;
         height: 289px;
 
+        #team-white,
+        #team-black {
+            background: white;
+            border: 1px solid black;
+            position: absolute;
+            bottom: 4px;
+            left: 8px;
+            border-radius: 5px;
+            padding: 2px 0px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            box-shadow: 1px 1px 3px black;
+
+            .catatac-icon {
+                width: 27px;
+            }
+            .icon-container {
+                margin: -3px 4px;
+            }
+        }
+        #team-black {
+            left: auto;
+            right: 8px;
+            background: black;
+            border-color: rgb(196, 195, 195);
+            color: white;
+            box-shadow: 1px 1px 3px rgb(187, 187, 187);
+        }
+
         .board-slot {
             position: absolute;
             z-index: 2;

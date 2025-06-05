@@ -492,131 +492,246 @@
 .catatac-icon {
   background: url("img/icons.png");
   background-repeat: no-repeat; }
-  .catatac-icon.icon-barrel {
+  .catatac-icon.icon-0-black {
     background: url("img/icons.png") no-repeat;
-    background-position: 2.4301336573511545% 2.3419203747072603%;
-    background-size: 509.452736318408%;
-    aspect-ratio: 201 / 170; }
-  .catatac-icon.icon-boat {
+    background-position: 1.0875475802066341% 1.0875475802066341%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-0-white {
     background: url("img/icons.png") no-repeat;
-    background-position: 21.974965229485395% 84.61538461538461%;
-    background-size: 335.73770491803276%;
-    aspect-ratio: 305 / 114; }
-  .catatac-icon.icon-canal-era {
+    background-position: 13.539967373572596% 1.0875475802066341%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-1-black {
     background: url("img/icons.png") no-repeat;
-    background-position: 27.598152424942263% 68.12933025404158%;
-    background-size: 648.1012658227849%;
-    aspect-ratio: 158 / 158; }
-  .catatac-icon.icon-coal {
+    background-position: 25.992387166938553% 1.0875475802066341%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-1-white {
     background: url("img/icons.png") no-repeat;
-    background-position: 28.18713450292398% 2.3419203747072603%;
-    background-size: 605.9171597633136%;
-    aspect-ratio: 169 / 170; }
-  .catatac-icon.icon-coal-mine {
+    background-position: 38.44480696030451% 1.0875475802066341%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-2-black {
     background: url("img/icons.png") no-repeat;
-    background-position: 51.55875299760192% 2.3419203747072603%;
-    background-size: 538.9473684210526%;
-    aspect-ratio: 190 / 170; }
-  .catatac-icon.icon-coal-small {
+    background-position: 50.89722675367048% 1.0875475802066341%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-2-white {
     background: url("img/icons.png") no-repeat;
-    background-position: 96.96663296258848% 32.76036400404449%;
-    background-size: 2925.714285714286%;
-    aspect-ratio: 35 / 35; }
-  .catatac-icon.icon-coin {
+    background-position: 63.34964654703643% 1.0875475802066341%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-3-black {
     background: url("img/icons.png") no-repeat;
-    background-position: 75.65011820330969% 2.3419203747072603%;
-    background-size: 575.2808988764045%;
-    aspect-ratio: 178 / 170; }
-  .catatac-icon.icon-coin-spent {
+    background-position: 75.80206634040239% 1.0875475802066341%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-3-white {
     background: url("img/icons.png") no-repeat;
-    background-position: 29.905437352245862% 46.8384074941452%;
-    background-size: 575.2808988764045%;
-    aspect-ratio: 178 / 170; }
-  .catatac-icon.icon-connection {
+    background-position: 88.25448613376835% 1.0875475802066341%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-4-black {
     background: url("img/icons.png") no-repeat;
-    background-position: 2.3446658851113718% 24.59016393442623%;
-    background-size: 598.8304093567251%;
-    aspect-ratio: 171 / 170; }
-  .catatac-icon.icon-cotton-mill {
+    background-position: 1.0875475802066341% 13.539967373572596%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-4-white {
     background: url("img/icons.png") no-repeat;
-    background-position: 25.178997613365155% 24.59016393442623%;
-    background-size: 550.5376344086022%;
-    aspect-ratio: 186 / 170; }
-  .catatac-icon.icon-hand {
+    background-position: 13.539967373572596% 13.539967373572596%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-5-black {
     background: url("img/icons.png") no-repeat;
-    background-position: 2.4242424242424243% 68.28703703703704%;
-    background-size: 514.572864321608%;
-    aspect-ratio: 199 / 160; }
-  .catatac-icon.icon-income {
+    background-position: 25.992387166938553% 13.539967373572596%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-5-white {
     background: url("img/icons.png") no-repeat;
-    background-position: 92.80177187153932% 2.3419203747072603%;
-    background-size: 846.2809917355372%;
-    aspect-ratio: 121 / 170; }
-  .catatac-icon.icon-income-val {
+    background-position: 38.44480696030451% 13.539967373572596%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-6-black {
     background: url("img/icons.png") no-repeat;
-    background-position: 49.23258559622196% 24.59016393442623%;
-    background-size: 578.5310734463277%;
-    aspect-ratio: 177 / 170; }
-  .catatac-icon.icon-iron {
+    background-position: 50.89722675367048% 13.539967373572596%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-6-white {
     background: url("img/icons.png") no-repeat;
-    background-position: 71.81286549707603% 24.59016393442623%;
-    background-size: 605.9171597633136%;
-    aspect-ratio: 169 / 170; }
-  .catatac-icon.icon-iron-small {
+    background-position: 63.34964654703643% 13.539967373572596%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-7-black {
     background: url("img/icons.png") no-repeat;
-    background-position: 97.06477732793523% 27.125506072874494%;
-    background-size: 2844.4444444444443%;
-    aspect-ratio: 36 / 36; }
-  .catatac-icon.icon-iron-works {
+    background-position: 75.80206634040239% 13.539967373572596%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-7-white {
     background: url("img/icons.png") no-repeat;
-    background-position: 2.466091245376079% 46.8384074941452%;
-    background-size: 480.7511737089202%;
-    aspect-ratio: 213 / 170; }
-  .catatac-icon.icon-light {
+    background-position: 88.25448613376835% 13.539967373572596%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-8-black {
     background: url("img/icons.png") no-repeat;
-    background-position: 90.42792792792793% 24.59016393442623%;
-    background-size: 752.9411764705882%;
-    aspect-ratio: 136 / 170; }
-  .catatac-icon.icon-lock {
+    background-position: 1.0875475802066341% 25.992387166938553%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-8-white {
     background: url("img/icons.png") no-repeat;
-    background-position: 2.207505518763797% 84.89525909592062%;
-    background-size: 867.7966101694915%;
-    aspect-ratio: 118 / 117; }
-  .catatac-icon.icon-modal-close {
+    background-position: 13.539967373572596% 25.992387166938553%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-cat-black {
     background: url("img/icons.png") no-repeat;
-    background-position: 97.16312056737588% 21.29817444219067%;
-    background-size: 2767.5675675675675%;
-    aspect-ratio: 37 / 38; }
-  .catatac-icon.icon-port {
+    background-position: 25.992387166938553% 25.992387166938553%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-cat-white {
     background: url("img/icons.png") no-repeat;
-    background-position: 51.89873417721519% 46.8384074941452%;
-    background-size: 660.6451612903226%;
-    aspect-ratio: 155 / 170; }
-  .catatac-icon.icon-rail-era {
+    background-position: 38.44480696030451% 25.992387166938553%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-coop {
     background: url("img/icons.png") no-repeat;
-    background-position: 48.15242494226328% 68.12933025404158%;
-    background-size: 648.1012658227849%;
-    aspect-ratio: 158 / 158; }
-  .catatac-icon.icon-shipyard {
+    background-position: 50.89722675367048% 25.992387166938553%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-pass-1 {
     background: url("img/icons.png") no-repeat;
-    background-position: 71.78899082568807% 46.8384074941452%;
-    background-size: 673.6842105263157%;
-    aspect-ratio: 152 / 170; }
-  .catatac-icon.icon-trade {
+    background-position: 63.34964654703643% 25.992387166938553%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-pass-2 {
     background: url("img/icons.png") no-repeat;
-    background-position: 51.824034334763944% 78.57142857142857%;
-    background-size: 1113.0434782608695%;
-    aspect-ratio: 92 / 44; }
-  .catatac-icon.icon-train {
+    background-position: 75.80206634040239% 25.992387166938553%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-replay {
     background: url("img/icons.png") no-repeat;
-    background-position: 82.06896551724138% 66.96935300794551%;
-    background-size: 342.47491638795987%;
-    aspect-ratio: 299 / 143; }
-  .catatac-icon.icon-vp {
+    background-position: 88.25448613376835% 25.992387166938553%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-sardine-black {
     background: url("img/icons.png") no-repeat;
-    background-position: 90.99201824401368% 46.8384074941452%;
-    background-size: 696.5986394557823%;
-    aspect-ratio: 147 / 170; }
+    background-position: 1.0875475802066341% 38.44480696030451%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-sardine-green {
+    background: url("img/icons.png") no-repeat;
+    background-position: 13.539967373572596% 38.44480696030451%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-set-chaos-black {
+    background: url("img/icons.png") no-repeat;
+    background-position: 94.29735234215886% 1.0183299389002036%;
+    background-size: 2438.095238095238%;
+    aspect-ratio: 84 / 84; }
+  .catatac-icon.icon-set-chaos-white {
+    background: url("img/icons.png") no-repeat;
+    background-position: 94.29735234215886% 6.313645621181263%;
+    background-size: 2438.095238095238%;
+    aspect-ratio: 84 / 84; }
+  .catatac-icon.icon-set-distraction-black {
+    background: url("img/icons.png") no-repeat;
+    background-position: 94.29735234215886% 12.678207739307535%;
+    background-size: 2438.095238095238%;
+    aspect-ratio: 84 / 84; }
+  .catatac-icon.icon-set-distraction-white {
+    background: url("img/icons.png") no-repeat;
+    background-position: 94.29735234215886% 17.973523421588595%;
+    background-size: 2438.095238095238%;
+    aspect-ratio: 84 / 84; }
+  .catatac-icon.icon-set-equations-black {
+    background: url("img/icons.png") no-repeat;
+    background-position: 94.29735234215886% 24.338085539714868%;
+    background-size: 2438.095238095238%;
+    aspect-ratio: 84 / 84; }
+  .catatac-icon.icon-set-equations-white {
+    background: url("img/icons.png") no-repeat;
+    background-position: 94.29735234215886% 29.633401221995925%;
+    background-size: 2438.095238095238%;
+    aspect-ratio: 84 / 84; }
+  .catatac-icon.icon-set-interferences-black {
+    background: url("img/icons.png") no-repeat;
+    background-position: 94.29735234215886% 35.997963340122205%;
+    background-size: 2438.095238095238%;
+    aspect-ratio: 84 / 84; }
+  .catatac-icon.icon-set-interferences-white {
+    background: url("img/icons.png") no-repeat;
+    background-position: 94.29735234215886% 41.293279022403254%;
+    background-size: 2438.095238095238%;
+    aspect-ratio: 84 / 84; }
+  .catatac-icon.icon-set-momentum-black {
+    background: url("img/icons.png") no-repeat;
+    background-position: 35.997963340122205% 47.657841140529534%;
+    background-size: 2438.095238095238%;
+    aspect-ratio: 84 / 84; }
+  .catatac-icon.icon-set-momentum-white {
+    background: url("img/icons.png") no-repeat;
+    background-position: 41.293279022403254% 47.657841140529534%;
+    background-size: 2438.095238095238%;
+    aspect-ratio: 84 / 84; }
+  .catatac-icon.icon-set-pizza-white {
+    background: url("img/icons.png") no-repeat;
+    background-position: 46.58859470468432% 47.657841140529534%;
+    background-size: 2438.095238095238%;
+    aspect-ratio: 84 / 84; }
+  .catatac-icon.icon-set-sardines-black {
+    background: url("img/icons.png") no-repeat;
+    background-position: 51.88391038696538% 47.657841140529534%;
+    background-size: 2438.095238095238%;
+    aspect-ratio: 84 / 84; }
+  .catatac-icon.icon-set-sardines-white {
+    background: url("img/icons.png") no-repeat;
+    background-position: 57.17922606924644% 47.657841140529534%;
+    background-size: 2438.095238095238%;
+    aspect-ratio: 84 / 84; }
+  .catatac-icon.icon-skip {
+    background: url("img/icons.png") no-repeat;
+    background-position: 25.992387166938553% 38.44480696030451%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-stockage-1 {
+    background: url("img/icons.png") no-repeat;
+    background-position: 38.44480696030451% 38.44480696030451%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-stockage-2 {
+    background: url("img/icons.png") no-repeat;
+    background-position: 50.89722675367048% 38.44480696030451%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-stockage-3 {
+    background: url("img/icons.png") no-repeat;
+    background-position: 63.34964654703643% 38.44480696030451%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-stop-stockage {
+    background: url("img/icons.png") no-repeat;
+    background-position: 75.80206634040239% 38.44480696030451%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-token-flip {
+    background: url("img/icons.png") no-repeat;
+    background-position: 88.25448613376835% 38.44480696030451%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-token-myself {
+    background: url("img/icons.png") no-repeat;
+    background-position: 1.0875475802066341% 50.89722675367048%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-token-opponent {
+    background: url("img/icons.png") no-repeat;
+    background-position: 13.539967373572596% 50.89722675367048%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
+  .catatac-icon.icon-token-steal {
+    background: url("img/icons.png") no-repeat;
+    background-position: 25.992387166938553% 50.89722675367048%;
+    background-size: 979.9043062200957%;
+    aspect-ratio: 209 / 209; }
 
 #pagemaintitletext .catatac-meeple,
 #gameaction_status .catatac-meeple {
@@ -634,7 +749,7 @@
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 1s;
+    transition: transform 0.6s;
     transform: rotateY(0deg); }
     .catatac-meeple[data-type="token"] .catatac-meeple-inner .catatac-meeple-front,
     .catatac-meeple[data-type="token"] .catatac-meeple-inner .catatac-meeple-back {
@@ -668,6 +783,32 @@
     position: relative;
     width: 1479px;
     height: 289px; }
+    #catatac-main-container #catatac-board #team-white,
+    #catatac-main-container #catatac-board #team-black {
+      background: white;
+      border: 1px solid black;
+      position: absolute;
+      bottom: 4px;
+      left: 8px;
+      border-radius: 5px;
+      padding: 2px 0px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      box-shadow: 1px 1px 3px black; }
+      #catatac-main-container #catatac-board #team-white .catatac-icon,
+      #catatac-main-container #catatac-board #team-black .catatac-icon {
+        width: 27px; }
+      #catatac-main-container #catatac-board #team-white .icon-container,
+      #catatac-main-container #catatac-board #team-black .icon-container {
+        margin: -3px 4px; }
+    #catatac-main-container #catatac-board #team-black {
+      left: auto;
+      right: 8px;
+      background: black;
+      border-color: #c4c3c3;
+      color: white;
+      box-shadow: 1px 1px 3px #bbbbbb; }
     #catatac-main-container #catatac-board .board-slot {
       position: absolute;
       z-index: 2;
@@ -789,6 +930,19 @@
   display: flex;
   justify-content: space-between;
   margin-top: 5px; }
+  .player-board .player-info > div {
+    border: 1px solid #918e8e;
+    width: 50px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2px; }
+    .player-board .player-info > div.player-team {
+      width: 40px; }
+  .player-board .player-info .icon-cat-white,
+  .player-board .player-info .icon-cat-black {
+    width: 35px; }
 
 #popin_showSettings_underlay {
   background-color: black !important;

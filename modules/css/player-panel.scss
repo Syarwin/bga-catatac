@@ -5,6 +5,22 @@
         margin-top: 5px;
 
         & > div {
+            border: 1px solid #918e8e;
+            width: 50px;
+            border-radius: 7px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 2px;
+
+            &.player-team {
+                width: 40px;
+            }
+        }
+
+        .icon-cat-white,
+        .icon-cat-black {
+            width: 35px;
         }
     }
 }

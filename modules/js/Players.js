@@ -12,7 +12,10 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
       this.orderedPlayers = Object.values(this.gamedatas.players).sort((a, b) => a.order - b.order);
 
       // Add player mat and player panel
+      let teams = [[], []];
       this.orderedPlayers.forEach((player, i) => {
+        teams[player.team].push(player.name);
+
         // Panels
         this.place('tplPlayerPanel', player, `overall_player_board_${player.id}`);
 
@@ -24,10 +27,28 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
         }
       });
       // this.setupPlayersCounters();
+
+      $('catatac-board').insertAdjacentHTML(
+        'beforeend',
+        `<div id="team-black">${this.formatIcon('cat-black')} ${teams[0].join(', ')} ${this.formatIcon('cat-black')}</div>`
+      );
+      $('catatac-board').insertAdjacentHTML(
+        'beforeend',
+        `<div id="team-white">${this.formatIcon('cat-white')} ${teams[1].join(', ')} ${this.formatIcon('cat-white')}</div>`
+      );
     },
 
     tplPlayerPanel(player) {
-      return `<div class='player-info'></div>`;
+      return `<div class='player-info'>
+        <div class="player-team">
+          ${this.formatIcon(player.team == 0 ? 'cat-black' : 'cat-white')}
+        </div>
+
+        <div class="player-handCount">
+          <span id="counter-${player.id}-handCount"></span>
+          ${this.formatIcon('hand')}
+        </div>
+      </div>`;
     },
   });
 });
