@@ -31,8 +31,7 @@ class Player extends \Bga\Games\Catatac\Helpers\DB_Model
     'team' => ['team', 'int'],
   ];
   protected int $id;
-  protected int $money;
-  protected int $incomeLevel;
+  protected int $team;
 
   public function getUiData(?int $pId = null)
   {
@@ -68,5 +67,15 @@ class Player extends \Bga\Games\Catatac\Helpers\DB_Model
   public function getHand()
   {
     return Cards::getInLocation("hand-$this->id")->orderBy('state', 'ASC');
+  }
+
+  public function getHideoutLocation()
+  {
+    return $this->team == 0 ? BLACK_HIDEOUT : WHITE_HIDEOUT;
+  }
+
+  public function getStreetLocation()
+  {
+    return $this->team == 0 ? BLACK_STREET : WHITE_STREET;
   }
 }

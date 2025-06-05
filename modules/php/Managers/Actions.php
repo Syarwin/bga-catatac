@@ -15,6 +15,10 @@ class Actions
 {
   static $classes = [
     CHOOSE_CARD => 'ChooseCard',
+    PAIR_BONUS => 'PairBonus',
+    STEAL_TOKEN => 'StealToken',
+    MOVE_TOKEN => 'MoveToken',
+    STORAGE_ATTEMPT => 'StorageAttempt',
   ];
 
   public static function get($actionId, &$ctx = null)

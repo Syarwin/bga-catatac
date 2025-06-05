@@ -3,6 +3,8 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
     return !!(elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
   }
 
+  const ballLocationMap = ['white-hideout', 'white-street', 'neutral-street', 'black-street', 'black-hideout'];
+
   return declare('catatac.meeples', null, {
     setupMeeples() {
       // This function is refreshUI compatible
@@ -65,8 +67,7 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
       let t = meeple.location.split('-');
 
       if (meeple.type == 'token') {
-        const map = ['white-hideout', 'white-street', 'neutral-street', 'black-street', 'black-hideout'];
-        return $(map[meeple.location]);
+        return $(ballLocationMap[meeple.location]);
       }
       if ($(meeple.location)) {
         return $(meeple.location);
@@ -74,6 +75,10 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
 
       console.error('Trying to get container of a meeple', meeple);
       return 'game_play_area';
+    },
+
+    async notif_moveBall(args) {
+      await this.slide('meeple-1', $(ballLocationMap[args.location]));
     },
   });
 });

@@ -53,6 +53,15 @@ class Notifications
     );
   }
 
+  public static function moveBall(Player $player, int $n, Meeple $ball)
+  {
+    self::notifyAll('moveBall', clienttranslate('${player_name} moves the ball ${n} step(s) to their side'), [
+      'player' => $player,
+      'n' => $n,
+      'location' => $ball->getLocation(),
+    ]);
+  }
+
 
   ////////////////////////////////////////////
   //   ____                      _      

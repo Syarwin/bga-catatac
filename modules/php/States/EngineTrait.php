@@ -162,7 +162,7 @@ trait EngineTrait
     return $args;
   }
 
-  function actChooseAction($choiceId)
+  function actChooseAction(int $choiceId)
   {
     $player = Players::getActive();
     Engine::chooseNode($player, $choiceId);

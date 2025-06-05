@@ -25,6 +25,11 @@ class Meeples extends CachedPieces
     return self::getAll()->toArray();
   }
 
+  public static function getBall(): Meeple
+  {
+    return self::getAll()->where('type', TOKEN)->first();
+  }
+
   ////////////////////////////////////
   //  ____       _
   // / ___|  ___| |_ _   _ _ __

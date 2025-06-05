@@ -39,11 +39,14 @@ class ChooseCard extends \Bga\Games\Catatac\Models\Action
     $n = $card->getNumber();
     $previousCard = Cards::getTopDiscardCard();
     $oldN = $previousCard->getNumber();
-
     $isPair = $n == 0 || ($n == $oldN);
 
     // Move card
     Cards::insertOnTop($cardId, 'discard');
+
+    if ($isPair) {
+      $this->pushParallelChild(['action' => PAIR_BONUS, 'optional' => true]);
+    }
 
     Notifications::playCard($player, $card, $n, $isPair);
   }

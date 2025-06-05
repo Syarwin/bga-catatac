@@ -69,6 +69,10 @@ const PASS = 99;
  */
 
 const CHOOSE_CARD = 'ChooseCard';
+const PAIR_BONUS = 'PairBonus';
+const STEAL_TOKEN = 'StealToken';
+const MOVE_TOKEN = 'MoveToken';
+const STORAGE_ATTEMPT = 'StorageAttempt';
 
 /*
  * MISC

@@ -18,4 +18,9 @@ class Meeple extends \Bga\Games\Catatac\Helpers\DB_Model
   protected int $state;
   protected string $type;
   protected ?int $pId;
+
+  public function isOwned(Player $player)
+  {
+    return $player->getTeam() == $this->state;
+  }
 }

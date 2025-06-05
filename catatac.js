@@ -32,7 +32,16 @@ define([
   return declare('bgagame.catatac', [customgame.game, catatac.players, catatac.cards, catatac.meeples], {
     constructor() {
       this._inactiveStates = [];
-      this._notifications = ['clearTurn', 'refreshUI', 'refreshHand', 'midMessage', 'discardCard', 'drawCards', 'pDrawCards'];
+      this._notifications = [
+        'clearTurn',
+        'refreshUI',
+        'refreshHand',
+        'midMessage',
+        'discardCard',
+        'drawCards',
+        'pDrawCards',
+        'moveBall',
+      ];
     },
 
     async notif_midmessage(args) {
@@ -292,7 +301,7 @@ define([
           : () => {
               this.askConfirmation(choice.irreversibleAction, () =>
                 this.takeAction('actChooseAction', {
-                  id: choice.id,
+                  choiceId: choice.id,
                 })
               );
             }

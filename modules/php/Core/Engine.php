@@ -208,6 +208,7 @@ class Engine
     $node = self::$tree->getNextUnresolved();
     $args = $node->getChoices($player);
     if (!isset($args[$nodeId])) {
+      var_dump($args, $nodeId);
       throw new \BgaVisibleSystemException('This choice is not possible');
     }
 
