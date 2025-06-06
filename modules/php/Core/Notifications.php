@@ -69,6 +69,15 @@ class Notifications
     ]);
   }
 
+  public static function storageAttempt($player, $ball)
+  {
+    $newLocation = $ball->getLocation();
+    self::notifyAll('moveBall', clienttranslate('${teamIcon}${player_name} makes a storage attempt!'), [
+      'player' => $player,
+      'location' => $newLocation,
+    ]);
+  }
+
   public static function stealBall(Player $player, Meeple $ball)
   {
     self::notifyAll('stealBall', clienttranslate('${teamIcon}${player_name} steals the ball'), [

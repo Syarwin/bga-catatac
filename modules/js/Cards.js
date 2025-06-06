@@ -46,19 +46,9 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
       }
 
       let o = this.place('tplCard', card, container);
-      // if (o !== undefined) {
-      //   this.addCustomTooltip(
-      //     o.id,
-      //     () => {
-      //       let status = this.getCardStatus(card.id);
-      //       return `<div class='zoo-card-tooltip'>
-      //         ${status}
-      //         ${this.tplZooCard(card, true)}
-      //       </div>`;
-      //     },
-      //     { midSize: false }
-      //   );
-      // }
+      if (o !== undefined) {
+        this.addCustomTooltip(o.id, JSON.stringify(card));
+      }
     },
 
     updateHandCards() {

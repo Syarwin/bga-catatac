@@ -21,6 +21,34 @@ class PawnCard extends Card
       return "<$number-black>";
     }
 
-    return $this->type; // TODO
+    $logs = [
+      'Bingo' => clienttranslate('Bingo${number}'),
+      'Capture' => clienttranslate('Capture${number}'),
+      'Charge' => clienttranslate('Charge${number}'),
+      'Courage' => clienttranslate('Courage${number}'),
+      'Fido' => clienttranslate('Fido${number}'),
+      'Impact' => clienttranslate('Impact${number}'),
+      'Miracle' => clienttranslate('Miracle${number}'),
+      'Smash' => clienttranslate('Smash${number}'),
+      'Sprint' => clienttranslate('Sprint${number}'),
+      'Stop' => clienttranslate('Stop${number}'),
+    ];
+
+    return [
+      'log' => $logs[$action] ?? 'TODO ${number}',
+      'args' => [
+        'number' => "<$number-black>",
+      ]
+    ];
+  }
+
+  public function getActionBloc(): array
+  {
+    return [];
+  }
+
+  public function canUseActionBloc(Player $player): bool
+  {
+    return false;
   }
 }

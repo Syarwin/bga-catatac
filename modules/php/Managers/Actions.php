@@ -19,6 +19,7 @@ class Actions
     STEAL_TOKEN => 'StealToken',
     MOVE_TOKEN => 'MoveToken',
     STORAGE_ATTEMPT => 'StorageAttempt',
+    ACTIVATE_CARD => 'ActivateCard',
   ];
 
   public static function get($actionId, &$ctx = null)

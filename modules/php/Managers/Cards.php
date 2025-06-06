@@ -20,7 +20,12 @@ class Cards extends CachedPieces
   {
     $t = explode("-", $row['type']);
     if (is_numeric($t[0])) {
-      return new PawnCard($row);
+      if ($t[1] == 'Basic') {
+        return new PawnCard($row);
+      } else {
+        $class = 'Bga\Games\Catatac\Models\Cards\\' . $t[1];
+        return new $class($row);
+      }
     }
 
     return new Card($row);

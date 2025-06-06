@@ -69,6 +69,7 @@ const PASS = 99;
  */
 
 const CHOOSE_CARD = 'ChooseCard';
+const ACTIVATE_CARD = 'ActivateCard';
 const PAIR_BONUS = 'PairBonus';
 const STEAL_TOKEN = 'StealToken';
 const MOVE_TOKEN = 'MoveToken';

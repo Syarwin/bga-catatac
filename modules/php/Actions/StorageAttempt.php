@@ -28,7 +28,7 @@ class StorageAttempt extends \Bga\Games\Catatac\Models\Action
   public function isDoable(Player $player): bool
   {
     $ball = Meeples::getBall();
-    return $ball->isOwned($player) && $ball->getLocation() == $player->getStreetLocation();
+    return $ball->isOwned($player) && $this->getNewLocation($player) == $player->getHideoutLocation();
   }
 
   public function stStorageAttempt()
@@ -36,8 +36,22 @@ class StorageAttempt extends \Bga\Games\Catatac\Models\Action
     return [];
   }
 
+  public function getN()
+  {
+    return $this->getCtxArg('n') ?? 1;
+  }
+
+  public function getNewLocation(Player $player)
+  {
+    $ball = Meeples::getBall();
+    return $ball->getLocation() + ($player->getTeam() == WHITE_SIDE ? -1 : 1) * $this->getN();
+  }
+
   public function actStorageAttempt()
   {
-    die("test");
+    $player = Players::getActive();
+    $ball = Meeples::getBall();
+    $ball->setLocation($this->getNewLocation($player));
+    Notifications::storageAttempt($player, $ball);
   }
 }

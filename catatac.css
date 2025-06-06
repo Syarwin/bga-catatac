@@ -472,7 +472,8 @@
   .icon-container .icon-7-white,
   .icon-container .icon-8-black,
   .icon-container .icon-8-white {
-    height: 1.4em; }
+    height: 1.4em;
+    margin: -0.18em -0.1em -0.12em; }
   .icon-container .icon-cat-white,
   .icon-container .icon-cat-black {
     height: 2em;

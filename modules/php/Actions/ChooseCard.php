@@ -48,6 +48,11 @@ class ChooseCard extends \Bga\Games\Catatac\Models\Action
       $this->pushParallelChild(['action' => PAIR_BONUS, 'optional' => true]);
     }
 
+    // Any action bloc?
+    if (!empty($card->getActionBloc())) {
+      $this->pushParallelChild(['action' => ACTIVATE_CARD, 'optional' => true, 'args' => ['cardId' => $cardId]]);
+    }
+
     Notifications::playCard($player, $card, $n, $isPair);
   }
 }

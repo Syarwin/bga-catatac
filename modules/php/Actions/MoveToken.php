@@ -23,7 +23,7 @@ class MoveToken extends \Bga\Games\Catatac\Models\Action
   public function getDescription(): string|array
   {
     return [
-      'log' => clienttranslate('Move the ball x${n}'),
+      'log' => clienttranslate('Move x${n}'),
       'args' => [
         'n' => $this->getN()
       ]

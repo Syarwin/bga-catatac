@@ -465,7 +465,7 @@ define([
           }
 
           if (args.card_name) {
-            args.card_name = `<span class='log-catatac-card-name'>${args.card_name}</span>`;
+            args.card_name = `<span class='log-catatac-card-name'>${this.translate(args.card_name)}</span>`;
           }
         }
       } catch (e) {

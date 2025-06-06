@@ -9,6 +9,7 @@ use Bga\Games\Catatac\Helpers\Collection;
 use Bga\Games\Catatac\Managers\Actions;
 use Bga\Games\Catatac\Helpers\Utils;
 use Bga\Games\Catatac\Managers\Cards;
+use Bga\Games\Catatac\Managers\Meeples;
 use Bga\Games\Catatac\Managers\Tiles;
 
 /*
@@ -64,18 +65,23 @@ class Player extends \Bga\Games\Catatac\Helpers\DB_Model
     return Actions::isDoable($action, $ctx, $this);
   }
 
-  public function getHand()
+  public function getHand(): Collection
   {
     return Cards::getInLocation("hand-$this->id")->orderBy('state', 'ASC');
   }
 
-  public function getHideoutLocation()
+  public function getHideoutLocation(): int
   {
     return $this->team == 0 ? BLACK_HIDEOUT : WHITE_HIDEOUT;
   }
 
-  public function getStreetLocation()
+  public function getStreetLocation(): int
   {
     return $this->team == 0 ? BLACK_STREET : WHITE_STREET;
+  }
+
+  public function isOwningTheBall(): bool
+  {
+    return Meeples::getBall()->isOwned($this);
   }
 }
