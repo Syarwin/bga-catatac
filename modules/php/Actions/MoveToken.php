@@ -43,8 +43,9 @@ class MoveToken extends \Bga\Games\Catatac\Models\Action
 
   public function isDoable(Player $player): bool
   {
+    $ball = Meeples::getBall();
     $newLocation = $this->getNewLocation($player);
-    return in_array($newLocation, [WHITE_STREET, NEUTRAL_STREET, BLACK_STREET]);
+    return in_array($ball->getLocation(), STREETS) && in_array($newLocation, STREETS);
   }
 
   public function stMoveToken()

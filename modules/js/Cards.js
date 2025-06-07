@@ -87,7 +87,7 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
 
     tplFakeCard(card) {
       let uid = 'card-' + card.id;
-      return `<div id="${uid}" class='catatac-card fake-card'>
+      return `<div id="${uid}" class='catatac-card fake-card ${card.points ? 'points' : ''}'>
       <div class='catatac-card-wrapper'></div>
     </div>`;
     },
@@ -183,6 +183,26 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
 
       this._playerCounters[args.player_id][counter].incValue(nCards);
       $('catatac-deck').dataset.n = +$('catatac-deck').dataset.n - nCards;
+    },
+
+    async notif_storage(args) {
+      debug('Notif: storage success', args);
+
+      let container = $(args.team == 0 ? 'black-points' : 'white-points');
+
+      if (this.isFastMode()) {
+        container.dataset.n = (+container.dataset.n || 0) + 1;
+        return;
+      }
+
+      this.addCard({ id: 0, fake: true, points: true }, $('catatac-points-deck'));
+      await this.slide(`card-${0}`, container, {
+        duration: 1000,
+        destroy: true,
+        phantom: false,
+      });
+
+      container.dataset.n = (+container.dataset.n || 0) + 1;
     },
   });
 });

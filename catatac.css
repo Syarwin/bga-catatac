@@ -450,6 +450,8 @@
     background-position-y: 100%; }
   .catatac-card.fake-card .catatac-card-wrapper {
     background-position: 14.2857142857% 80%; }
+  .catatac-card.fake-card.points .catatac-card-wrapper {
+    background-position: 28.5714285714% 100%; }
 
 .icon-container {
   display: inline-block;
@@ -757,7 +759,7 @@
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.6s;
-    transform: rotateY(0deg); }
+    transform: translateY(0) rotateY(0deg); }
     .catatac-meeple[data-type="token"] .catatac-meeple-inner .catatac-meeple-front,
     .catatac-meeple[data-type="token"] .catatac-meeple-inner .catatac-meeple-back {
       position: absolute;
@@ -778,7 +780,7 @@
       background-position: 100% 0%;
       transform: rotateY(180deg); }
   .catatac-meeple[data-type="token"][data-state="1"] .catatac-meeple-inner {
-    transform: rotateY(180deg); }
+    transform: translateY(0) rotateY(180deg); }
 
 #catatac-main-container {
   position: relative;
@@ -840,6 +842,44 @@
         left: 1058px; }
       #catatac-main-container #catatac-board .board-slot#black-points {
         left: 1259px; }
+      #catatac-main-container #catatac-board .board-slot#white-points[data-n]::before, #catatac-main-container #catatac-board .board-slot#black-points[data-n]::before {
+        content: attr(data-n);
+        position: absolute;
+        z-index: 2;
+        left: 50%;
+        top: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        border: 1px solid black;
+        box-shadow: 1px 1px 1px black;
+        translate: -50% -50%;
+        background: #e6e6e6;
+        font-weight: bold;
+        font-size: 20px; }
+      #catatac-main-container #catatac-board .board-slot#white-points[data-n]::after, #catatac-main-container #catatac-board .board-slot#black-points[data-n]::after {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: 6px;
+        left: 7px;
+        right: 7px;
+        bottom: 6px;
+        background-image: url("img/base-game.jpg");
+        background-size: 800% 600%;
+        background-position: 28.5714285714% 100%;
+        box-shadow: 1px 1px 3px black;
+        filter: grayscale(80%);
+        -webkit-transform: translateZ(0);
+        -webkit-perspective: 1000;
+        -webkit-backface-visibility: hidden; }
+      #catatac-main-container #catatac-board .board-slot#black-points[data-n]::after {
+        left: 4px;
+        right: 10px; }
     #catatac-main-container #catatac-board #catatac-board-background {
       position: absolute;
       top: 0;

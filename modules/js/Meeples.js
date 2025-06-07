@@ -85,5 +85,17 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
       $('meeple-1').dataset.state = args.side;
       await this.wait(800);
     },
+
+    async notif_postStorageFlip(args) {
+      debug('Notif: postStorageFlip', args);
+      let inner = $('meeple-1').querySelector('.catatac-meeple-inner');
+      inner.style.transform = 'translateY(-150%) rotateY(1000deg)';
+      await this.wait(600);
+      inner.style.transform = null;
+      $('meeple-1').dataset.state = args.ball.state;
+      await this.wait(600);
+
+      await this.slide('meeple-1', $(ballLocationMap[args.ball.location]));
+    },
   });
 });

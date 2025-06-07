@@ -60,6 +60,11 @@ $machinestates = [
     'action' => 'stNewRound',
   ],
 
+  ST_PRE_START_TURN => [
+    'name' => 'startTurn',
+    'type' => 'game',
+    'action' => 'stPreStartTurn',
+  ],
 
   ST_START_TURN => [
     'name' => 'startTurn',

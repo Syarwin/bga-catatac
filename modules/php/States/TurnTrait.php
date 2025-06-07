@@ -12,17 +12,59 @@ use Bga\Games\Catatac\Core\Stats;
 use Bga\Games\Catatac\Core\Engine;
 use Bga\Games\Catatac\Core\Globals;
 use Bga\Games\Catatac\Core\Notifications;
+use Bga\Games\Catatac\Managers\Meeples;
 
 trait TurnTrait
 {
-  /**
-   * Custom turn order for player's individual turns
-   */
+  function stPreStartTurn()
+  {
+    $player = Players::getActive();
+    $ball = Meeples::getBall();
+    if (!in_array($ball->getLocation(), [WHITE_HIDEOUT, BLACK_HIDEOUT])) {
+      $this->gamestate->jumpToState(ST_START_TURN);
+      return;
+    }
+
+    // Do we have any playable counter card?
+    $counterCards = $player->getHand()->filter(fn($card) => $card->canCounterStorage());
+    if ($counterCards->count() > 0) {
+      $this->gamestate->jumpToState(ST_START_TURN);
+      return;
+    }
+
+    // Does any other team member has a counter coop card?
+    $prevented = false;
+    foreach ($player->getTeamMembers() as $player2) {
+      $counterCards = $player2->getHand()->filter(fn($card) => $card->canCounterStorage() && $card->canBePlayedCoop());
+      if (!$counterCards->empty()) {
+        $card = $counterCards->first();
+        $prevented = true;
+        break;
+      }
+    }
+
+    // Prevented by another player? Move to next player.
+    if ($prevented) {
+      die("test");
+      return;
+    }
+
+    $this->stStorageAttemptSuccess();
+  }
+
   function stStartTurn()
   {
     $player = Players::getActive();
     $skipped = Globals::getSkippedPlayers();
     if (in_array($player->getId(), $skipped)) {
+      $this->nextPlayerCustomOrder('turn');
+      return;
+    }
+
+    // No cards in hand? => skip the player
+    if ($player->getHand()->empty()) {
+      $skipped[] = $player->getId();
+      Globals::setSkipped($skipped);
       $this->nextPlayerCustomOrder('turn');
       return;
     }
@@ -62,38 +104,26 @@ trait TurnTrait
   }
 
 
-  /**
-   * End of a round: reorder, income phase and check if end of era is needed or not
-   */
-  public function stEndOfRound()
+  public function stStorageAttemptSuccess()
   {
-    // Reorder based on spend
-    $moneySpent = [];
-    foreach (Players::getTurnOrder() as $pId) {
-      $m = Players::get($pId)->getMoneySpent();
-      $moneySpent[$m][] = $pId;
-    }
-    ksort($moneySpent);
-    $newTurnOrder = [];
-    foreach ($moneySpent as $m => $pIds) {
-      foreach ($pIds as $pId) {
-        $newTurnOrder[] = $pId;
-      }
-    }
-    foreach (Players::getAll() as $player) {
-      $player->setMoneySpent(0);
-    }
-    Globals::setTurnOrder($newTurnOrder);
-    Notifications::newTurnOrder($newTurnOrder);
+    $player = Players::getActive();
+    $ball = Meeples::getBall();
+    $winnerTeam = $ball->getLocation() == WHITE_HIDEOUT ? WHITE_SIDE : BLACK_SIDE;
 
-    // Income, unless game is over
-    if (Globals::isLastRound()) {
-      $this->stEndOfEra();
-      return;
+    // Draw one point cards
+    Cards::draw(1, 'deck-points', "points-$winnerTeam");
+    Notifications::storage($winnerTeam);
+
+    // TODO: TEST EOG
+    if (Cards::countInLocation('deck-points') == 0) {
+      die("test");
     }
 
-    $isLastRoundOfEra = Globals::getRound() == Globals::getMaxRounds();
-    Notifications::startingIncomePhase();
-    $this->initCustomDefaultTurnOrder('income', ST_INCOME_PHASE, $isLastRoundOfEra ? 'stEndOfEra' : 'stNewRound');
+    // Flip the ball and place it in the center
+    $ball->setState(bga_rand(0, 1));
+    $ball->setLocation(NEUTRAL_STREET);
+    Notifications::postStorageFlip($ball);
+
+    $this->gamestate->jumpToState(ST_START_TURN);
   }
 }

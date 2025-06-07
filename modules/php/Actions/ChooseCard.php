@@ -4,6 +4,7 @@ namespace Bga\Games\Catatac\Actions;
 
 use Bga\Games\Catatac\Core\Notifications;
 use Bga\Games\Catatac\Managers\Cards;
+use Bga\Games\Catatac\Managers\Meeples;
 use Bga\Games\Catatac\Managers\Players;
 
 class ChooseCard extends \Bga\Games\Catatac\Models\Action
@@ -16,10 +17,17 @@ class ChooseCard extends \Bga\Games\Catatac\Models\Action
   public function argsChooseCard()
   {
     $player = Players::getActive();
+    $cards = $player->getHand();
+
+    $ball = Meeples::getBall();
+    if (in_array($ball->getLocation(), [WHITE_HIDEOUT, BLACK_HIDEOUT])) {
+      $cards = $cards->filter(fn($card) => $card->canCounterStorage());
+    }
+
     return [
       '_private' => [
         'active' => [
-          'cardIds' => $player->getHand()->getIds()
+          'cardIds' => $cards->getIds()
         ]
       ]
     ];
@@ -50,7 +58,14 @@ class ChooseCard extends \Bga\Games\Catatac\Models\Action
 
     // Any action bloc?
     if (!empty($card->getActionBloc())) {
-      $this->pushParallelChild(['action' => ACTIVATE_CARD, 'optional' => true, 'args' => ['cardId' => $cardId]]);
+      $ball = Meeples::getBall();
+      $optional = !in_array($ball->getLocation(), [WHITE_HIDEOUT, BLACK_HIDEOUT]);
+
+      $this->pushParallelChild([
+        'action' => ACTIVATE_CARD,
+        'optional' => $optional,
+        'args' => ['cardId' => $cardId]
+      ]);
     }
 
     Notifications::playCard($player, $card, $n, $isPair);

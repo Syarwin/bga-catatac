@@ -16,4 +16,9 @@ class Stop extends PawnCard
   {
     return $player->isOwningTheBall();
   }
+
+  public function canCounterStorage(): bool
+  {
+    return true;
+  }
 }

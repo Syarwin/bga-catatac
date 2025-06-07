@@ -10,6 +10,7 @@ use Bga\Games\Catatac\Managers\Actions;
 use Bga\Games\Catatac\Helpers\Utils;
 use Bga\Games\Catatac\Managers\Cards;
 use Bga\Games\Catatac\Managers\Meeples;
+use Bga\Games\Catatac\Managers\Players;
 use Bga\Games\Catatac\Managers\Tiles;
 
 /*
@@ -83,5 +84,10 @@ class Player extends \Bga\Games\Catatac\Helpers\DB_Model
   public function isOwningTheBall(): bool
   {
     return Meeples::getBall()->isOwned($this);
+  }
+
+  public function getTeamMembers(): Collection
+  {
+    return Players::getAll()->filter(fn($player) => $player->getTeam() == $this->getTeam());
   }
 }

@@ -42,6 +42,8 @@ define([
         'pDrawCards',
         'moveBall',
         'stealBall',
+        'storage',
+        'postStorageFlip',
       ];
     },
 

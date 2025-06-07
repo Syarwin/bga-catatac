@@ -70,6 +70,9 @@
     &.fake-card .catatac-card-wrapper {
         background-position: 1 * 100%/7 4 * 100%/5;
     }
+    &.fake-card.points .catatac-card-wrapper {
+        background-position: 2 * 100%/7 5 * 100%/5;
+    }
 }
 
 // #player-cards:not(:empty) {

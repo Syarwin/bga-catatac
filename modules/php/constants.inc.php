@@ -31,7 +31,8 @@ const ST_SETUP_BRANCH = 2;
 const ST_SETUP_DEBUG = 3;
 
 const ST_NEW_ROUND = 10;
-const ST_START_TURN = 11;
+const ST_PRE_START_TURN = 11;
+const ST_START_TURN = 13;
 const ST_END_TURN = 12;
 
 // Atomic actions
@@ -74,6 +75,7 @@ const PAIR_BONUS = 'PairBonus';
 const STEAL_TOKEN = 'StealToken';
 const MOVE_TOKEN = 'MoveToken';
 const STORAGE_ATTEMPT = 'StorageAttempt';
+const COUNTER_STORAGE = 'CounterStorage';
 
 /*
  * MISC
@@ -102,6 +104,8 @@ const WHITE_STREET = 1;
 const NEUTRAL_STREET = 2;
 const BLACK_STREET = 3;
 const BLACK_HIDEOUT = 4;
+
+const STREETS = [WHITE_STREET, NEUTRAL_STREET, BLACK_STREET];
 
 /******************
  ****** STATS ******

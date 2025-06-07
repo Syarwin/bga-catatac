@@ -51,4 +51,14 @@ class PawnCard extends Card
   {
     return false;
   }
+
+  public function canCounterStorage(): bool
+  {
+    return false;
+  }
+
+  public function canBePlayedCoop(): bool
+  {
+    return false;
+  }
 }

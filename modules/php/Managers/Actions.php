@@ -20,6 +20,7 @@ class Actions
     MOVE_TOKEN => 'MoveToken',
     STORAGE_ATTEMPT => 'StorageAttempt',
     ACTIVATE_CARD => 'ActivateCard',
+    COUNTER_STORAGE => 'CounterStorage',
   ];
 
   public static function get($actionId, &$ctx = null)

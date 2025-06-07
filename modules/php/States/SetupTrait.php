@@ -44,7 +44,7 @@ trait SetupTrait
     if ($debug) {
       $this->gamestate->jumpToState(ST_SETUP_DEBUG);
     } else {
-      $this->initCustomDefaultTurnOrder('turn', ST_START_TURN, '', true);
+      $this->initCustomDefaultTurnOrder('turn', ST_PRE_START_TURN, '', true);
     }
   }
 }

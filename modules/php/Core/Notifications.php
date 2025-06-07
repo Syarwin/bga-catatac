@@ -78,6 +78,15 @@ class Notifications
     ]);
   }
 
+  public static function counterStorage($player, $ball)
+  {
+    $newLocation = $ball->getLocation();
+    self::notifyAll('moveBall', clienttranslate('${teamIcon}${player_name} counters the storage attempt!'), [
+      'player' => $player,
+      'location' => $newLocation,
+    ]);
+  }
+
   public static function stealBall(Player $player, Meeple $ball)
   {
     self::notifyAll('stealBall', clienttranslate('${teamIcon}${player_name} steals the ball'), [
@@ -86,6 +95,22 @@ class Notifications
     ]);
   }
 
+  public static function storage(int $winnerTeam)
+  {
+    $msg = $winnerTeam == WHITE_SIDE ? clienttranslate('Black team can\'t counter the storage, white team <CAT-WHITE> gains a points card!') :
+      clienttranslate('White team can\'t counter the storage, black team <CAT-BLACK> gains a points card!');
+
+    self::notifyAll('storage', $msg, [
+      'team' => $winnerTeam
+    ]);
+  }
+
+  public static function postStorageFlip(Meeple $ball)
+  {
+    self::notifyAll('postStorageFlip', clienttranslate('Flipping and returning the ball to the center'), [
+      'ball' => $ball,
+    ]);
+  }
 
   ////////////////////////////////////////////
   //   ____                      _      

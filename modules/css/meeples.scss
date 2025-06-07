@@ -20,7 +20,7 @@
         position: relative;
         transform-style: preserve-3d;
         transition: transform 0.6s;
-        transform: rotateY(0deg);
+        transform: translateY(0) rotateY(0deg);
 
         .catatac-meeple-front,
         .catatac-meeple-back {
@@ -46,6 +46,6 @@
     }
 
     &[data-state="1"] .catatac-meeple-inner {
-        transform: rotateY(180deg);
+        transform: translateY(0) rotateY(180deg);
     }
 }
