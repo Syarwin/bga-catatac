@@ -57,6 +57,13 @@ trait TurnTrait
     $player = Players::getActive();
     $skipped = Globals::getSkippedPlayers();
     if (in_array($player->getId(), $skipped)) {
+      // Any other player left ??
+      if (count($skipped) >= Players::count()) {
+        Notifications::message(clienttranslate("No more card in hand: end of game is triggered!"));
+        $this->gamestate->jumpToState(ST_PRE_END_OF_GAME);
+        return;
+      }
+
       $this->nextPlayerCustomOrder('turn');
       return;
     }
@@ -114,9 +121,10 @@ trait TurnTrait
     Cards::draw(1, 'deck-points', "points-$winnerTeam");
     Notifications::storage($winnerTeam);
 
-    // TODO: TEST EOG
     if (Cards::countInLocation('deck-points') == 0) {
-      die("test");
+      Notifications::message(clienttranslate("No more point card left in the deck: end of game is triggered!"));
+      $this->gamestate->jumpToState(ST_PRE_END_OF_GAME);
+      return;
     }
 
     // Flip the ball and place it in the center

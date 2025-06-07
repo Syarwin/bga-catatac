@@ -421,25 +421,25 @@
   .catatac-card[data-type="Back"] .catatac-card-wrapper {
     background-position-x: 14.2857142857%;
     background-position-y: 80%; }
-  .catatac-card[data-type="Points-0-Green"] .catatac-card-wrapper {
+  .catatac-card[data-type="Points-Green-0"] .catatac-card-wrapper {
     background-position-x: 28.5714285714%;
     background-position-y: 80%; }
-  .catatac-card[data-type="Points-1-Blue"] .catatac-card-wrapper {
+  .catatac-card[data-type="Points-Blue-1"] .catatac-card-wrapper {
     background-position-x: 42.8571428571%;
     background-position-y: 80%; }
-  .catatac-card[data-type="Points-1-Grey"] .catatac-card-wrapper {
+  .catatac-card[data-type="Points-Grey-1"] .catatac-card-wrapper {
     background-position-x: 57.1428571429%;
     background-position-y: 80%; }
-  .catatac-card[data-type="Points-1-Yellow"] .catatac-card-wrapper {
+  .catatac-card[data-type="Points-Yellow-1"] .catatac-card-wrapper {
     background-position-x: 71.4285714286%;
     background-position-y: 80%; }
-  .catatac-card[data-type="Points-1-Red"] .catatac-card-wrapper {
+  .catatac-card[data-type="Points-Red-1"] .catatac-card-wrapper {
     background-position-x: 85.7142857143%;
     background-position-y: 80%; }
   .catatac-card[data-type="Points-Black"] .catatac-card-wrapper {
     background-position-x: 100%;
     background-position-y: 80%; }
-  .catatac-card[data-type="Points-2-Multi"] .catatac-card-wrapper {
+  .catatac-card[data-type="Points-Multi-2"] .catatac-card-wrapper {
     background-position-x: 0%;
     background-position-y: 100%; }
   .catatac-card[data-type="Points-White"] .catatac-card-wrapper {
@@ -788,6 +788,60 @@
   flex-flow: column;
   justify-content: center;
   align-items: center; }
+  #catatac-main-container #points-reveal {
+    display: flex;
+    flex-wrap: wrap; }
+    #catatac-main-container #points-reveal #white-points-reveal,
+    #catatac-main-container #points-reveal #black-points-reveal {
+      flex-grow: 1;
+      border-radius: 8px;
+      min-width: 170px;
+      min-height: 230.0961538462px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      position: relative; }
+      #catatac-main-container #points-reveal #white-points-reveal:empty,
+      #catatac-main-container #points-reveal #black-points-reveal:empty {
+        display: none; }
+      #catatac-main-container #points-reveal #white-points-reveal::before,
+      #catatac-main-container #points-reveal #black-points-reveal::before {
+        content: "";
+        position: absolute;
+        z-index: 3;
+        left: 50%;
+        top: -4px;
+        translate: -50% 0%;
+        width: 34px;
+        height: 28px;
+        border-radius: 4px; }
+      #catatac-main-container #points-reveal #white-points-reveal .catatac-card,
+      #catatac-main-container #points-reveal #black-points-reveal .catatac-card {
+        margin: 10px; }
+    #catatac-main-container #points-reveal #white-points-reveal {
+      background: #ffffffb0;
+      border: 1px solid black; }
+      #catatac-main-container #points-reveal #white-points-reveal::before {
+        background: url("img/icons.png") no-repeat;
+        background-position: 50.89722675367048% 27.460576400217505%;
+        background-size: 979.9043062200957%;
+        aspect-ratio: 209 / 209;
+        background-color: #f3f3f3;
+        border: 2px solid #f3f3f3;
+        outline: 1px solid black; }
+    #catatac-main-container #points-reveal #black-points-reveal {
+      background: #363639b0;
+      border: 1px solid white;
+      margin-left: 10px; }
+      #catatac-main-container #points-reveal #black-points-reveal::before {
+        background: url("img/icons.png") no-repeat;
+        background-position: 38.44480696030451% 27.460576400217505%;
+        background-size: 979.9043062200957%;
+        aspect-ratio: 209 / 209;
+        background-color: #d6d6d6;
+        border: 2px solid #d6d6d6;
+        outline: 1px solid grey; }
   #catatac-main-container #catatac-board {
     position: relative;
     width: 1479px;
@@ -915,7 +969,7 @@
     display: flex;
     height: 230.0961538462px;
     width: 1479px;
-    margin-top: 10px; }
+    margin-bottom: 10px; }
     #catatac-main-container #catatac-cards-wrapper #catatac-deck-discard-wrapper {
       width: 490px;
       flex-shrink: 0;

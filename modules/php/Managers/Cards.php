@@ -27,6 +27,11 @@ class Cards extends CachedPieces
         return new $class($row);
       }
     }
+    if ($t[0] == "Points") {
+      array_shift($t);
+      $class = 'Bga\Games\Catatac\Models\PointCards\\' . join("", $t);
+      return new $class($row);
+    }
 
     return new Card($row);
   }
@@ -86,13 +91,13 @@ class Cards extends CachedPieces
   ];
 
   public static $baseGamePointsDeck = [
-    "Points-0-Green",
-    "Points-1-Blue",
-    "Points-1-Grey",
-    "Points-1-Yellow",
-    "Points-1-Red",
+    "Points-Green-0",
+    "Points-Blue-1",
+    "Points-Grey-1",
+    "Points-Yellow-1",
+    "Points-Red-1",
     "Points-Black",
-    "Points-2-Multi",
+    "Points-Multi-2",
     "Points-White"
   ];
 

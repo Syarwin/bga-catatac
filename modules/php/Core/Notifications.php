@@ -97,8 +97,8 @@ class Notifications
 
   public static function storage(int $winnerTeam)
   {
-    $msg = $winnerTeam == WHITE_SIDE ? clienttranslate('Black team can\'t counter the storage, white team <CAT-WHITE> gains a points card!') :
-      clienttranslate('White team can\'t counter the storage, black team <CAT-BLACK> gains a points card!');
+    $msg = $winnerTeam == WHITE_SIDE ? clienttranslate('Black team can\'t counter the storage, white team <cat-white> gains a points card!') :
+      clienttranslate('White team can\'t counter the storage, black team <cat-black> gains a points card!');
 
     self::notifyAll('storage', $msg, [
       'team' => $winnerTeam
@@ -111,6 +111,20 @@ class Notifications
       'ball' => $ball,
     ]);
   }
+
+  public static function revealPoints(Collection $cards, int $score, int $team)
+  {
+    $msg = $team == WHITE_SIDE ? clienttranslate('<cat-white> White team has ${n} point card(s), scoring a total of ${score} points! <cat-white>') :
+      clienttranslate('<cat-black> White team has ${n} point card(s), scoring a total of ${score} points! <cat-black>');
+
+    self::notifyAll('revealPoints', $msg, [
+      'n' => $cards->count(),
+      'cards' => $cards->toArray(),
+      'score' => $score,
+      'team' => $team,
+    ]);
+  }
+
 
   ////////////////////////////////////////////
   //   ____                      _      

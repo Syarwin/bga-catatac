@@ -36,7 +36,7 @@ define([
         'clearTurn',
         'refreshUI',
         'refreshHand',
-        'midMessage',
+        'midmessage',
         'discardCard',
         'drawCards',
         'pDrawCards',
@@ -44,6 +44,7 @@ define([
         'stealBall',
         'storage',
         'postStorageFlip',
+        'revealPoints',
       ];
     },
 
@@ -84,6 +85,14 @@ define([
         'beforeend',
         `
 <div id="catatac-main-container">
+  <div id="catatac-cards-wrapper">
+    <div id="catatac-deck-discard-wrapper">
+      <div class="card-slot" id="catatac-points-deck"></div>
+      <div class="card-slot" id="catatac-deck"></div>
+      <div class="card-slot" id="catatac-discard"></div>
+    </div>
+    <div id="catatac-hand"></div>
+  </div>
   <div id="catatac-board">
     <div id="catatac-board-background">
       <div id="catatac-board-background-inner">
@@ -99,13 +108,10 @@ define([
     <div class="board-slot" id="black-hideout"></div>
     <div class="board-slot" id="black-points"></div>
   </div>
-  <div id="catatac-cards-wrapper">
-    <div id="catatac-deck-discard-wrapper">
-      <div class="card-slot" id="catatac-points-deck"></div>
-      <div class="card-slot" id="catatac-deck"></div>
-      <div class="card-slot" id="catatac-discard"></div>
-    </div>
-    <div id="catatac-hand"></div>
+  <div id="points-reveal">
+    <div id="white-points-reveal"></div>
+    <div id="black-points-reveal"></div>
+  </div>
 </div>
 
 <svg style="display:none" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-question" role="img" xmlns="http://www.w3.org/2000/svg">

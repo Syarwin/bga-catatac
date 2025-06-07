@@ -49,9 +49,9 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
       }
 
       let o = this.place('tplCard', card, container);
-      if (o !== undefined) {
-        this.addCustomTooltip(o.id, JSON.stringify(card));
-      }
+      // if (o !== undefined) {
+      //   this.addCustomTooltip(o.id, JSON.stringify(card));
+      // }
     },
 
     updateHandCards() {
@@ -71,6 +71,9 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
       let t = card.location.split('-');
       if (t[0] == 'hand') {
         return $(`catatac-hand`);
+      }
+      if (t[0] == 'revealed') {
+        return t[1] == 0 ? $('black-points-reveal') : $('white-points-reveal');
       }
       if (card.location == 'discard') {
         return $('catatac-discard');
@@ -206,6 +209,37 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
       });
 
       container.dataset.n = (+container.dataset.n || 0) + 1;
+    },
+
+    async notif_revealPoints(args) {
+      debug('Notif: reveal points', args);
+
+      if (this.isFastMode()) {
+        args.cards.forEach((card) => {
+          this.addCard(card);
+        });
+        return;
+      }
+
+      await Promise.all(
+        args.cards.map((card, i) => {
+          return this.wait(100 * i).then(() => {
+            this.addCard(card);
+
+            let container = this.getCardContainer(card);
+            let source = args.team == 0 ? $('black-points') : $('white-points');
+
+            return this.slide(`card-${card.id}`, container, {
+              from: source,
+              duration: 1000,
+            });
+          });
+        })
+      );
+
+      this.orderedPlayers.forEach((player) => {
+        if (player.team == args.team) this.scoreCtrl[player.id].setValue(args.score);
+      });
     },
   });
 });
