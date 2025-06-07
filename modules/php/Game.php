@@ -78,6 +78,7 @@ class Game extends \Table
             'cards' => Cards::getUiData(),
             'deckCount' => Cards::getCardsLeft(),
             'pointsDeckCount' => Cards::getPointsCardsLeft(),
+            'ownedPointsCards' => Cards::getOwnPointsCardsCounts(),
             'meeples' => Meeples::getUiData(),
         ];
 

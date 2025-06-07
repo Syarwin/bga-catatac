@@ -70,12 +70,12 @@
                 left: 1058px;
             }
             &#black-points {
-                left: 1259px;
+                left: 1256px;
             }
 
             &#white-points,
             &#black-points {
-                &[data-n]::before {
+                &[data-n]:not([data-n="0"])::before {
                     content: attr(data-n);
                     position: absolute;
                     z-index: 2;
@@ -95,7 +95,7 @@
                     font-size: 20px;
                 }
 
-                &[data-n]::after {
+                &[data-n]:not([data-n="0"])::after {
                     content: "";
                     display: block;
                     position: absolute;
@@ -113,10 +113,6 @@
                     -webkit-perspective: 1000;
                     -webkit-backface-visibility: hidden;
                 }
-            }
-            &#black-points[data-n]::after {
-                left: 4px;
-                right: 10px;
             }
         }
 

@@ -33,6 +33,9 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
 
       $('catatac-deck').dataset.n = this.gamedatas.deckCount;
       $('catatac-points-deck').dataset.n = this.gamedatas.pointsDeckCount;
+
+      $('black-points').dataset.n = this.gamedatas.ownedPointsCards[0];
+      $('white-points').dataset.n = this.gamedatas.ownedPointsCards[1];
     },
 
     addCard(card, container = null) {
