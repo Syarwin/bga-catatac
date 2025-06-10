@@ -7,6 +7,15 @@ use Bga\Games\Catatac\Models\Player;
 
 class Courage extends PawnCard
 {
+  public function __construct($row)
+  {
+    parent::__construct($row);
+    $this->tooltip = [
+      clienttranslate('**Condition:** opponent owns the ball'),
+      clienttranslate('**Effect:** move the ball')
+    ];
+  }
+
   public function getActionBloc(): array
   {
     return [

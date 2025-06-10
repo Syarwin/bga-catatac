@@ -155,6 +155,11 @@ abstract class DB_Model extends \APP_DbObject implements \JsonSerializable
    */
   public function jsonSerialize(): array
   {
+    return $this->getUiData();
+  }
+
+  public function getDynamicData(): array
+  {
     $data = [];
     foreach ($this->attributes as $attribute => $field) {
       $data[$attribute] = $this->$attribute;
@@ -179,7 +184,7 @@ abstract class DB_Model extends \APP_DbObject implements \JsonSerializable
 
   public function getUiData()
   {
-    return array_merge($this->jsonSerialize(), $this->getStaticData());
+    return array_merge($this->getDynamicData(), $this->getStaticData());
   }
 
   /**

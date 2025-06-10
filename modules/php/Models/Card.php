@@ -17,6 +17,12 @@ class Card extends \Bga\Games\Catatac\Helpers\DB_Model
   protected int $state;
   protected string $type;
 
+  protected array $staticAttributes = [
+    ['tooltip', 'obj'],
+    ['name', 'str'],
+  ];
+  protected array $tooltip = [];
+
   public function getNumber(): int
   {
     return -1;

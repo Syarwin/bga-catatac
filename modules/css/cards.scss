@@ -75,155 +75,22 @@
     }
 }
 
-// #player-cards:not(:empty) {
-//     background: white;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     background-color: rgba(199, 202, 112, 0.78);
+.card-tooltip {
+    font-size: 20px;
+    padding: 0px;
+    margin: -2px;
 
-//     .player-board-hand {
-//         display: flex;
-//         max-width: 99vw;
-//         flex-wrap: wrap;
-//         justify-content: flex-start;
+    h2 {
+        text-align: center;
+        background: rgb(219, 245, 255);
+        padding: 8px 12px;
+        margin: 0px;
+        font-size: 24px;
+    }
 
-//         .catatac-card {
-//             margin: 4px;
-//             flex-shrink: 0;
-//             transition: translate 0.4s;
-
-//             &.selectable {
-//                 translate: 0 -10px;
-//             }
-
-//             &.selected {
-//                 margin: 2px;
-//                 translate: 0 -20px;
-//             }
-
-//             &:hover {
-//                 z-index: 4;
-//             }
-//         }
-//     }
-// }
-
-// #floating-hand-wrapper {
-//     position: fixed;
-//     bottom: 0;
-//     left: 0;
-//     transition: transform 0.8s;
-//     z-index: 1000;
-//     --catatacCardScale: 0.4;
-//     &:not(.active) {
-//         display: none;
-//     }
-//     &[data-open] {
-//         transform: translateY(0px);
-//     }
-
-//     transform: translateY(calc(100% - var(--catatacCardScale) * 140px));
-//     box-shadow: 0 0 10px 1px #ff0;
-//     background-color: rgba(199, 202, 112, 0.78);
-//     border-top: 1px solid #7c5d45;
-//     border-right: 1px solid #7c5d45;
-//     border-top-right-radius: 8px;
-
-//     #floating-hand-button-container {
-//         position: absolute;
-//         left: 0;
-//         right: 0;
-//         display: flex;
-//         justify-content: flex-start;
-//         // .mobile_version & {
-//         //     justify-content: flex-start;
-//         // }
-//         z-index: 2;
-//         transition: top 0.8s;
-
-//         #floating-hand-button,
-//         #floating-scoring-hand-button,
-//         #floating-stored-hand-button {
-//             border: 1px solid black;
-//             border-radius: 50%;
-//             box-shadow: 2px 2px 5px black;
-//             background-color: gray;
-//             margin: 0px 5px;
-//             margin-top: -38px;
-//             cursor: pointer;
-//             transform: translateY(0);
-//             transition:
-//                 transform 0.4s,
-//                 margin 0.4s;
-//             &:hover {
-//                 transform: translateY(-10px);
-//             }
-
-//             .icon-hand {
-//                 width: 40px;
-//                 height: 40px;
-//                 margin: 4px;
-//                 display: flex;
-//                 justify-content: center;
-//                 align-items: center;
-//                 font-size: 32px;
-
-//                 i {
-//                     display: none;
-//                 }
-//             }
-//         }
-//     }
-//     &[data-open="hand"] #floating-hand-button-container #floating-hand-button {
-//         margin-top: -58px;
-//         margin-bottom: 20px;
-//         .icon-hand {
-//             background: none;
-
-//             i {
-//                 display: block;
-//             }
-//         }
-
-//         &:hover {
-//             .icon-hand {
-//                 font-size: 34px;
-//             }
-//         }
-//     }
-
-//     #floating-hand {
-//         width: 100%;
-//         height: 100%;
-//         margin-top: calc(-1 * var(--catatacCardScale) * 12px);
-//         padding-top: calc(var(--catatacCardScale) * 12px);
-//         min-width: calc(var(--catatacCardScale) * 375px);
-
-//         .player-board-hand {
-//             display: flex;
-//             max-width: 99vw;
-//             flex-wrap: wrap;
-//             justify-content: flex-start;
-
-//             .catatac-card {
-//                 margin: 4px;
-//                 flex-shrink: 0;
-//                 transition: translate 0.4s;
-
-//                 &.selectable {
-//                     translate: 0 -10px;
-//                 }
-
-//                 &.selected {
-//                     margin: 2px;
-//                     translate: 0 -20px;
-//                 }
-
-//                 &:hover {
-//                     z-index: 4;
-//                 }
-//             }
-//         }
-//     }
-// }
+    .card-desc:not(:empty) {
+        margin-top: 5px;
+        border-top: 1px solid grey;
+        padding: 5px 7px;
+    }
+}

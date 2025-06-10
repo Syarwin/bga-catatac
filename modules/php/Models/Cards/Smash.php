@@ -7,6 +7,15 @@ use Bga\Games\Catatac\Models\Player;
 
 class Smash extends PawnCard
 {
+  public function __construct($row)
+  {
+    parent::__construct($row);
+    $this->tooltip = [
+      clienttranslate('**Condition:** you own the ball'),
+      clienttranslate('**Effect:** make a storage attempt')
+    ];
+  }
+
   public function getActionBloc(): array
   {
     return [

@@ -7,6 +7,15 @@ use Bga\Games\Catatac\Models\Player;
 
 class Capture extends PawnCard
 {
+  public function __construct($row)
+  {
+    parent::__construct($row);
+    $this->tooltip = [
+      clienttranslate('**Condition:** opponent owns the ball'),
+      clienttranslate('**Effect:** steal the ball')
+    ];
+  }
+
   public function getActionBloc(): array
   {
     return [

@@ -7,6 +7,15 @@ use Bga\Games\Catatac\Models\Player;
 
 class Stop extends PawnCard
 {
+  public function __construct($row)
+  {
+    parent::__construct($row);
+    $this->tooltip = [
+      clienttranslate('Condition: opponent owns the ball'),
+      clienttranslate('Effects: counter a storage attempt and randomly flip the ball')
+    ];
+  }
+
   public function getActionBloc(): array
   {
     return [

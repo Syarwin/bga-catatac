@@ -453,6 +453,21 @@
   .catatac-card.fake-card.points .catatac-card-wrapper {
     background-position: 28.5714285714% 100%; }
 
+.card-tooltip {
+  font-size: 20px;
+  padding: 0px;
+  margin: -2px; }
+  .card-tooltip h2 {
+    text-align: center;
+    background: #dbf5ff;
+    padding: 8px 12px;
+    margin: 0px;
+    font-size: 24px; }
+  .card-tooltip .card-desc:not(:empty) {
+    margin-top: 5px;
+    border-top: 1px solid grey;
+    padding: 5px 7px; }
+
 .icon-container {
   display: inline-block;
   vertical-align: middle;

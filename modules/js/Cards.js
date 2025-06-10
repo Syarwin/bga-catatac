@@ -49,9 +49,13 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
       }
 
       let o = this.place('tplCard', card, container);
-      // if (o !== undefined) {
-      //   this.addCustomTooltip(o.id, JSON.stringify(card));
-      // }
+      if (o !== undefined) {
+        let tooltip = `<div class='card-tooltip'>
+          <h2>${this.translate(card.name)}</h2> 
+          <div class='card-desc'>${card.tooltip.map((t) => this.formatString(_(t))).join('<br />')}</div>
+        </div>`;
+        this.addCustomTooltip(o.id, tooltip);
+      }
     },
 
     updateHandCards() {

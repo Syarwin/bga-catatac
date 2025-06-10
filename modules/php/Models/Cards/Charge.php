@@ -7,6 +7,15 @@ use Bga\Games\Catatac\Models\Player;
 
 class Charge extends PawnCard
 {
+  public function __construct($row)
+  {
+    parent::__construct($row);
+    $this->tooltip = [
+      clienttranslate('**Condition:** you own the ball'),
+      clienttranslate('**Effect:** move the ball')
+    ];
+  }
+
   public function getActionBloc(): array
   {
     return [
