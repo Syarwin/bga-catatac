@@ -31,13 +31,20 @@ class PairBonus extends \Bga\Games\Catatac\Models\Action
 
   public function actPairBonus()
   {
-    $this->insertAsChild([
-      'type' => NODE_XOR,
-      'childs' => [
-        ['action' => STEAL_TOKEN],
-        ['action' => MOVE_TOKEN, 'args' => ['mustOwn' => true]],
-        ['action' => STORAGE_ATTEMPT],
-      ],
-    ]);
+    $actions = [
+      ['action' => STEAL_TOKEN],
+      ['action' => MOVE_TOKEN, 'args' => ['mustOwn' => true]],
+      ['action' => STORAGE_ATTEMPT],
+    ];
+
+    $player = Players::getActive();
+    foreach ($actions as $action) {
+      if ($player->canTakeAction($action['action'], $action)) {
+        $this->insertAsChild($action);
+        return;
+      }
+    }
+
+    die("SHOULDNT HAPPEN: NO POSSIBLE PAIR BONUS");
   }
 }

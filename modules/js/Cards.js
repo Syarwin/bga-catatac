@@ -199,6 +199,7 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
       debug('Notif: storage success', args);
 
       let container = $(args.team == 0 ? 'black-points' : 'white-points');
+      $('catatac-points-deck').dataset.n = +$('catatac-points-deck').dataset.n - 1;
 
       if (this.isFastMode()) {
         container.dataset.n = (+container.dataset.n || 0) + 1;
