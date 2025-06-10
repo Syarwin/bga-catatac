@@ -92,7 +92,6 @@ define([
       <div class="card-slot" id="catatac-deck"></div>
       <div class="card-slot" id="catatac-discard"></div>
     </div>
-    <div id="catatac-hand"></div>
   </div>
   <div id="catatac-board">
     <div id="catatac-board-background">
@@ -113,6 +112,7 @@ define([
     <div id="white-points-reveal"></div>
     <div id="black-points-reveal"></div>
   </div>
+  <div id="catatac-hand"></div>
 </div>
 
 <svg style="display:none" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-question" role="img" xmlns="http://www.w3.org/2000/svg">

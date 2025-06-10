@@ -228,6 +228,7 @@
         height: $cardH + 2 * $cardMargin;
         width: 1479px;
         margin-bottom: 10px;
+        justify-content: center;
 
         #catatac-deck-discard-wrapper {
             width: 3 * $cardW + 4 * $cardMargin;
@@ -303,17 +304,22 @@
                 }
             }
         }
+    }
+    #catatac-hand {
+        width: 1479px;
+        margin-top: 10px;
+        // flex-grow: 1;
+        // margin-left: 10px;
+        display: flex;
+        background: #ffffffad;
+        border: 1px solid black;
+        box-shadow: 1px 1px 3px black;
+        border-radius: 8px;
+        justify-content: center;
+        align-items: center;
 
-        #catatac-hand {
-            flex-grow: 1;
-            margin-left: 10px;
-            display: flex;
-            background: #ffffffad;
-            border: 1px solid black;
-            box-shadow: 1px 1px 3px black;
-            border-radius: 8px;
-            justify-content: space-evenly;
-            align-items: center;
+        .catatac-card {
+            margin: $cardMargin;
         }
     }
 }

@@ -969,7 +969,8 @@
     display: flex;
     height: 230.0961538462px;
     width: 1479px;
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    justify-content: center; }
     #catatac-main-container #catatac-cards-wrapper #catatac-deck-discard-wrapper {
       width: 490px;
       flex-shrink: 0;
@@ -1029,16 +1030,18 @@
           position: absolute;
           top: 1px;
           left: 1px; }
-    #catatac-main-container #catatac-cards-wrapper #catatac-hand {
-      flex-grow: 1;
-      margin-left: 10px;
-      display: flex;
-      background: #ffffffad;
-      border: 1px solid black;
-      box-shadow: 1px 1px 3px black;
-      border-radius: 8px;
-      justify-content: space-evenly;
-      align-items: center; }
+  #catatac-main-container #catatac-hand {
+    width: 1479px;
+    margin-top: 10px;
+    display: flex;
+    background: #ffffffad;
+    border: 1px solid black;
+    box-shadow: 1px 1px 3px black;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center; }
+    #catatac-main-container #catatac-hand .catatac-card {
+      margin: 10px; }
 
 .player-board .player-info {
   display: flex;

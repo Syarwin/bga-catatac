@@ -50,6 +50,9 @@ class ActivateCard extends \Bga\Games\Catatac\Models\Action
 
   public function isDoable(Player $player): bool
   {
+    $card = $this->getCard();
+    if (!$card->canUseActionBloc($player)) return false;
+
     $flowTree = $this->getFlowTree($player);
     return is_null($flowTree) ? false : $flowTree->isDoable($player);
   }
