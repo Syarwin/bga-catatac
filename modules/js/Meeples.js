@@ -86,15 +86,19 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
       await this.wait(800);
     },
 
-    async notif_postStorageFlip(args) {
-      debug('Notif: postStorageFlip', args);
+    async notif_tossBall(args) {
+      debug('Notif: toss the ball', args);
       let inner = $('meeple-1').querySelector('.catatac-meeple-inner');
       inner.style.transform = 'translateY(-150%) rotateY(1000deg)';
       await this.wait(600);
       inner.style.transform = null;
       $('meeple-1').dataset.state = args.ball.state;
       await this.wait(600);
+    },
 
+    async notif_postStorageFlip(args) {
+      debug('Notif: postStorageFlip', args);
+      await this.notif_tossBall(args);
       await this.slide('meeple-1', $(ballLocationMap[args.ball.location]));
     },
   });

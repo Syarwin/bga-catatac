@@ -9,7 +9,16 @@ class Stop extends PawnCard
 {
   public function getActionBloc(): array
   {
-    return [];
+    return [
+      'childs' => [
+        [
+          'action' => COUNTER_STORAGE,
+        ],
+        [
+          'action' => TOSS_TOKEN
+        ]
+      ]
+    ];
   }
 
   public function canUseActionBloc(Player $player): bool

@@ -73,6 +73,7 @@ const CHOOSE_CARD = 'ChooseCard';
 const ACTIVATE_CARD = 'ActivateCard';
 const PAIR_BONUS = 'PairBonus';
 const STEAL_TOKEN = 'StealToken';
+const TOSS_TOKEN = 'TossToken';
 const MOVE_TOKEN = 'MoveToken';
 const STORAGE_ATTEMPT = 'StorageAttempt';
 const COUNTER_STORAGE = 'CounterStorage';

@@ -95,6 +95,14 @@ class Notifications
     ]);
   }
 
+  public static function tossBall(Player $player, Meeple $ball)
+  {
+    self::notifyAll('tossBall', clienttranslate('${teamIcon}${player_name} tosses the ball'), [
+      'player' => $player,
+      'ball' => $ball,
+    ]);
+  }
+
   public static function storage(int $winnerTeam)
   {
     $msg = $winnerTeam == WHITE_SIDE ? clienttranslate('Black team can\'t counter the storage, white team <cat-white> gains a points card!') :
