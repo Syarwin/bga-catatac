@@ -21,6 +21,7 @@ class Actions
     STORAGE_ATTEMPT => 'StorageAttempt',
     ACTIVATE_CARD => 'ActivateCard',
     COUNTER_STORAGE => 'CounterStorage',
+    TOSS_TOKEN => 'TossToken',
   ];
 
   public static function get($actionId, &$ctx = null)

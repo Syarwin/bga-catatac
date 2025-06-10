@@ -35,7 +35,7 @@ class PairBonus extends \Bga\Games\Catatac\Models\Action
       'type' => NODE_XOR,
       'childs' => [
         ['action' => STEAL_TOKEN],
-        ['action' => MOVE_TOKEN],
+        ['action' => MOVE_TOKEN, 'args' => ['mustOwn' => true]],
         ['action' => STORAGE_ATTEMPT],
       ],
     ]);
