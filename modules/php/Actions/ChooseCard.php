@@ -53,7 +53,7 @@ class ChooseCard extends \Bga\Games\Catatac\Models\Action
     Cards::insertOnTop($cardId, 'discard');
 
     if ($isPair) {
-      $this->pushParallelChild(['action' => PAIR_BONUS, 'optional' => true]);
+      $this->pushParallelChild(['action' => PAIR_BONUS]);
     }
 
     // Any action bloc?
