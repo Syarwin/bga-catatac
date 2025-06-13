@@ -38,13 +38,16 @@ class PairBonus extends \Bga\Games\Catatac\Models\Action
     ];
 
     $player = Players::getActive();
+    $childs = [];
     foreach ($actions as $action) {
       if ($player->canTakeAction($action['action'], $action)) {
-        $this->insertAsChild($action);
-        return;
+        $childs[] = $action;
       }
     }
 
-    die("SHOULDNT HAPPEN: NO POSSIBLE PAIR BONUS");
+    $this->insertAsChild([
+      'type' => NODE_XOR,
+      'childs' => $childs,
+    ]);
   }
 }

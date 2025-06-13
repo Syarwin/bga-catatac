@@ -38,6 +38,7 @@ define([
         'refreshHand',
         'midmessage',
         'discardCard',
+        'discardCardTeammate',
         'drawCards',
         'pDrawCards',
         'moveBall',

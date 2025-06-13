@@ -150,6 +150,11 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
       await this.discardCard(args.card, args.player_id);
     },
 
+    async notif_discardCardTeammate(args) {
+      debug('Notif: discarding card from a teammate', args);
+      await this.discardCard(args.card, args.player_id2);
+    },
+
     /**
      * Private notification for the player drawing the card :
      *  create the cards and slide them in hand

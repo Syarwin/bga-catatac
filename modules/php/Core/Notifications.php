@@ -26,6 +26,19 @@ class Notifications
     ]);
   }
 
+  public static function playCardSave(Player $player, Player $player2, Card $card, int $n, bool $isPair)
+  {
+    $msg = $isPair ?
+      clienttranslate('${teamIcon}${player_name} plays a ${card_name} from ${player_name2}\'s hand, making a pair!') :
+      clienttranslate('${teamIcon}${player_name} plays a ${card_name} from ${player_name2}\'s hand');
+
+    self::notifyAll('discardCardTeammate', $msg, [
+      'player' => $player,
+      'player2' => $player2,
+      'card' => $card,
+    ]);
+  }
+
   public static function replenishCards(Player $player, Collection $cards)
   {
     self::drawCards($player, $cards);

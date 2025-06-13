@@ -34,9 +34,11 @@ trait TurnTrait
 
     // Does any other team member has a counter coop card?
     $prevented = false;
+    $helper = null;
     foreach ($player->getTeamMembers() as $player2) {
       $counterCards = $player2->getHand()->filter(fn($card) => $card->canCounterStorage() && $card->canBePlayedCoop());
       if (!$counterCards->empty()) {
+        $helper = $player2;
         $card = $counterCards->first();
         $prevented = true;
         break;
@@ -45,7 +47,32 @@ trait TurnTrait
 
     // Prevented by another player? Move to next player.
     if ($prevented) {
-      die("test");
+      $flow = [
+        'type' => NODE_PARALLEL,
+        'childs' => [
+          [
+            'action' => ACTIVATE_CARD,
+            'optional' => false,
+            'args' => ['cardId' => $card->getId()]
+          ]
+        ]
+      ];
+
+      // Are we doing a pair?
+      $n = $card->getNumber();
+      $previousCard = Cards::getTopDiscardCard();
+      $oldN = $previousCard->getNumber();
+      $isPair = $n == 0 || ($n == $oldN);
+      if ($isPair) {
+        $flow['childs'][] = ['action' => PAIR_BONUS];
+      }
+
+      // Move card
+      Cards::insertOnTop($card->getId(), 'discard');
+      Notifications::playCardSave($player, $helper, $card, $n, $isPair);
+
+      Engine::setup($flow, ['method' => 'stEndOfTurn']);
+      Engine::proceed();
       return;
     }
 
