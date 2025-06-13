@@ -24,10 +24,16 @@ class ChooseCard extends \Bga\Games\Catatac\Models\Action
       $cards = $cards->filter(fn($card) => $card->canCounterStorage());
     }
 
+    // Highlight useful cards
+    $previousCard = Cards::getTopDiscardCard();
+    $oldN = $previousCard->getNumber();
+    $usefulCards = $cards->filter(fn($card) => $card->canUseActionBloc($player) || $card->getNumber() == $oldN);
+
     return [
       '_private' => [
         'active' => [
-          'cardIds' => $cards->getIds()
+          'cardIds' => $cards->getIds(),
+          'usefulCardIds' => $usefulCards->getIds(),
         ]
       ]
     ];

@@ -2,6 +2,7 @@
 
 namespace Bga\Games\Catatac\Models\Cards;
 
+use Bga\Games\Catatac\Managers\Meeples;
 use Bga\Games\Catatac\Models\PawnCard;
 use Bga\Games\Catatac\Models\Player;
 
@@ -32,7 +33,7 @@ class Stop extends PawnCard
 
   public function canUseActionBloc(Player $player): bool
   {
-    return !$player->isOwningTheBall();
+    return !$player->isOwningTheBall() && in_array(Meeples::getBall()->getLocation(), [WHITE_HIDEOUT, BLACK_HIDEOUT]);
   }
 
   public function canCounterStorage(): bool

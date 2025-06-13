@@ -167,6 +167,7 @@ define(['dojo', 'dojo/_base/declare', g_gamethemeurl + 'modules/js/vendor/nouisl
         if ($(node)) {
           $(node).classList.remove('selectable');
           $(node).classList.remove('selected');
+          $(node).classList.remove('selectable-useful');
         }
       });
       this._selectableNodes = [];

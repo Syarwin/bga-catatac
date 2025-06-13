@@ -355,6 +355,9 @@
 
         .catatac-card {
             margin: $cardMargin;
+            &.selected {
+                margin: $cardMargin - 2px;
+            }
         }
     }
 }

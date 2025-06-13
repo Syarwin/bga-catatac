@@ -400,6 +400,8 @@ define([
         n: 1,
         callback: (selection) => this.takeAtomicAction('actChooseCard', [selection[0]]),
       });
+
+      args._private.usefulCardIds.forEach((cardId) => elements[cardId].classList.add('selectable-useful'));
     },
 
     ////////////////////////////////////////////////////////////
