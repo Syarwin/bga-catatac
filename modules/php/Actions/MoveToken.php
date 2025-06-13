@@ -12,12 +12,13 @@ class MoveToken extends \Bga\Games\Catatac\Models\Action
 {
   public function getState(): int
   {
-    return ST_GENERIC_AUTOMATIC;
+    return ST_MOVE_TOKEN;
   }
 
   public function isAutomatic(?Player $player = null): bool
   {
-    return true;
+    $player = $player ?? Players::getActive();
+    return count($this->getNewLocations($player)) == 1;
   }
 
   public function getDescription(): string|array
@@ -35,10 +36,30 @@ class MoveToken extends \Bga\Games\Catatac\Models\Action
     return $this->getCtxArg('n') ?? 1;
   }
 
-  public function getNewLocation(Player $player)
+  public function getNewLocations(Player $player)
   {
     $ball = Meeples::getBall();
-    return $ball->getLocation() + ($player->getTeam() == WHITE_SIDE ? -1 : 1) * $this->getN();
+    $currentLocation = $ball->getLocation();
+
+    $forcedDirection = false;
+    $dirs = $forcedDirection ? [$player->getTeam() == WHITE_SIDE ? -1 : 1] : [-1, 1];
+    $locations = [];
+    foreach ($dirs as $dir) {
+      $newLocation = $currentLocation + $dir * $this->getN();
+      if (in_array($newLocation, STREETS)) {
+        $locations[] = $newLocation;
+      }
+    }
+
+    return $locations;
+  }
+
+  public function argsMoveToken()
+  {
+    $player = Players::getActive();
+    return [
+      'locations' => $this->getNewLocations($player)
+    ];
   }
 
   public function isDoable(Player $player): bool
@@ -47,21 +68,23 @@ class MoveToken extends \Bga\Games\Catatac\Models\Action
     if ($mustOwnTheBall && !$player->isOwningTheBall()) return false;
 
     $ball = Meeples::getBall();
-    $newLocation = $this->getNewLocation($player);
-    return in_array($ball->getLocation(), STREETS) && in_array($newLocation, STREETS);
+    return in_array($ball->getLocation(), STREETS) && !empty($this->getNewLocations($player));
   }
 
   public function stMoveToken()
   {
-    return [];
+    $newLocations = $this->getNewLocations(Players::getActive());
+    if (count($newLocations) == 1) {
+      return [$newLocations[0]];
+    }
   }
 
-  public function actMoveToken()
+  public function actMoveToken($newLocation)
   {
     $player = Players::getActive();
     $ball = Meeples::getBall();
     $n = $this->getN();
-    $ball->setLocation($this->getNewLocation($player));
+    $ball->setLocation($newLocation);
     Notifications::moveBall($player, $n, $ball);
   }
 }

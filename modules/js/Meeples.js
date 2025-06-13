@@ -101,5 +101,11 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
       await this.notif_tossBall(args);
       await this.slide('meeple-1', $(ballLocationMap[args.ball.location]));
     },
+
+    onEnteringStateMoveToken(args) {
+      args.locations.forEach((location) => {
+        this.onClick(ballLocationMap[location], () => this.takeAtomicAction('actMoveToken', [location]));
+      });
+    },
   });
 });

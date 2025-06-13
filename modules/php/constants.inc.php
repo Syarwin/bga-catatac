@@ -37,6 +37,7 @@ const ST_END_TURN = 12;
 
 // Atomic actions
 const ST_CHOOSE_CARD = 30;
+const ST_MOVE_TOKEN = 31;
 
 // Engine state
 const ST_GENERIC_AUTOMATIC = 88;

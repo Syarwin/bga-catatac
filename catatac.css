@@ -897,6 +897,11 @@
       display: flex;
       justify-content: center;
       align-items: center; }
+      #catatac-main-container #catatac-board .board-slot.selectable {
+        cursor: pointer;
+        background: rgba(1, 255, 1, 0.4); }
+        #catatac-main-container #catatac-board .board-slot.selectable:hover {
+          background: rgba(1, 255, 1, 0.6); }
       #catatac-main-container #catatac-board .board-slot#white-points {
         left: 52px; }
       #catatac-main-container #catatac-board .board-slot#white-hideout {

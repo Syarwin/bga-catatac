@@ -147,6 +147,17 @@ $machinestates = [
   ],
 
 
+  ST_MOVE_TOKEN => [
+    'name' => 'moveToken',
+    'description' => clienttranslate('${actplayer} must move the ball'),
+    'descriptionmyturn' => clienttranslate('${you} must move the ball'),
+    'args' => 'argsAtomicAction',
+    'action' => 'stAtomicAction',
+    'type' => 'activeplayer',
+    'possibleactions' => ['actMoveToken', 'actRestart', 'actPassOptionalAction'],
+  ],
+
+
   //////////////////////////////////////////////////////////////////
   //  _____           _    ___   __    ____
   // | ____|_ __   __| |  / _ \ / _|  / ___| __ _ _ __ ___   ___
