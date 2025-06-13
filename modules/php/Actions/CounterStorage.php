@@ -28,7 +28,7 @@ class CounterStorage extends \Bga\Games\Catatac\Models\Action
   public function isDoable(Player $player): bool
   {
     $ball = Meeples::getBall();
-    return  in_array($ball->getLocation(), [WHITE_HIDEOUT, BLACK_HIDEOUT]);
+    return  in_array($ball->getLocation(), [WHITE_HIDEOUT, BLACK_HIDEOUT]) && $ball->getLocation() != $player->getHideoutLocation();
   }
 
   public function stCounterStorage()

@@ -54,11 +54,11 @@ $machinestates = [
   //   |_| \__,_|_|  |_| |_|
   //////////////////////////////
 
-  ST_NEW_ROUND => [
-    'name' => 'newRound',
-    'type' => 'game',
-    'action' => 'stNewRound',
-  ],
+  // ST_NEW_ROUND => [
+  //   'name' => 'newRound',
+  //   'type' => 'game',
+  //   'action' => 'stNewRound',
+  // ],
 
   ST_PRE_START_TURN => [
     'name' => 'startTurn',

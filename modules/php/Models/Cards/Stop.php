@@ -32,7 +32,7 @@ class Stop extends PawnCard
 
   public function canUseActionBloc(Player $player): bool
   {
-    return $player->isOwningTheBall();
+    return !$player->isOwningTheBall();
   }
 
   public function canCounterStorage(): bool
