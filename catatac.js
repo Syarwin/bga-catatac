@@ -47,6 +47,8 @@ define([
         'postStorageFlip',
         'revealPoints',
       ];
+
+      this._discardModal = null;
     },
 
     async notif_midmessage(args) {
@@ -78,6 +80,7 @@ define([
       this.setupCards();
       this.updateHandCards();
       this.setupMeeples();
+      this.setupDiscardModal();
       this.inherited(arguments);
     },
 
@@ -90,7 +93,9 @@ define([
     <div id="catatac-deck-discard-wrapper">
       <div class="card-slot" id="catatac-points-deck"></div>
       <div class="card-slot" id="catatac-deck"></div>
-      <div class="card-slot" id="catatac-discard"></div>
+      <div class="card-slot" id="catatac-discard-holder">
+        <div id="catatac-discard"></div>
+      </div>
     </div>
   </div>
   <div id="catatac-board">

@@ -8,6 +8,34 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
   }
 
   return declare('catatac.cards', null, {
+    setupDiscardModal() {
+      this._discardModal = new customgame.modal('discardDisplay', {
+        class: 'catatac_popin',
+        autoShow: false,
+        closeIcon: 'fa-times',
+        closeAction: 'hide',
+        title: _('Discard'),
+        verticalAlign: 'flex-start',
+        contentsTpl: `<div class='discard-modal' id='discard-cards'></div>`,
+        scale: 0.9,
+        breakpoint: 800,
+        onStartShow: () => {
+          this.closeCurrentTooltip();
+          $(`discard-cards`).insertAdjacentElement('beforeend', $(`catatac-discard`));
+        },
+        onStartHide: () => {
+          this.closeCurrentTooltip();
+          $(`catatac-discard-holder`).insertAdjacentElement('beforeend', $(`catatac-discard`));
+        },
+        onShow: () => this.closeCurrentTooltip(),
+      });
+      $(`catatac-discard`).addEventListener('click', () => {
+        this.closeCurrentTooltip();
+        if (this._discardModal.isDisplayed()) this._discardModal.hide();
+        else this._discardModal.show();
+      });
+    },
+
     setupCards() {
       // This function is refreshUI compatible
       let cardIds = this.gamedatas.cards.map((card) => {

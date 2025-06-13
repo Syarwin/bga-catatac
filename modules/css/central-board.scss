@@ -297,7 +297,7 @@
                 background-position: 2 * 100%/7 5 * 100%/5;
             }
 
-            #catatac-discard {
+            #catatac-discard-holder {
                 position: relative;
                 opacity: 0.6;
                 filter: grayscale(80%);
@@ -305,10 +305,37 @@
                 -webkit-perspective: 1000;
                 -webkit-backface-visibility: hidden;
 
-                .catatac-card {
+                &:hover::before {
+                    content: "\f055";
+                    display: block;
+                    font: normal normal normal 14px/1 FontAwesome;
+                    font-size: 14px;
+                    font-size: 100px;
+                    text-rendering: auto;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    z-index: 100;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    pointer-events: none;
+                }
+                &:hover {
+                    cursor: zoom-in;
+                }
+
+                #catatac-discard {
                     position: absolute;
                     top: 1px;
                     left: 1px;
+                    .catatac-card {
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                    }
                 }
             }
         }

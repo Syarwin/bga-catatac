@@ -1039,17 +1039,40 @@
         background-image: url("img/base-game.jpg");
         background-size: 800% 600%;
         background-position: 28.5714285714% 100%; }
-      #catatac-main-container #catatac-cards-wrapper #catatac-deck-discard-wrapper #catatac-discard {
+      #catatac-main-container #catatac-cards-wrapper #catatac-deck-discard-wrapper #catatac-discard-holder {
         position: relative;
         opacity: 0.6;
         filter: grayscale(80%);
         -webkit-transform: translateZ(0);
         -webkit-perspective: 1000;
         -webkit-backface-visibility: hidden; }
-        #catatac-main-container #catatac-cards-wrapper #catatac-deck-discard-wrapper #catatac-discard .catatac-card {
+        #catatac-main-container #catatac-cards-wrapper #catatac-deck-discard-wrapper #catatac-discard-holder:hover::before {
+          content: "\f055";
+          display: block;
+          font: normal normal normal 14px/1 FontAwesome;
+          font-size: 14px;
+          font-size: 100px;
+          text-rendering: auto;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          z-index: 100;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          pointer-events: none; }
+        #catatac-main-container #catatac-cards-wrapper #catatac-deck-discard-wrapper #catatac-discard-holder:hover {
+          cursor: zoom-in; }
+        #catatac-main-container #catatac-cards-wrapper #catatac-deck-discard-wrapper #catatac-discard-holder #catatac-discard {
           position: absolute;
           top: 1px;
           left: 1px; }
+          #catatac-main-container #catatac-cards-wrapper #catatac-deck-discard-wrapper #catatac-discard-holder #catatac-discard .catatac-card {
+            position: absolute;
+            top: 0px;
+            left: 0px; }
   #catatac-main-container #catatac-hand {
     width: 1479px;
     margin-top: 10px;
@@ -1089,23 +1112,49 @@
 
 .catatac_popin {
   background-color: #ebd5bd;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px black;
   position: relative; }
   .catatac_popin .catatac_popin_closeicon {
+    background-color: #a47a77;
+    border-radius: 50%;
     width: 40px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: -15px;
-    right: -15px;
+    top: -18px;
+    right: -18px;
     font-size: 90%;
-    z-index: 2;
-    color: transparent !important; }
+    color: white !important;
+    border: 1px solid #35302d;
+    z-index: 2; }
     .catatac_popin .catatac_popin_closeicon:hover {
+      text-decoration: none;
+      color: #ccc !important;
       transform: scale(1.1); }
     .catatac_popin .catatac_popin_closeicon i {
       margin-top: -2px; }
+  .catatac_popin h2 {
+    text-align: center;
+    font-size: 25px;
+    margin: 0px;
+    background: #b79570;
+    border-radius: 8px 8px 0px 0px;
+    padding: 11px 0px 3px;
+    border-bottom: 1px solid #734f2a; }
+
+.discard-modal {
+  width: 700px;
+  padding: 15px; }
+  .discard-modal #catatac-discard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; }
+    .discard-modal #catatac-discard .catatac-card {
+      margin: 5px; }
 
 /* Undo here logs */
 #logs .log.notif_newUndoableStep {
