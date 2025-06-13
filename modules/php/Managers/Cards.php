@@ -47,47 +47,47 @@ class Cards extends CachedPieces
   }
 
   public static array $baseGameDeck = [
-    [1, CHARGE, 2],
+    [1, CHARGE, 1],
     [1, BASIC, 4],
-    [1, SPRINT, 2],
-    [1, STOP, 2],
+    [1, SPRINT, 1],
+    [1, STOP, 1],
 
-    [2, CAPTURE, 2],
-    [2, CHARGE, 2],
+    [2, CAPTURE, 1],
+    [2, CHARGE, 1],
     [2, BASIC, 4],
-    [2, SPRINT, 2],
+    [2, SPRINT, 1],
 
-    [3, CAPTURE, 2],
-    [3, CHARGE, 2],
+    [3, CAPTURE, 1],
+    [3, CHARGE, 1],
     [3, BASIC, 4],
-    [3, SMASH, 2],
+    [3, SMASH, 1],
 
-    [4, CAPTURE, 2],
-    [4, CHARGE, 2],
+    [4, CAPTURE, 1],
+    [4, CHARGE, 1],
     [4, BASIC, 4],
-    [4, SMASH, 2],
+    [4, SMASH, 1],
 
-    [5, CAPTURE, 2],
+    [5, CAPTURE, 1],
     [5, BASIC, 4],
-    [5, SMASH, 2],
-    [5, STOP, 2],
+    [5, SMASH, 1],
+    [5, STOP, 1],
 
-    [6, COURAGE, 2],
-    [6, IMPACT, 2],
-    [6, MIRACLE, 2],
+    [6, COURAGE, 1],
+    [6, IMPACT, 1],
+    [6, MIRACLE, 1],
     [6, BASIC, 4],
 
-    [7, COURAGE, 2],
-    [7, IMPACT, 2],
-    [7, MIRACLE, 2],
+    [7, COURAGE, 1],
+    [7, IMPACT, 1],
+    [7, MIRACLE, 1],
     [7, BASIC, 4],
 
-    [8, BINGO, 2],
-    [8, COURAGE, 2],
-    [8, FIDO, 2],
+    [8, BINGO, 1],
+    [8, COURAGE, 1],
+    [8, FIDO, 1],
     [8, BASIC, 4],
 
-    [0, JOKER, 1],
+    [0, JOKER, 2],
   ];
 
   public static $baseGamePointsDeck = [
