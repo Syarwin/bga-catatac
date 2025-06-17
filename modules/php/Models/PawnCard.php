@@ -2,6 +2,8 @@
 
 namespace Bga\Games\Catatac\Models;
 
+use Bga\Games\Catatac\Core\Engine;
+
 class PawnCard extends Card
 {
   public function getNumber(): int
@@ -50,6 +52,16 @@ class PawnCard extends Card
   public function canUseActionBloc(Player $player): bool
   {
     return false;
+  }
+
+  public function canTakeActionBloc(Player $player): bool
+  {
+    if (!$this->canUseActionBloc($player)) return false;
+
+    $flow = $this->getActionBloc();
+    if (empty($flow)) return false;
+    $tree = Engine::buildTree($flow);
+    return $tree->isDoable($player);
   }
 
   public function canCounterStorage(): bool

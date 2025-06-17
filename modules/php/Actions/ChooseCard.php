@@ -27,7 +27,7 @@ class ChooseCard extends \Bga\Games\Catatac\Models\Action
     // Highlight useful cards
     $previousCard = Cards::getTopDiscardCard();
     $oldN = $previousCard->getNumber();
-    $usefulCards = $cards->filter(fn($card) => $card->canUseActionBloc($player) || $card->getNumber() == $oldN || $card->getNumber() == 0);
+    $usefulCards = $cards->filter(fn($card) => $card->canTakeActionBloc($player) || $card->getNumber() == $oldN || $card->getNumber() == 0);
 
     return [
       '_private' => [
