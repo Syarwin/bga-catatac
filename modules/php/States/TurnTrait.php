@@ -98,7 +98,7 @@ trait TurnTrait
     // No cards in hand? => skip the player
     if ($player->getHand()->empty()) {
       $skipped[] = $player->getId();
-      Globals::setSkipped($skipped);
+      Globals::setSkippedPlayers($skipped);
       $this->nextPlayerCustomOrder('turn');
       return;
     }
