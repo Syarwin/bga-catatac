@@ -98,7 +98,15 @@ class Game extends \Table
      */
     public function getGameProgression()
     {
-        return 0; // TODO
+        $nCards = Cards::getCardsCount();
+        $nCardsLeftToPlay = $nCards - Cards::countInLocation("discard");
+        $progressionPawnCards = 100 * ($nCards - $nCardsLeftToPlay) / $nCards;
+
+        $nCards = Cards::getPointsCardsCount();
+        $nCardsLeftToPlay = Cards::getPointsCardsLeft();
+        $progressionPointsCards = 100 * ($nCards - $nCardsLeftToPlay) / $nCards;
+
+        return max($progressionPawnCards, $progressionPointsCards);
     }
     ///////////////////////////////////////////////
     ///////////////////////////////////////////////

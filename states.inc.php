@@ -64,12 +64,14 @@ $machinestates = [
     'name' => 'startTurn',
     'type' => 'game',
     'action' => 'stPreStartTurn',
+    'updateGameProgression' => true,
   ],
 
   ST_START_TURN => [
     'name' => 'startTurn',
     'type' => 'game',
     'action' => 'stStartTurn',
+    'updateGameProgression' => true,
   ],
 
   ////////////////////////////////////

@@ -101,6 +101,15 @@ class Cards extends CachedPieces
     "Points-White"
   ];
 
+  public static function getCardsCount(): int
+  {
+    return self::countInLocation("deck") + self::countInLocation("discard") + self::countInLocation("hand-%");
+  }
+  public static function getPointsCardsCount(): int
+  {
+    return self::countInLocation("deck-points") + self::countInLocation("points-0") + self::countInLocation("points-1");
+  }
+
   public static function getCardsLeft(): int
   {
     return self::countInLocation("deck");
