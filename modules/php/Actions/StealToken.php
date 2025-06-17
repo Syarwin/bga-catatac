@@ -27,7 +27,7 @@ class StealToken extends \Bga\Games\Catatac\Models\Action
 
   public function isDoable(Player $player): bool
   {
-    return !$player->isOwningTheBall();
+    return !$player->isOwningTheBall() && !in_array(Meeples::getBall()->getLocation(), [WHITE_HIDEOUT, BLACK_HIDEOUT]);
   }
 
   public function stStealToken()
