@@ -99,20 +99,22 @@ define([
       </div>
     </div>
   </div>
-  <div id="catatac-board">
-    <div id="catatac-board-background">
-      <div id="catatac-board-background-inner">
-        <div id="catatac-board-background-day"></div>
-        <div id="catatac-board-background-night"></div>
+  <div id="catatac-board-wrapper">
+    <div id="catatac-board">
+      <div id="catatac-board-background">
+        <div id="catatac-board-background-inner">
+          <div id="catatac-board-background-day"></div>
+          <div id="catatac-board-background-night"></div>
+        </div>
       </div>
+      <div class="board-slot" id="white-points"></div>
+      <div class="board-slot" id="white-hideout"></div>
+      <div class="board-slot" id="white-street"></div>
+      <div class="board-slot" id="neutral-street"></div>
+      <div class="board-slot" id="black-street"></div>
+      <div class="board-slot" id="black-hideout"></div>
+      <div class="board-slot" id="black-points"></div>
     </div>
-    <div class="board-slot" id="white-points"></div>
-    <div class="board-slot" id="white-hideout"></div>
-    <div class="board-slot" id="white-street"></div>
-    <div class="board-slot" id="neutral-street"></div>
-    <div class="board-slot" id="black-street"></div>
-    <div class="board-slot" id="black-hideout"></div>
-    <div class="board-slot" id="black-points"></div>
   </div>
   <div id="points-reveal">
     <div id="white-points-reveal"></div>

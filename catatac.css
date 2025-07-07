@@ -859,134 +859,138 @@
         background-color: #d6d6d6;
         border: 2px solid #d6d6d6;
         outline: 1px solid grey; }
-  #catatac-main-container #catatac-board {
+  #catatac-main-container #catatac-board-wrapper {
     position: relative;
     width: 1479px;
     height: 289px; }
-    #catatac-main-container #catatac-board #team-white,
-    #catatac-main-container #catatac-board #team-black {
-      background: white;
-      border: 1px solid black;
-      position: absolute;
-      bottom: 4px;
-      left: 8px;
-      border-radius: 5px;
-      padding: 2px 0px;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      box-shadow: 1px 1px 3px black; }
-      #catatac-main-container #catatac-board #team-white .catatac-icon,
-      #catatac-main-container #catatac-board #team-black .catatac-icon {
-        width: 27px; }
-      #catatac-main-container #catatac-board #team-white .icon-container,
-      #catatac-main-container #catatac-board #team-black .icon-container {
-        margin: -3px 4px; }
-    #catatac-main-container #catatac-board #team-black {
-      left: auto;
-      right: 8px;
-      background: black;
-      border-color: #c4c3c3;
-      color: white;
-      box-shadow: 1px 1px 3px #bbbbbb; }
-    #catatac-main-container #catatac-board .board-slot {
-      position: absolute;
-      z-index: 2;
-      width: 165px;
-      height: 222px;
-      top: 33px;
-      border-radius: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center; }
-      #catatac-main-container #catatac-board .board-slot.selectable {
-        cursor: pointer;
-        background: rgba(1, 255, 1, 0.4); }
-        #catatac-main-container #catatac-board .board-slot.selectable:hover {
-          background: rgba(1, 255, 1, 0.6); }
-      #catatac-main-container #catatac-board .board-slot#white-points {
-        left: 52px; }
-      #catatac-main-container #catatac-board .board-slot#white-hideout {
-        left: 253px; }
-      #catatac-main-container #catatac-board .board-slot#white-street {
-        left: 454px; }
-      #catatac-main-container #catatac-board .board-slot#neutral-street {
-        left: 655px; }
-      #catatac-main-container #catatac-board .board-slot#black-street {
-        left: 856px; }
-      #catatac-main-container #catatac-board .board-slot#black-hideout {
-        left: 1058px; }
-      #catatac-main-container #catatac-board .board-slot#black-points {
-        left: 1256px; }
-      #catatac-main-container #catatac-board .board-slot#white-points[data-n]:not([data-n="0"])::before, #catatac-main-container #catatac-board .board-slot#black-points[data-n]:not([data-n="0"])::before {
-        content: attr(data-n);
+    #catatac-main-container #catatac-board-wrapper #catatac-board {
+      position: relative;
+      width: 1479px;
+      height: 289px; }
+      #catatac-main-container #catatac-board-wrapper #catatac-board #team-white,
+      #catatac-main-container #catatac-board-wrapper #catatac-board #team-black {
+        background: white;
+        border: 1px solid black;
+        position: absolute;
+        bottom: 4px;
+        left: 8px;
+        border-radius: 5px;
+        padding: 2px 0px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        box-shadow: 1px 1px 3px black; }
+        #catatac-main-container #catatac-board-wrapper #catatac-board #team-white .catatac-icon,
+        #catatac-main-container #catatac-board-wrapper #catatac-board #team-black .catatac-icon {
+          width: 27px; }
+        #catatac-main-container #catatac-board-wrapper #catatac-board #team-white .icon-container,
+        #catatac-main-container #catatac-board-wrapper #catatac-board #team-black .icon-container {
+          margin: -3px 4px; }
+      #catatac-main-container #catatac-board-wrapper #catatac-board #team-black {
+        left: auto;
+        right: 8px;
+        background: black;
+        border-color: #c4c3c3;
+        color: white;
+        box-shadow: 1px 1px 3px #bbbbbb; }
+      #catatac-main-container #catatac-board-wrapper #catatac-board .board-slot {
         position: absolute;
         z-index: 2;
-        left: 50%;
-        top: 50%;
-        width: 40px;
-        height: 40px;
+        width: 165px;
+        height: 222px;
+        top: 33px;
+        border-radius: 10px;
         display: flex;
         justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        border: 1px solid black;
-        box-shadow: 1px 1px 1px black;
-        translate: -50% -50%;
-        background: #e6e6e6;
-        font-weight: bold;
-        font-size: 20px; }
-      #catatac-main-container #catatac-board .board-slot#white-points[data-n]:not([data-n="0"])::after, #catatac-main-container #catatac-board .board-slot#black-points[data-n]:not([data-n="0"])::after {
-        content: "";
-        display: block;
-        position: absolute;
-        z-index: 1;
-        top: 6px;
-        left: 7px;
-        right: 7px;
-        bottom: 6px;
-        background-image: url("img/base-game.jpg");
-        background-size: 800% 600%;
-        background-position: 28.5714285714% 100%;
-        box-shadow: 1px 1px 3px black;
-        filter: grayscale(80%);
-        -webkit-transform: translateZ(0);
-        -webkit-perspective: 1000;
-        -webkit-backface-visibility: hidden; }
-    #catatac-main-container #catatac-board #catatac-board-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0; }
-      #catatac-main-container #catatac-board #catatac-board-background #catatac-board-background-inner {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        transform-style: preserve-3d;
-        transition: transform 1s;
-        transform: rotateX(0deg); }
-        #catatac-main-container #catatac-board #catatac-board-background #catatac-board-background-inner #catatac-board-background-day,
-        #catatac-main-container #catatac-board #catatac-board-background #catatac-board-background-inner #catatac-board-background-night {
+        align-items: center; }
+        #catatac-main-container #catatac-board-wrapper #catatac-board .board-slot.selectable {
+          cursor: pointer;
+          background: rgba(1, 255, 1, 0.4); }
+          #catatac-main-container #catatac-board-wrapper #catatac-board .board-slot.selectable:hover {
+            background: rgba(1, 255, 1, 0.6); }
+        #catatac-main-container #catatac-board-wrapper #catatac-board .board-slot#white-points {
+          left: 52px; }
+        #catatac-main-container #catatac-board-wrapper #catatac-board .board-slot#white-hideout {
+          left: 253px; }
+        #catatac-main-container #catatac-board-wrapper #catatac-board .board-slot#white-street {
+          left: 454px; }
+        #catatac-main-container #catatac-board-wrapper #catatac-board .board-slot#neutral-street {
+          left: 655px; }
+        #catatac-main-container #catatac-board-wrapper #catatac-board .board-slot#black-street {
+          left: 856px; }
+        #catatac-main-container #catatac-board-wrapper #catatac-board .board-slot#black-hideout {
+          left: 1058px; }
+        #catatac-main-container #catatac-board-wrapper #catatac-board .board-slot#black-points {
+          left: 1256px; }
+        #catatac-main-container #catatac-board-wrapper #catatac-board .board-slot#white-points[data-n]:not([data-n="0"])::before, #catatac-main-container #catatac-board-wrapper #catatac-board .board-slot#black-points[data-n]:not([data-n="0"])::before {
+          content: attr(data-n);
           position: absolute;
+          z-index: 2;
+          left: 50%;
+          top: 50%;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          border: 1px solid black;
+          box-shadow: 1px 1px 1px black;
+          translate: -50% -50%;
+          background: #e6e6e6;
+          font-weight: bold;
+          font-size: 20px; }
+        #catatac-main-container #catatac-board-wrapper #catatac-board .board-slot#white-points[data-n]:not([data-n="0"])::after, #catatac-main-container #catatac-board-wrapper #catatac-board .board-slot#black-points[data-n]:not([data-n="0"])::after {
+          content: "";
+          display: block;
+          position: absolute;
+          z-index: 1;
+          top: 6px;
+          left: 7px;
+          right: 7px;
+          bottom: 6px;
+          background-image: url("img/base-game.jpg");
+          background-size: 800% 600%;
+          background-position: 28.5714285714% 100%;
+          box-shadow: 1px 1px 3px black;
+          filter: grayscale(80%);
+          -webkit-transform: translateZ(0);
+          -webkit-perspective: 1000;
+          -webkit-backface-visibility: hidden; }
+      #catatac-main-container #catatac-board-wrapper #catatac-board #catatac-board-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0; }
+        #catatac-main-container #catatac-board-wrapper #catatac-board #catatac-board-background #catatac-board-background-inner {
           width: 100%;
           height: 100%;
-          -webkit-backface-visibility: hidden;
-          /* Safari */
-          backface-visibility: hidden;
-          transform: rotateX(0deg);
-          box-sizing: border-box;
-          border-radius: 8px;
-          box-shadow: 1px 1px 5px 1px black;
-          background-image: url("img/mat.jpg");
-          background-size: 100% 200%;
-          border: 1px solid black;
-          background-clip: border-box; }
-        #catatac-main-container #catatac-board #catatac-board-background #catatac-board-background-inner #catatac-board-background-night {
-          background-position: 0% 100%;
+          position: relative;
+          transform-style: preserve-3d;
+          transition: transform 1s;
+          transform: rotateX(0deg); }
+          #catatac-main-container #catatac-board-wrapper #catatac-board #catatac-board-background #catatac-board-background-inner #catatac-board-background-day,
+          #catatac-main-container #catatac-board-wrapper #catatac-board #catatac-board-background #catatac-board-background-inner #catatac-board-background-night {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            /* Safari */
+            backface-visibility: hidden;
+            transform: rotateX(0deg);
+            box-sizing: border-box;
+            border-radius: 8px;
+            box-shadow: 1px 1px 5px 1px black;
+            background-image: url("img/mat.jpg");
+            background-size: 100% 200%;
+            border: 1px solid black;
+            background-clip: border-box; }
+          #catatac-main-container #catatac-board-wrapper #catatac-board #catatac-board-background #catatac-board-background-inner #catatac-board-background-night {
+            background-position: 0% 100%;
+            transform: rotateX(180deg); }
+        #catatac-main-container #catatac-board-wrapper #catatac-board #catatac-board-background[data-side="night"] #catatac-board-background-inner {
           transform: rotateX(180deg); }
-      #catatac-main-container #catatac-board #catatac-board-background[data-side="night"] #catatac-board-background-inner {
-        transform: rotateX(180deg); }
   #catatac-main-container #catatac-cards-wrapper {
     display: flex;
     height: 230.0961538462px;
@@ -1090,6 +1094,65 @@
       #catatac-main-container #catatac-hand .catatac-card.selected {
         margin: 8px; }
 
+@media (max-width: 1600px) {
+  #meeple-1_animated.moving {
+    transform: rotate(90deg) scale(0.7); }
+
+  #catatac-main-container #catatac-board-wrapper {
+    width: 1035.3px;
+    height: 202.3px; }
+    #catatac-main-container #catatac-board-wrapper #catatac-board {
+      transform: scale(0.7);
+      transform-origin: top left;
+      position: absolute; }
+  #catatac-main-container #catatac-hand {
+    width: 1035.3px; } }
+@media (max-width: 1250px) {
+  .mobile_version #topbar {
+    margin-bottom: 0px; }
+  .mobile_version #left-side-wrapper {
+    margin-top: 0px; }
+
+  #catatac-main-container {
+    display: grid;
+    grid-template-rows: 250px auto auto;
+    grid-template-columns: 200px auto;
+    align-items: flex-start; }
+    #catatac-main-container #points-reveal {
+      grid-column: 2 / span 1;
+      grid-row: 3 / span 1; }
+    #catatac-main-container #catatac-board-wrapper {
+      height: 1035.3px;
+      width: 202.3px;
+      flex-shrink: 0;
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 3; }
+      #catatac-main-container #catatac-board-wrapper #catatac-board {
+        transform: scale(0.7) rotate(90deg);
+        transform-origin: top left;
+        position: absolute;
+        top: 0;
+        left: 100%; }
+        #catatac-main-container #catatac-board-wrapper #catatac-board #team-white,
+        #catatac-main-container #catatac-board-wrapper #catatac-board #team-black {
+          transform: rotate(-90deg);
+          transform-origin: top left; }
+        #catatac-main-container #catatac-board-wrapper #catatac-board #team-black {
+          right: -144px; }
+    #catatac-main-container #catatac-cards-wrapper {
+      width: auto;
+      display: flex;
+      flex-basis: 100%;
+      grid-column: 2 / span 1;
+      grid-row: 1 / span 1;
+      margin-bottom: 0; }
+    #catatac-main-container #catatac-hand {
+      width: auto;
+      grid-column: 2 / span 1;
+      grid-row: 2 / span 1;
+      margin-top: 0px;
+      margin-left: 10px;
+      flex-wrap: wrap; } }
 .player-board .player-info {
   display: flex;
   justify-content: space-between;

@@ -1,13 +1,13 @@
+$cardW: 150px;
+$cardH: $cardW * 437/312;
+$cardMargin: 10px;
+
 #catatac-main-container {
     position: relative;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
-
-    $cardW: 150px;
-    $cardH: $cardW * 437/312;
-    $cardMargin: 10px;
 
     #points-reveal {
         display: flex;
@@ -68,165 +68,171 @@
         }
     }
 
-    #catatac-board {
+    #catatac-board-wrapper {
         position: relative;
         width: 1479px;
         height: 289px;
 
-        #team-white,
-        #team-black {
-            background: white;
-            border: 1px solid black;
-            position: absolute;
-            bottom: 4px;
-            left: 8px;
-            border-radius: 5px;
-            padding: 2px 0px;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            box-shadow: 1px 1px 3px black;
+        #catatac-board {
+            position: relative;
+            width: 1479px;
+            height: 289px;
 
-            .catatac-icon {
-                width: 27px;
+            #team-white,
+            #team-black {
+                background: white;
+                border: 1px solid black;
+                position: absolute;
+                bottom: 4px;
+                left: 8px;
+                border-radius: 5px;
+                padding: 2px 0px;
+                font-size: 14px;
+                display: flex;
+                align-items: center;
+                box-shadow: 1px 1px 3px black;
+
+                .catatac-icon {
+                    width: 27px;
+                }
+                .icon-container {
+                    margin: -3px 4px;
+                }
             }
-            .icon-container {
-                margin: -3px 4px;
+            #team-black {
+                left: auto;
+                right: 8px;
+                background: black;
+                border-color: rgb(196, 195, 195);
+                color: white;
+                box-shadow: 1px 1px 3px rgb(187, 187, 187);
             }
-        }
-        #team-black {
-            left: auto;
-            right: 8px;
-            background: black;
-            border-color: rgb(196, 195, 195);
-            color: white;
-            box-shadow: 1px 1px 3px rgb(187, 187, 187);
-        }
 
-        .board-slot {
-            position: absolute;
-            z-index: 2;
-            width: 165px;
-            height: 222px;
-            top: 33px;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            .board-slot {
+                position: absolute;
+                z-index: 2;
+                width: 165px;
+                height: 222px;
+                top: 33px;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
-            &.selectable {
-                cursor: pointer;
-                background: rgba(1, 255, 1, 0.4);
-                &:hover {
-                    background: rgba(1, 255, 1, 0.6);
+                &.selectable {
+                    cursor: pointer;
+                    background: rgba(1, 255, 1, 0.4);
+                    &:hover {
+                        background: rgba(1, 255, 1, 0.6);
+                    }
+                }
+
+                &#white-points {
+                    left: 52px;
+                }
+                &#white-hideout {
+                    left: 253px;
+                }
+                &#white-street {
+                    left: 454px;
+                }
+                &#neutral-street {
+                    left: 655px;
+                }
+                &#black-street {
+                    left: 856px;
+                }
+                &#black-hideout {
+                    left: 1058px;
+                }
+                &#black-points {
+                    left: 1256px;
+                }
+
+                &#white-points,
+                &#black-points {
+                    &[data-n]:not([data-n="0"])::before {
+                        content: attr(data-n);
+                        position: absolute;
+                        z-index: 2;
+                        left: 50%;
+                        top: 50%;
+                        width: 40px;
+                        height: 40px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 50%;
+                        border: 1px solid black;
+                        box-shadow: 1px 1px 1px black;
+                        translate: -50% -50%;
+                        background: #e6e6e6;
+                        font-weight: bold;
+                        font-size: 20px;
+                    }
+
+                    &[data-n]:not([data-n="0"])::after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        z-index: 1;
+                        top: 6px;
+                        left: 7px;
+                        right: 7px;
+                        bottom: 6px;
+                        background-image: url("img/base-game.jpg");
+                        background-size: 800% 600%;
+                        background-position: 28.5714285714% 100%;
+                        box-shadow: 1px 1px 3px black;
+                        filter: grayscale(80%);
+                        -webkit-transform: translateZ(0);
+                        -webkit-perspective: 1000;
+                        -webkit-backface-visibility: hidden;
+                    }
                 }
             }
 
-            &#white-points {
-                left: 52px;
-            }
-            &#white-hideout {
-                left: 253px;
-            }
-            &#white-street {
-                left: 454px;
-            }
-            &#neutral-street {
-                left: 655px;
-            }
-            &#black-street {
-                left: 856px;
-            }
-            &#black-hideout {
-                left: 1058px;
-            }
-            &#black-points {
-                left: 1256px;
-            }
+            #catatac-board-background {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
 
-            &#white-points,
-            &#black-points {
-                &[data-n]:not([data-n="0"])::before {
-                    content: attr(data-n);
-                    position: absolute;
-                    z-index: 2;
-                    left: 50%;
-                    top: 50%;
-                    width: 40px;
-                    height: 40px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    border-radius: 50%;
-                    border: 1px solid black;
-                    box-shadow: 1px 1px 1px black;
-                    translate: -50% -50%;
-                    background: #e6e6e6;
-                    font-weight: bold;
-                    font-size: 20px;
-                }
-
-                &[data-n]:not([data-n="0"])::after {
-                    content: "";
-                    display: block;
-                    position: absolute;
-                    z-index: 1;
-                    top: 6px;
-                    left: 7px;
-                    right: 7px;
-                    bottom: 6px;
-                    background-image: url("img/base-game.jpg");
-                    background-size: 800% 600%;
-                    background-position: 28.5714285714% 100%;
-                    box-shadow: 1px 1px 3px black;
-                    filter: grayscale(80%);
-                    -webkit-transform: translateZ(0);
-                    -webkit-perspective: 1000;
-                    -webkit-backface-visibility: hidden;
-                }
-            }
-        }
-
-        #catatac-board-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-
-            #catatac-board-background-inner {
-                width: 100%;
-                height: 100%;
-                position: relative;
-                transform-style: preserve-3d;
-                transition: transform 1s;
-                transform: rotateX(0deg);
-
-                #catatac-board-background-day,
-                #catatac-board-background-night {
-                    position: absolute;
+                #catatac-board-background-inner {
                     width: 100%;
                     height: 100%;
-                    -webkit-backface-visibility: hidden; /* Safari */
-                    backface-visibility: hidden;
+                    position: relative;
+                    transform-style: preserve-3d;
+                    transition: transform 1s;
                     transform: rotateX(0deg);
-                    box-sizing: border-box;
-                    border-radius: 8px;
-                    box-shadow: 1px 1px 5px 1px black;
-                    background-image: url("img/mat.jpg");
-                    background-size: 100% 200%;
-                    border: 1px solid black;
-                    background-clip: border-box;
+
+                    #catatac-board-background-day,
+                    #catatac-board-background-night {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        -webkit-backface-visibility: hidden; /* Safari */
+                        backface-visibility: hidden;
+                        transform: rotateX(0deg);
+                        box-sizing: border-box;
+                        border-radius: 8px;
+                        box-shadow: 1px 1px 5px 1px black;
+                        background-image: url("img/mat.jpg");
+                        background-size: 100% 200%;
+                        border: 1px solid black;
+                        background-clip: border-box;
+                    }
+
+                    #catatac-board-background-night {
+                        background-position: 0% 100%;
+                        transform: rotateX(180deg);
+                    }
                 }
 
-                #catatac-board-background-night {
-                    background-position: 0% 100%;
+                &[data-side="night"] #catatac-board-background-inner {
                     transform: rotateX(180deg);
                 }
-            }
-
-            &[data-side="night"] #catatac-board-background-inner {
-                transform: rotateX(180deg);
             }
         }
     }
@@ -358,6 +364,96 @@
             &.selected {
                 margin: $cardMargin - 2px;
             }
+        }
+    }
+}
+
+@media (max-width: 1600px) {
+    #meeple-1_animated.moving {
+        transform: rotate(90deg) scale(0.7);
+    }
+
+    #catatac-main-container {
+        #catatac-board-wrapper {
+            width: 1479px * 0.7;
+            height: 289px * 0.7;
+
+            #catatac-board {
+                transform: scale(0.7);
+                transform-origin: top left;
+                position: absolute;
+            }
+        }
+
+        #catatac-hand {
+            width: 1479px * 0.7;
+        }
+    }
+}
+
+@media (max-width: 1250px) {
+    .mobile_version {
+        #topbar {
+            margin-bottom: 0px;
+        }
+
+        #left-side-wrapper {
+            margin-top: 0px;
+        }
+    }
+
+    #catatac-main-container {
+        display: grid;
+        grid-template-rows: 250px auto auto;
+        grid-template-columns: 200px auto;
+        align-items: flex-start;
+
+        #points-reveal {
+            grid-column: 2 / span 1;
+            grid-row: 3 / span 1;
+        }
+
+        #catatac-board-wrapper {
+            height: 1479px * 0.7;
+            width: 289px * 0.7;
+            flex-shrink: 0;
+            grid-column: 1 / span 1;
+            grid-row: 1 / span 3;
+
+            #catatac-board {
+                transform: scale(0.7) rotate(90deg);
+                transform-origin: top left;
+                position: absolute;
+                top: 0;
+                left: 100%;
+
+                #team-white,
+                #team-black {
+                    transform: rotate(-90deg);
+                    transform-origin: top left;
+                }
+                #team-black {
+                    right: -144px;
+                }
+            }
+        }
+
+        #catatac-cards-wrapper {
+            width: auto;
+            display: flex;
+            flex-basis: 100%;
+            grid-column: 2 / span 1;
+            grid-row: 1 / span 1;
+            margin-bottom: 0;
+        }
+        #catatac-hand {
+            width: auto;
+            grid-column: 2 / span 1;
+            grid-row: 2 / span 1;
+
+            margin-top: 0px;
+            margin-left: 10px;
+            flex-wrap: wrap;
         }
     }
 }
