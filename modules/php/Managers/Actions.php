@@ -15,12 +15,13 @@ class Actions
 {
   static $classes = [
     CHOOSE_CARD => 'ChooseCard',
+    COUNTER_STORAGE_CHOOSE_CARD => 'CounterStorage',
     PAIR_BONUS => 'PairBonus',
     STEAL_TOKEN => 'StealToken',
     MOVE_TOKEN => 'MoveToken',
     STORAGE_ATTEMPT => 'StorageAttempt',
     ACTIVATE_CARD => 'ActivateCard',
-    COUNTER_STORAGE => 'CounterStorage',
+    COUNTER_STORAGE => 'CounterStorageAction',
     TOSS_TOKEN => 'TossToken',
   ];
 

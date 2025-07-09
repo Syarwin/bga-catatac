@@ -407,6 +407,34 @@ define([
       args._private.usefulCardIds.forEach((cardId) => elements[cardId].classList.add('selectable-useful'));
     },
 
+    onEnteringStateCounterStorage(args) {
+      let elements = {};
+      args._private.cardIds.forEach((cardId) => {
+        elements[cardId] = $(`card-${cardId}`);
+        elements[cardId].classList.add('selectable-useful');
+      });
+
+      this.onSelectN({
+        elements,
+        n: 1,
+        callback: (selection) => this.takeAtomicAction('actCounterStorage', [selection[0], null]),
+      });
+
+      Object.entries(args._private.helpCards).forEach(([pId, cards]) => {
+        let player_name = this.gamedatas.players[pId].name;
+
+        Object.entries(cards).forEach(([cardId, name]) => {
+          this.addPrimaryActionButton(
+            `actSave${cardId}`,
+            this.fsr(_('Play ${card_name} (${player_name})'), { card_name: _(name), player_name }),
+            () => this.takeAtomicAction('actCounterStorage', [cardId, pId])
+          );
+        });
+      });
+
+      this.addDangerActionButton('btnPass', _('Let opponent team score'), () => this.takeAtomicAction('actNoCounter', []));
+    },
+
     ////////////////////////////////////////////////////////////
     // _____                          _   _   _
     // |  ___|__  _ __ _ __ ___   __ _| |_| |_(_)_ __   __ _

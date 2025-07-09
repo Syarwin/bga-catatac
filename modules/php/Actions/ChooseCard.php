@@ -20,7 +20,9 @@ class ChooseCard extends \Bga\Games\Catatac\Models\Action
     $cards = $player->getHand();
 
     $ball = Meeples::getBall();
+    $counterStorage = false;
     if (in_array($ball->getLocation(), [WHITE_HIDEOUT, BLACK_HIDEOUT])) {
+      $counterStorage = true;
       $cards = $cards->filter(fn($card) => $card->canCounterStorage());
     }
 
@@ -30,6 +32,7 @@ class ChooseCard extends \Bga\Games\Catatac\Models\Action
     $usefulCards = $cards->filter(fn($card) => $card->canTakeActionBloc($player) || $card->getNumber() == $oldN || $card->getNumber() == 0);
 
     return [
+      'counterStorage' => $counterStorage,
       '_private' => [
         'active' => [
           'cardIds' => $cards->getIds(),

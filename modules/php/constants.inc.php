@@ -38,6 +38,7 @@ const ST_END_TURN = 12;
 // Atomic actions
 const ST_CHOOSE_CARD = 30;
 const ST_MOVE_TOKEN = 31;
+const ST_COUNTER_STORAGE = 32;
 
 // Engine state
 const ST_GENERIC_AUTOMATIC = 88;
@@ -77,8 +78,8 @@ const STEAL_TOKEN = 'StealToken';
 const TOSS_TOKEN = 'TossToken';
 const MOVE_TOKEN = 'MoveToken';
 const STORAGE_ATTEMPT = 'StorageAttempt';
-const COUNTER_STORAGE = 'CounterStorage';
-
+const COUNTER_STORAGE_CHOOSE_CARD = 'CounterStorage';
+const COUNTER_STORAGE = 'CounterStorageAction';
 /*
  * MISC
  */

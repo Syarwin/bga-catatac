@@ -118,8 +118,8 @@ class Notifications
 
   public static function storage(int $winnerTeam)
   {
-    $msg = $winnerTeam == WHITE_SIDE ? clienttranslate('Black team can\'t counter the storage, white team <cat-white> gains a points card!') :
-      clienttranslate('White team can\'t counter the storage, black team <cat-black> gains a points card!');
+    $msg = $winnerTeam == WHITE_SIDE ? clienttranslate('Black team does not counter the storage, white team <cat-white> gains a points card!') :
+      clienttranslate('White team does not counter the storage, black team <cat-black> gains a points card!');
 
     self::notifyAll('storage', $msg, [
       'team' => $winnerTeam

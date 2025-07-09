@@ -148,6 +148,16 @@ $machinestates = [
     'possibleactions' => ['actChooseCard', 'actRestart', 'actPassOptionalAction'],
   ],
 
+  ST_COUNTER_STORAGE => [
+    'name' => 'counterStorage',
+    'description' => clienttranslate('${actplayer} may counter the storage'),
+    'descriptionmyturn' => clienttranslate('${you} may counter the storage'),
+    'args' => 'argsAtomicAction',
+    'action' => 'stAtomicAction',
+    'type' => 'activeplayer',
+    'possibleactions' => ['actCounterStorage', 'actNoCounter', 'actRestart', 'actPassOptionalAction'],
+  ],
+
 
   ST_MOVE_TOKEN => [
     'name' => 'moveToken',

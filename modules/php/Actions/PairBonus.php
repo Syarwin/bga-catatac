@@ -4,6 +4,7 @@ namespace Bga\Games\Catatac\Actions;
 
 use Bga\Games\Catatac\Core\Notifications;
 use Bga\Games\Catatac\Managers\Cards;
+use Bga\Games\Catatac\Managers\Meeples;
 use Bga\Games\Catatac\Managers\Players;
 use Bga\Games\Catatac\Models\Player;
 
@@ -27,6 +28,12 @@ class PairBonus extends \Bga\Games\Catatac\Models\Action
   public function stPairBonus()
   {
     return [];
+  }
+
+  public function isDoable(Player $player): bool
+  {
+    $ball = Meeples::getBall();
+    return !in_array($ball->getLocation(), [WHITE_HIDEOUT, BLACK_HIDEOUT]);
   }
 
   public function actPairBonus()
