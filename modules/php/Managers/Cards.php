@@ -88,6 +88,7 @@ class Cards extends CachedPieces
     [8, BASIC, 4],
 
     [0, JOKER, 2],
+    [0, JOKER_EXCLUSIVE, 1],
   ];
 
   public static $baseGamePointsDeck = [

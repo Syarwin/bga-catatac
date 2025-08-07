@@ -2,6 +2,7 @@
 
 namespace Bga\Games\Catatac\Actions;
 
+use Bga\Games\Catatac\Core\Globals;
 use Bga\Games\Catatac\Core\Notifications;
 use Bga\Games\Catatac\Managers\Cards;
 use Bga\Games\Catatac\Managers\Meeples;
@@ -77,6 +78,12 @@ class ChooseCard extends \Bga\Games\Catatac\Models\Action
       ]);
     }
 
-    Notifications::playCard($player, $card, $n, $isPair);
+    $changeSide = false;
+    if ($card->getType() == "0-JokerExclusive") {
+      $flipped = Globals::getFlippedBoard();
+      Globals::setFlippedBoard(!$flipped);
+      $changeSide = true;
+    }
+    Notifications::playCard($player, $card, $n, $isPair, $changeSide);
   }
 }

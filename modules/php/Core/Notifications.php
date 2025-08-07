@@ -14,16 +14,20 @@ use Bga\Games\Catatac\Models\Tile;
 
 class Notifications
 {
-  public static function playCard(Player $player, Card $card, int $n, bool $isPair)
+  public static function playCard(Player $player, Card $card, int $n, bool $isPair, bool $changeSide)
   {
     $msg = $isPair ?
       clienttranslate('${teamIcon}${player_name} plays a ${card_name}, making a pair!') :
       clienttranslate('${teamIcon}${player_name} plays a ${card_name}');
 
-    self::notifyAll('discardCard', $msg, [
+    $data = [
       'player' => $player,
       'card' => $card,
-    ]);
+    ];
+    if ($changeSide) {
+      $data['flippedBoard'] = Globals::getFlippedBoard();
+    }
+    self::notifyAll('discardCard', $msg, $data);
   }
 
   public static function playCardSave(Player $player, Player $player2, Card $card, int $n, bool $isPair)
@@ -203,6 +207,7 @@ class Notifications
       'players' => $datas['players'],
       'cards' => $datas['cards'],
       'meeples' => $datas['meeples'],
+      'flippedBoard' => $datas['flippedBoard'],
     ];
 
     foreach ($fDatas['players'] as &$player) {

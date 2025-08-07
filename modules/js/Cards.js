@@ -148,6 +148,11 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
     async notif_discardCard(args) {
       debug('Notif: discarding card', args);
       await this.discardCard(args.card, args.player_id);
+
+      if (args.flippedBoard !== undefined) {
+        this.gamedatas.flippedBoard = args.flippedBoard;
+        this.updateBoardSide();
+      }
     },
 
     async notif_discardCardTeammate(args) {

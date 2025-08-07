@@ -100,6 +100,7 @@ const MIRACLE = 'Miracle';
 const BINGO = 'Bingo';
 const FIDO = 'Fido';
 const JOKER = 'Joker';
+const JOKER_EXCLUSIVE = 'JokerExclusive';
 
 
 const WHITE_HIDEOUT = 0;

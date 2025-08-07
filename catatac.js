@@ -82,6 +82,7 @@ define([
       this.updateHandCards();
       this.setupMeeples();
       this.setupDiscardModal();
+      this.updateBoardSide();
       this.inherited(arguments);
     },
 
@@ -129,6 +130,10 @@ define([
 </svg>
 `
       );
+    },
+
+    updateBoardSide() {
+      $('catatac-board-background').dataset.side = this.gamedatas.flippedBoard ? 'night' : 'day';
     },
 
     // Generic automatic updating of infos
@@ -282,12 +287,13 @@ define([
     notif_refreshUI(args) {
       debug('Notif: refreshing UI', args);
 
-      ['meeples', 'players', 'cards', 'tiles'].forEach((value) => {
+      ['meeples', 'players', 'cards', 'flippedBoard'].forEach((value) => {
         this.gamedatas[value] = args.datas[value];
       });
       this.setupCards();
       this.setupMeeples();
       this.updatePlayersCounters();
+      this.updateBoardSide();
     },
 
     notif_refreshHand(args) {

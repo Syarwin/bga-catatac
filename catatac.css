@@ -450,6 +450,9 @@
   .catatac-card[data-type="Points-Back"] .catatac-card-wrapper {
     background-position-x: 28.5714285714%;
     background-position-y: 100%; }
+  .catatac-card[data-type="0-JokerExclusive"] .catatac-card-wrapper {
+    background-position-x: 42.8571428571%;
+    background-position-y: 100%; }
   .catatac-card.fake-card .catatac-card-wrapper {
     background-position: 14.2857142857% 80%; }
   .catatac-card.fake-card.points .catatac-card-wrapper {

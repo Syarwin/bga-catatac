@@ -24,6 +24,8 @@ class Globals extends DB_Manager
     'turnOrder' => 'obj',
     'skippedPlayers' => 'obj',
 
+    'flippedBoard' => 'bool',
+
     // Game options
   ];
 
