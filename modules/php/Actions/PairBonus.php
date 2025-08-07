@@ -36,6 +36,11 @@ class PairBonus extends \Bga\Games\Catatac\Models\Action
     return !in_array($ball->getLocation(), [WHITE_HIDEOUT, BLACK_HIDEOUT]);
   }
 
+  public function isOptional(): bool
+  {
+    return !$this->isDoable($this->getPlayer());
+  }
+
   public function actPairBonus()
   {
     $actions = [
