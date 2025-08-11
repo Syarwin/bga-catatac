@@ -16,7 +16,7 @@ class Miracle extends PawnCard
     ];
   }
 
-  public function getActionBloc(): array
+  public function getActionBloc(Player $player): array
   {
     return [
       'action' => COUNTER_STORAGE,

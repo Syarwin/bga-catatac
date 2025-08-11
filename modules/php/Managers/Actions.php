@@ -23,6 +23,8 @@ class Actions
     ACTIVATE_CARD => 'ActivateCard',
     COUNTER_STORAGE => 'CounterStorageAction',
     TOSS_TOKEN => 'TossToken',
+    DISTRACTION => 'Distraction',
+    REPLAY => 'Replay',
   ];
 
   public static function get($actionId, &$ctx = null)

@@ -16,7 +16,7 @@ class Courage extends PawnCard
     ];
   }
 
-  public function getActionBloc(): array
+  public function getActionBloc(Player $player): array
   {
     return [
       'action' => MOVE_TOKEN,

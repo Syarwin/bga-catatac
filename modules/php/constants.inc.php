@@ -4,6 +4,9 @@
  * Game options
  */
 
+const OPTION_ALPHA = 110;
+const OPTION_DISTRACTION = 111;
+const OPTION_MOMENTUM = 112;
 
 /*
  * User preferences
@@ -80,6 +83,10 @@ const MOVE_TOKEN = 'MoveToken';
 const STORAGE_ATTEMPT = 'StorageAttempt';
 const COUNTER_STORAGE_CHOOSE_CARD = 'CounterStorage';
 const COUNTER_STORAGE = 'CounterStorageAction';
+
+const DISTRACTION = 'Distraction';
+const REPLAY = 'Replay';
+
 /*
  * MISC
  */
@@ -102,6 +109,38 @@ const FIDO = 'Fido';
 const JOKER = 'Joker';
 const JOKER_EXCLUSIVE = 'JokerExclusive';
 
+// DISTRACTIONS
+const BRUTE = 'Brute';
+const BICYCLE = 'Bicycle';
+const DRIBBLE = 'Dribble';
+const RAT = 'Rat';
+const ZZZZ = 'Zzzz';
+const BEURGH = 'Beurgh';
+const NINJA = 'Ninja';
+const BENGAIL = 'Bengail';
+
+// MOMENTUM
+const MOMENTUM = 'Momentum';
+const SYNCHRO = 'Synchro';
+const DUO = 'Duo';
+const ACCIDENT = 'Accident';
+const REFLEXES = 'Reflexes';
+const MISSION = 'Mission';
+const SCHRODINGER = 'Schrodinger';
+const AGILE = 'Agile';
+const RAGDOLL = 'Ragdoll';
+
+// ALPHA
+const ALPHA = 'Alpha';
+const ANGORA = 'Angora';
+const MAINE_COON = 'MaineCoon';
+const LYKOI = 'Lykoi';
+const MANX = 'Manx';
+const LAPERM = 'Laperm';
+
+
+const ALPHA_NUMBER = -100;
+const POINT_NUMBER = -200;
 
 const WHITE_HIDEOUT = 0;
 const WHITE_STREET = 1;

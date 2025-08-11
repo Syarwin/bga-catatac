@@ -405,6 +405,7 @@ define([
       args._private.cardIds.forEach((cardId) => (elements[cardId] = $(`card-${cardId}`)));
 
       this.onSelectN({
+        autoConfirm: true,
         elements,
         n: 1,
         callback: (selection) => this.takeAtomicAction('actChooseCard', [selection[0]]),
@@ -423,6 +424,7 @@ define([
       this.onSelectN({
         elements,
         n: 1,
+        autoConfirm: true,
         callback: (selection) => this.takeAtomicAction('actCounterStorage', [selection[0], null]),
       });
 

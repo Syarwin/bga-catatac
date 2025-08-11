@@ -30,7 +30,7 @@ class ActivateCard extends \Bga\Games\Catatac\Models\Action
 
   public function getFlow($player): array
   {
-    return $this->getCard()->getActionBloc();
+    return $this->getCard()->getActionBloc($player);
   }
 
   public function getFlowTree($player): AbstractNode

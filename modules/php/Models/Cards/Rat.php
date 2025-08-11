@@ -5,30 +5,26 @@ namespace Bga\Games\Catatac\Models\Cards;
 use Bga\Games\Catatac\Models\PawnCard;
 use Bga\Games\Catatac\Models\Player;
 
-class Fido extends PawnCard
+class Rat extends PawnCard
 {
   public function __construct($row)
   {
     parent::__construct($row);
     $this->tooltip = [
-      clienttranslate('**Condition:** opponent owns the ball'),
-      clienttranslate('**Effect:** move the ball by 1 or 2 steps')
+      clienttranslate('**Condition:** none'),
+      clienttranslate('**Effect:** skip next player\'s turn')
     ];
   }
 
   public function getActionBloc(Player $player): array
   {
     return [
-      'type' => NODE_XOR,
-      'childs' => [
-        ['action' => MOVE_TOKEN],
-        ['action' => MOVE_TOKEN, 'args' => ['n' => 2]],
-      ]
+      'action' => DISTRACTION,
     ];
   }
 
   public function canUseActionBloc(Player $player): bool
   {
-    return !$player->isOwningTheBall();
+    return true;
   }
 }

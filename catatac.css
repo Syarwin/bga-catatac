@@ -453,6 +453,156 @@
   .catatac-card[data-type="0-JokerExclusive"] .catatac-card-wrapper {
     background-position-x: 42.8571428571%;
     background-position-y: 100%; }
+  .catatac-card[data-type="1-Brute"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 0%;
+    background-position-y: 0%; }
+  .catatac-card[data-type="2-Bicycle"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 20%;
+    background-position-y: 0%; }
+  .catatac-card[data-type="3-Dribble"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 40%;
+    background-position-y: 0%; }
+  .catatac-card[data-type="4-Dribble"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 60%;
+    background-position-y: 0%; }
+  .catatac-card[data-type="5-Rat"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 80%;
+    background-position-y: 0%; }
+  .catatac-card[data-type="6-Zzzz"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 100%;
+    background-position-y: 0%; }
+  .catatac-card[data-type="7-Beurgh"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 0%;
+    background-position-y: 25%; }
+  .catatac-card[data-type="8-Ninja"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 20%;
+    background-position-y: 25%; }
+  .catatac-card[data-type="Alpha-Bengal"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 40%;
+    background-position-y: 25%; }
+  .catatac-card[data-type="Points-Purple-2"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 60%;
+    background-position-y: 25%; }
+  .catatac-card[data-type="1-Synchro"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 80%;
+    background-position-y: 25%; }
+  .catatac-card[data-type="2-Duo"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 100%;
+    background-position-y: 25%; }
+  .catatac-card[data-type="3-Duo"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 0%;
+    background-position-y: 50%; }
+  .catatac-card[data-type="4-Accident"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 20%;
+    background-position-y: 50%; }
+  .catatac-card[data-type="5-Reflexes"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 40%;
+    background-position-y: 50%; }
+  .catatac-card[data-type="6-Mission"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 60%;
+    background-position-y: 50%; }
+  .catatac-card[data-type="7-Schrodinger"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 80%;
+    background-position-y: 50%; }
+  .catatac-card[data-type="8-Agile"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 100%;
+    background-position-y: 50%; }
+  .catatac-card[data-type="Alpha-Ragdol"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 0%;
+    background-position-y: 75%; }
+  .catatac-card[data-type="Points-YellowMomentum-1"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 20%;
+    background-position-y: 75%; }
+  .catatac-card[data-type="AlphaWhite-Angora"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 40%;
+    background-position-y: 75%; }
+  .catatac-card[data-type="AlphaWhite-MaineCoon"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 60%;
+    background-position-y: 75%; }
+  .catatac-card[data-type="AlphaBlack-Lykoi"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 80%;
+    background-position-y: 75%; }
+  .catatac-card[data-type="Black-Back"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 100%;
+    background-position-y: 75%; }
+  .catatac-card[data-type="White-Back"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 0%;
+    background-position-y: 100%; }
+  .catatac-card[data-type="AlphaBlack-Angora"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 20%;
+    background-position-y: 100%; }
+  .catatac-card[data-type="AlphaWhite-Manx"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 40%;
+    background-position-y: 100%; }
+  .catatac-card[data-type="AlphaBlack-Laperm"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 60%;
+    background-position-y: 100%; }
+  .catatac-card[data-type="Points-Pasta-Left"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 80%;
+    background-position-y: 100%; }
+  .catatac-card[data-type="Points-Pasta-Right"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 100%;
+    background-position-y: 100%; }
   .catatac-card.fake-card .catatac-card-wrapper {
     background-position: 14.2857142857% 80%; }
   .catatac-card.fake-card.points .catatac-card-wrapper {

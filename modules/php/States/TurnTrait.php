@@ -19,6 +19,13 @@ trait TurnTrait
   function stPreStartTurn()
   {
     $player = Players::getActive();
+    if (Globals::isDistracted()) {
+      Notifications::message(clienttranslate('${player_name} is distracted, their turn is skipped!'), ['player' => $player]);
+      Globals::setDistracted(false);
+      $this->nextPlayerCustomOrder('turn');
+      return;
+    }
+
     $ball = Meeples::getBall();
     if (!in_array($ball->getLocation(), [WHITE_HIDEOUT, BLACK_HIDEOUT])) {
       $this->gamestate->jumpToState(ST_START_TURN);

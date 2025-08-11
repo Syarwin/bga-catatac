@@ -67,7 +67,7 @@ class ChooseCard extends \Bga\Games\Catatac\Models\Action
     }
 
     // Any action bloc?
-    if (!empty($card->getActionBloc())) {
+    if (!empty($card->getActionBloc($player))) {
       $ball = Meeples::getBall();
       $optional = !in_array($ball->getLocation(), [WHITE_HIDEOUT, BLACK_HIDEOUT]);
 

@@ -102,6 +102,45 @@ class Cards extends CachedPieces
     "Points-White"
   ];
 
+  public static $extraCards = [
+    OPTION_DISTRACTION => [
+      [1, BRUTE, 1],
+      [2, BICYCLE, 1],
+      [3, DRIBBLE, 1],
+      [4, DRIBBLE, 1],
+      [5, RAT, 1],
+      [6, ZZZZ, 1],
+      [7, BEURGH, 1],
+      [8, NINJA, 1],
+      [ALPHA_NUMBER, BENGAIL, 1, BLACK_SIDE],
+      [ALPHA_NUMBER, BENGAIL, 1, WHITE_SIDE],
+      [POINT_NUMBER, "Points-Purple-2", 1],
+    ],
+    OPTION_MOMENTUM => [
+      [1, SYNCHRO, 1],
+      [2, DUO, 1],
+      [3, DUO, 1],
+      [4, ACCIDENT, 1],
+      [5, REFLEXES, 1],
+      [6, MISSION, 1],
+      [7, SCHRODINGER, 1],
+      [8, AGILE, 1],
+      [ALPHA_NUMBER, RAGDOLL, 1, BLACK_SIDE],
+      [ALPHA_NUMBER, RAGDOLL, 1, WHITE_SIDE],
+      [POINT_NUMBER, "Points-YellowMomentum-1", 1],
+    ],
+    OPTION_ALPHA => [
+      [ALPHA_NUMBER, ANGORA, 1, WHITE_SIDE],
+      [ALPHA_NUMBER, MAINE_COON, 1, WHITE_SIDE],
+      [ALPHA_NUMBER, MANX, 1, WHITE_SIDE],
+      [ALPHA_NUMBER, ANGORA, 1, BLACK_SIDE],
+      [ALPHA_NUMBER, LYKOI, 1, BLACK_SIDE],
+      [ALPHA_NUMBER, LAPERM, 1, BLACK_SIDE],
+      [POINT_NUMBER, "Points-Pasta-Left", 1],
+      [POINT_NUMBER, "Points-Pasta-Right", 1],
+    ]
+  ];
+
   public static function getCardsCount(): int
   {
     return self::countInLocation("deck") + self::countInLocation("discard") + self::countInLocation("hand-%");
@@ -143,19 +182,38 @@ class Cards extends CachedPieces
   {
     // Create and shuffle the deck
     $cards = [];
+    $pointCards = [];
     $availableCards = static::$baseGameDeck;
-    // TODO : handle options here
+    foreach (self::$extraCards as $optionId => $extraCards) {
+      if (($options[$optionId] ?? 0) == 0) {
+        continue;
+      }
+
+      // Handle alpha in other boosters
+      foreach ($extraCards as $cardInfo) {
+        if ($cardInfo[0] == ALPHA_NUMBER && ($options[OPTION_ALPHA] ?? 0) == 0) {
+          continue;
+        }
+
+        $availableCards[] = $cardInfo;
+      }
+    }
 
     foreach ($availableCards as $cardInfo) {
       [$number, $power, $nbr] = $cardInfo;
-      $type = $number . "-" . $power;
-
-      $cards[] = [
-        'type' => $type,
-        'nbr' => $nbr,
-      ];
+      if ($number == POINT_NUMBER) {
+        $pointCards[] = [
+          'type' => $power,
+          'nbr' => $nbr,
+        ];
+      } else {
+        $type = $number . "-" . $power;
+        $cards[] = [
+          'type' => $type,
+          'nbr' => $nbr,
+        ];
+      }
     }
-
     self::create($cards, 'deck');
     self::shuffle('deck');
 
@@ -167,18 +225,15 @@ class Cards extends CachedPieces
     self::draw(1, "deck", "discard");
 
     // Create and shuffle the points deck
-    $cards = [];
     $availableCards = static::$baseGamePointsDeck;
-    // TODO : handle options here
-
     foreach ($availableCards as $type) {
-      $cards[] = [
+      $pointCards[] = [
         'type' => $type,
         'nbr' => 1,
       ];
     }
 
-    self::create($cards, 'deck-points');
+    self::create($pointCards, 'deck-points');
     self::shuffle('deck-points');
   }
 

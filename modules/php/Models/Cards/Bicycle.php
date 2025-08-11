@@ -6,14 +6,14 @@ use Bga\Games\Catatac\Managers\Meeples;
 use Bga\Games\Catatac\Models\PawnCard;
 use Bga\Games\Catatac\Models\Player;
 
-class Stop extends PawnCard
+class Bicycle extends PawnCard
 {
   public function __construct($row)
   {
     parent::__construct($row);
     $this->tooltip = [
       clienttranslate('Condition: opponent owns the ball'),
-      clienttranslate('Effects: counter a storage attempt and randomly flip the ball')
+      clienttranslate('Effects: counter a storage attempt and skip next player\'s turn')
     ];
   }
 
@@ -25,7 +25,7 @@ class Stop extends PawnCard
           'action' => COUNTER_STORAGE,
         ],
         [
-          'action' => TOSS_TOKEN
+          'action' => DISTRACTION
         ]
       ]
     ];

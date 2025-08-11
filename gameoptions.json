@@ -1,1 +1,41 @@
-{}
+{
+  "110": {
+    "name": "Alpha booster",
+    "default": 0,
+    "values": {
+      "0": {
+        "name": "Disabled"
+      },
+      "1": {
+        "name": "Enabled",
+        "tmdisplay": "[Alpha]"
+      }
+    }
+  },
+  "111": {
+    "name": "Distraction booster",
+    "default": 0,
+    "values": {
+      "0": {
+        "name": "Disabled"
+      },
+      "1": {
+        "name": "Enabled",
+        "tmdisplay": "[Distraction]"
+      }
+    }
+  },
+  "112": {
+    "name": "Momentum booster",
+    "default": 0,
+    "values": {
+      "0": {
+        "name": "Disabled"
+      },
+      "1": {
+        "name": "Enabled",
+        "tmdisplay": "[Momentum]"
+      }
+    }
+  }
+}

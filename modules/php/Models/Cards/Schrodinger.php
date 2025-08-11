@@ -6,34 +6,32 @@ use Bga\Games\Catatac\Managers\Meeples;
 use Bga\Games\Catatac\Models\PawnCard;
 use Bga\Games\Catatac\Models\Player;
 
-class Stop extends PawnCard
+class Schrodinger extends PawnCard
 {
   public function __construct($row)
   {
     parent::__construct($row);
     $this->tooltip = [
-      clienttranslate('Condition: opponent owns the ball'),
-      clienttranslate('Effects: counter a storage attempt and randomly flip the ball')
+      clienttranslate('Condition: opponent owns the ball / you own the ball'),
+      clienttranslate('Effects: counter a storage attempt / attempt storage from neutral street')
     ];
   }
 
   public function getActionBloc(Player $player): array
   {
-    return [
-      'childs' => [
-        [
-          'action' => COUNTER_STORAGE,
-        ],
-        [
-          'action' => TOSS_TOKEN
-        ]
-      ]
-    ];
+    return $player->isOwningTheBall() ?
+      [
+        'action' => STORAGE_ATTEMPT,
+        'args' => ['n' => 2]
+      ] :
+      [
+        'action' => COUNTER_STORAGE
+      ];
   }
 
   public function canUseActionBloc(Player $player): bool
   {
-    return !$player->isOwningTheBall() && in_array(Meeples::getBall()->getLocation(), [WHITE_HIDEOUT, BLACK_HIDEOUT]);
+    return true;
   }
 
   public function canCounterStorage(): bool

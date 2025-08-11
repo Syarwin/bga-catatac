@@ -70,6 +70,16 @@
         }
     }
 
+    @each $type in $baseBoostersCardTypes {
+        $i: index($baseBoostersCardTypes, $type) - 1;
+        &[data-type="#{$type}"] .catatac-card-wrapper {
+            background-image: url("img/base-boosters.jpg");
+            background-size: 600% 500%;
+            background-position-x: ($i % 6) * 100% / 5;
+            background-position-y: (($i - ($i % 6)) / 6) * 100% / 4;
+        }
+    }
+
     &.fake-card .catatac-card-wrapper {
         background-position: 1 * 100%/7 4 * 100%/5;
     }

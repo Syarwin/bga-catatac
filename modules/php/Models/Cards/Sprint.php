@@ -16,7 +16,7 @@ class Sprint extends PawnCard
     ];
   }
 
-  public function getActionBloc(): array
+  public function getActionBloc(Player $player): array
   {
     return [
       'type' => NODE_XOR,

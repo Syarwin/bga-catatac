@@ -25,6 +25,7 @@ class Globals extends DB_Manager
     'skippedPlayers' => 'obj',
 
     'flippedBoard' => 'bool',
+    'distracted' => 'bool',
 
     // Game options
   ];

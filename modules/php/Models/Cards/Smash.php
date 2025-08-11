@@ -16,7 +16,7 @@ class Smash extends PawnCard
     ];
   }
 
-  public function getActionBloc(): array
+  public function getActionBloc(Player $player): array
   {
     return [
       'action' => STORAGE_ATTEMPT,
