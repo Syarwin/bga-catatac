@@ -94,7 +94,7 @@ trait TurnTrait
 
     // End of game
     if (Cards::countInLocation('deck-points') == 0) {
-      $this->gamestate->jumpToState(ST_END_GAME);
+      $this->gamestate->jumpToState(ST_PRE_END_OF_GAME);
       return;
     }
 
@@ -107,18 +107,5 @@ trait TurnTrait
     }
 
     $this->nextPlayerCustomOrder('turn');
-  }
-
-
-  public function stStorageAttemptSuccess()
-  {
-
-    if (Cards::countInLocation('deck-points') == 0) {
-      Notifications::message(clienttranslate("No more point card left in the deck: end of game is triggered!"));
-      $this->gamestate->jumpToState(ST_PRE_END_OF_GAME);
-      return;
-    }
-
-    $this->gamestate->jumpToState(ST_START_TURN);
   }
 }
