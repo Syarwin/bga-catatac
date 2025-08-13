@@ -18,13 +18,7 @@ class Reflexes extends PawnCard
 
   public function getActionBloc(Player $player): array
   {
-    return [
-      'type' => NODE_XOR,
-      'childs' => [
-        ['action' => STORAGE_ATTEMPT],
-        ['action' => STORAGE_ATTEMPT, 'args' => ['n' => 2]],
-      ]
-    ];
+    return ['action' => STORAGE_ATTEMPT, 'args' => ['n' => [1, 2]]];
   }
 
   public function canUseActionBloc(Player $player): bool

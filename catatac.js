@@ -121,7 +121,10 @@ define([
     <div id="white-points-reveal"></div>
     <div id="black-points-reveal"></div>
   </div>
-  <div id="catatac-hand"></div>
+  <div id="catatac-hand-wrapper">
+    <div id="catatac-alpha"></div>
+    <div id="catatac-hand"></div>
+  </div>
 </div>
 
 <svg style="display:none" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-question" role="img" xmlns="http://www.w3.org/2000/svg">
@@ -299,6 +302,7 @@ define([
     notif_refreshHand(args) {
       debug('Notif: refreshing UI Hand', args);
       this.gamedatas.players[args.player_id].hand = args.hand;
+      this.gamedatas.players[args.player_id].alpha = args.alpha;
       this.updateHandCards();
     },
 

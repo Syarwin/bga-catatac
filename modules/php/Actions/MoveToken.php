@@ -26,14 +26,15 @@ class MoveToken extends \Bga\Games\Catatac\Models\Action
     return [
       'log' => clienttranslate('Move x${n}'),
       'args' => [
-        'n' => $this->getN()
+        'n' => implode('/', $this->getN())
       ]
     ];
   }
 
-  public function getN()
+  public function getN(): array
   {
-    return $this->getCtxArg('n') ?? 1;
+    $m = $this->getCtxArg('n') ?? 1;
+    return is_array($m) ? $m : [$m];
   }
 
   public function getNewLocations(Player $player)
@@ -44,10 +45,13 @@ class MoveToken extends \Bga\Games\Catatac\Models\Action
     $forcedDirection = false;
     $dirs = $forcedDirection ? [$player->getTeam() == WHITE_SIDE ? -1 : 1] : [-1, 1];
     $locations = [];
+    $n = $this->getN();
     foreach ($dirs as $dir) {
-      $newLocation = $currentLocation + $dir * $this->getN();
-      if (in_array($newLocation, STREETS)) {
-        $locations[] = $newLocation;
+      foreach ($n as $m) {
+        $newLocation = $currentLocation + $dir * $m;
+        if (in_array($newLocation, STREETS)) {
+          $locations[] = $newLocation;
+        }
       }
     }
 
@@ -83,7 +87,7 @@ class MoveToken extends \Bga\Games\Catatac\Models\Action
   {
     $player = Players::getActive();
     $ball = Meeples::getBall();
-    $n = $this->getN();
+    $n = abs($newLocation - $ball->getLocation());
     $ball->setLocation($newLocation);
     Notifications::moveBall($player, $n, $ball);
   }

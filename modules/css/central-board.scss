@@ -346,18 +346,33 @@ $cardMargin: 10px;
             }
         }
     }
-    #catatac-hand {
+    #catatac-hand-wrapper {
         width: 1479px;
         margin-top: 10px;
         // flex-grow: 1;
         // margin-left: 10px;
-        display: flex;
         background: #ffffffad;
         border: 1px solid black;
         box-shadow: 1px 1px 3px black;
         border-radius: 8px;
-        justify-content: center;
-        align-items: center;
+        display: flex;
+
+        #catatac-alpha:not(:empty) {
+            background: #ffffff;
+            border: 1px solid black;
+            border-radius: 8px;
+            box-shadow: 1px 1px 3px black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #catatac-hand {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
 
         .catatac-card {
             margin: $cardMargin;
@@ -385,8 +400,9 @@ $cardMargin: 10px;
             }
         }
 
-        #catatac-hand {
+        #catatac-hand-wrapper {
             width: 1479px * 0.7;
+            --catatacCardScale: 0.4;
         }
     }
 }
@@ -446,14 +462,17 @@ $cardMargin: 10px;
             grid-row: 1 / span 1;
             margin-bottom: 0;
         }
-        #catatac-hand {
+        #catatac-hand-wrapper {
             width: auto;
             grid-column: 2 / span 1;
             grid-row: 2 / span 1;
 
             margin-top: 0px;
             margin-left: 10px;
-            flex-wrap: wrap;
+
+            #catatac-hand {
+                flex-wrap: wrap;
+            }
         }
     }
 }

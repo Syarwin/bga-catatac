@@ -163,10 +163,10 @@ class Engine
       $id = array_keys($choices)[0] ?? null;
       if (
         count($choices) == 1 &&
-        (
-          (count($allChoices) == 1 && array_keys($allChoices) == array_keys($choices))
-          || (count($allChoices) == 2 && $id == PASS)
-        ) &&
+        // (
+        //   (count($allChoices) == 1 && array_keys($allChoices) == array_keys($choices))
+        //   || (count($allChoices) == 2 && $id == PASS)
+        // ) &&
         !$choices[$id]['irreversibleAction']
       ) {
         self::chooseNode($player, $id, true);

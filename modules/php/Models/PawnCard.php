@@ -63,6 +63,16 @@ class PawnCard extends Card
     return [];
   }
 
+  public function canBePlayed(Player $player): bool
+  {
+    return true;
+  }
+
+  public function isAlpha(): bool
+  {
+    return false;
+  }
+
   public function canUseActionBloc(Player $player): bool
   {
     return false;

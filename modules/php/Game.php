@@ -81,6 +81,7 @@ class Game extends \Table
             'ownedPointsCards' => Cards::getOwnPointsCardsCounts(),
             'meeples' => Meeples::getUiData(),
             'flippedBoard' => Globals::getFlippedBoard(),
+            'alphaBooster' => Globals::isAlpha(),
         ];
 
         return $datas;

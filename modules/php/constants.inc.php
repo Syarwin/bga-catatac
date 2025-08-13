@@ -137,6 +137,7 @@ const MAINE_COON = 'MaineCoon';
 const LYKOI = 'Lykoi';
 const MANX = 'Manx';
 const LAPERM = 'Laperm';
+const ALPHAS = [ANGORA, MAINE_COON, LYKOI, MANX, LAPERM, BENGAIL, RAGDOLL];
 
 
 const ALPHA_NUMBER = -100;

@@ -40,8 +40,10 @@ class Player extends \Bga\Games\Catatac\Helpers\DB_Model
     $datas = parent::getUiData();
     if ($pId == $this->id) {
       $datas['hand'] = $this->getHand()->toArray();
+      $datas['alpha'] = $this->getAlpha();
     }
     $datas['handCount'] = $this->getHand()->count();
+    $datas['alphaCount'] = is_null($this->getAlpha()) ? 0 : 1;
     return $datas;
   }
 
@@ -69,6 +71,23 @@ class Player extends \Bga\Games\Catatac\Helpers\DB_Model
   public function getHand(): Collection
   {
     return Cards::getInLocation("hand-$this->id")->orderBy('state', 'ASC');
+  }
+
+  public function getAlpha(): ?AlphaCard
+  {
+    return Cards::getInLocation("alpha-$this->id")->first();
+  }
+
+  public function getPlayableCards(): Collection
+  {
+    $cards = $this->getHand();
+
+    $alpha = $this->getAlpha();
+    if (!is_null($alpha)) {
+      $cards[$alpha->getId()] = $alpha;
+    }
+
+    return $cards->filter(fn($card) => $card->canBePlayed($this));
   }
 
   public function getHideoutLocation(): int

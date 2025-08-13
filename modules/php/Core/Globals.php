@@ -28,12 +28,16 @@ class Globals extends DB_Manager
     'distracted' => 'bool',
 
     // Game options
+    'alpha' => 'bool',
   ];
 
   /*
    * Setup new game
    */
-  public static function setupNewGame($players, $options) {}
+  public static function setupNewGame($players, $options)
+  {
+    self::setAlpha(($options[OPTION_ALPHA] ?? 0) == 1);
+  }
 
 
 

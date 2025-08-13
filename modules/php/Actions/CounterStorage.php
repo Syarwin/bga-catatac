@@ -18,7 +18,7 @@ class CounterStorage extends \Bga\Games\Catatac\Models\Action
   public function argsCounterStorage()
   {
     $player = Players::getActive();
-    $cards = $player->getHand()->filter(fn($card) => $card->canCounterStorage());
+    $cards = $player->getPlayableCards()->filter(fn($card) => $card->canCounterStorage());
 
     $helpCards = [];
     foreach ($player->getTeamMembers() as $pId2 => $player2) {
@@ -96,7 +96,7 @@ class CounterStorage extends \Bga\Games\Catatac\Models\Action
     $n = $card->getNumber();
     $previousCard = Cards::getTopDiscardCard();
     $oldN = $previousCard->getNumber();
-    $isPair = $n == 0 || ($n == $oldN);
+    $isPair = $oldN != ALPHA_NUMBER && $n != ALPHA_NUMBER && ($n == 0 || ($n == $oldN));
 
     // Move card
     Cards::insertOnTop($cardId, 'discard');

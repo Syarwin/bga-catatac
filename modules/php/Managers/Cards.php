@@ -19,6 +19,12 @@ class Cards extends CachedPieces
   protected static function cast($row): Card|PawnCard
   {
     $t = explode("-", $row['type']);
+    // ALPHA
+    if (in_array($t[0], ['AlphaWhite', 'AlphaBlack'])) {
+      $class = 'Bga\Games\Catatac\Models\AlphaCards\\' . $t[1];
+      return new $class($row);
+    }
+    // PAWN
     if (is_numeric($t[0])) {
       if ($t[1] == 'Basic') {
         return new PawnCard($row);
@@ -27,6 +33,7 @@ class Cards extends CachedPieces
         return new $class($row);
       }
     }
+    // POINTS
     if ($t[0] == "Points") {
       array_shift($t);
       $class = 'Bga\Games\Catatac\Models\PointCards\\' . join("", $t);
@@ -180,9 +187,11 @@ class Cards extends CachedPieces
   /* Creation of all cards */
   public static function setupNewGame(array $players, array $options): void
   {
-    // Create and shuffle the deck
     $cards = [];
     $pointCards = [];
+    $alphaCards = [];
+
+    // Which boosters are we using?
     $availableCards = static::$baseGameDeck;
     foreach (self::$extraCards as $optionId => $extraCards) {
       if (($options[$optionId] ?? 0) == 0) {
@@ -199,14 +208,28 @@ class Cards extends CachedPieces
       }
     }
 
+    // Separate cards into pawn/points/alpha
     foreach ($availableCards as $cardInfo) {
       [$number, $power, $nbr] = $cardInfo;
-      if ($number == POINT_NUMBER) {
+      // Alpha
+      if ($number == ALPHA_NUMBER) {
+        $teamId = $cardInfo[3];
+        $team = $teamId == BLACK_SIDE ? 'AlphaBlack' : 'AlphaWhite';
+        $alphaCards[] = [
+          'type' => "$team-$power",
+          'nbr' => $nbr,
+          'location' => "deck-alpha-$teamId",
+        ];
+      }
+      // Points
+      else if ($number == POINT_NUMBER) {
         $pointCards[] = [
           'type' => $power,
           'nbr' => $nbr,
         ];
-      } else {
+      }
+      // Pawn
+      else {
         $type = $number . "-" . $power;
         $cards[] = [
           'type' => $type,
@@ -231,6 +254,17 @@ class Cards extends CachedPieces
         'type' => $type,
         'nbr' => 1,
       ];
+    }
+
+    // Draw 1 alpha if needed
+    if (count($alphaCards) > 0) {
+      self::create($alphaCards);
+      self::shuffle('deck-alpha-0');
+      self::shuffle('deck-alpha-1');
+      foreach (Players::getAll() as $pId => $player) {
+        $team = $player->getTeam();
+        self::draw(1, "deck-alpha-$team", "alpha-$pId");
+      }
     }
 
     self::create($pointCards, 'deck-points');

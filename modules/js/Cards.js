@@ -97,10 +97,23 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
           this.addCard(card);
         }
       });
+
+      this.empty(`catatac-alpha`);
+      let alpha = this.gamedatas.players[this.player_id].alpha;
+      if (alpha) {
+        if ($(`card-${alpha.id}`)) {
+          $(`catatac-alpha`).insertAdjacentElement('beforeend', $(`card-${alpha.id}`));
+        } else {
+          this.addCard(alpha);
+        }
+      }
     },
 
     getCardContainer(card) {
       let t = card.location.split('-');
+      if (t[0] == 'alpha') {
+        return $(`catatac-alpha`);
+      }
       if (t[0] == 'hand') {
         return $(`catatac-hand`);
       }
@@ -130,24 +143,25 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
     </div>`;
     },
 
-    async discardCard(card, pId) {
+    async discardCard(card, pId, isAlpha = false) {
+      let counter = isAlpha ? 'alphaCount' : 'handCount';
       let o = $(`card-${card.id}`);
       if (o) {
         await this.slide(`card-${card.id}`, $('catatac-discard'));
-        this._playerCounters[pId]['handCount'].incValue(-1);
+        this._playerCounters[pId][counter].incValue(-1);
       }
       // Opponents => slide the tile and cards from player panels
       else {
         const playerPanel = $(`overall_player_board_${pId}`);
         this.addCard(card, playerPanel);
         await this.slide(`card-${card.id}`, $('catatac-discard'));
-        this._playerCounters[pId]['handCount'].incValue(-1);
+        this._playerCounters[pId][counter].incValue(-1);
       }
     },
 
     async notif_discardCard(args) {
       debug('Notif: discarding card', args);
-      await this.discardCard(args.card, args.player_id);
+      await this.discardCard(args.card, args.player_id, args.alpha);
 
       if (args.flippedBoard !== undefined) {
         this.gamedatas.flippedBoard = args.flippedBoard;

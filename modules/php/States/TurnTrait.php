@@ -102,8 +102,10 @@ trait TurnTrait
     if (Cards::countInLocation('deck') > 0) {
       $pId = $player->getId();
       $nCardsToDraw = 6 - $player->getHand()->count();
-      $cards = Cards::draw($nCardsToDraw, "deck", "hand-$pId");
-      Notifications::replenishCards($player, $cards);
+      if ($nCardsToDraw > 0) {
+        $cards = Cards::draw($nCardsToDraw, "deck", "hand-$pId");
+        Notifications::replenishCards($player, $cards);
+      }
     }
 
     $this->nextPlayerCustomOrder('turn');

@@ -27,6 +27,12 @@ class Notifications
     if ($changeSide) {
       $data['flippedBoard'] = Globals::getFlippedBoard();
     }
+
+    if ($card->isAlpha()) {
+      $msg = clienttranslate('${teamIcon}${player_name} plays their Alpha: ${card_name}');
+      $data['alpha'] = true;
+    }
+
     self::notifyAll('discardCard', $msg, $data);
   }
 
@@ -224,6 +230,7 @@ class Notifications
     self::notify($player, 'refreshHand', '', [
       'player' => $player,
       'hand' => $hand->toArray(),
+      'alpha' => $player->getAlpha(),
     ]);
   }
 

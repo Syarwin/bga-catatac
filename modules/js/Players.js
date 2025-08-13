@@ -1,5 +1,5 @@
 define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
-  const PLAYER_COUNTERS = ['handCount'];
+  let PLAYER_COUNTERS = ['handCount'];
   const RESOURCES = [];
   const ALL_PLAYER_COUNTERS = PLAYER_COUNTERS.concat(RESOURCES);
 
@@ -38,6 +38,16 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
     },
 
     tplPlayerPanel(player) {
+      let alphaCounter = '';
+      if (this.gamedatas.alphaBooster) {
+        alphaCounter = `<div class="player-alphaCount">
+          <span id="counter-${player.id}-alphaCount"></span>
+          <div class='alpha-icon'>
+            ${this.formatIcon(player.team == 0 ? 'cat-black' : 'cat-white')}
+          </div>
+        </div>`;
+      }
+
       return `<div class='player-info'>
         <div class="player-team">
           ${this.formatIcon(player.team == 0 ? 'cat-black' : 'cat-white')}
@@ -47,6 +57,8 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
           <span id="counter-${player.id}-handCount"></span>
           ${this.formatIcon('hand')}
         </div>
+
+        ${alphaCounter}
       </div>`;
     },
 
@@ -62,6 +74,11 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
      * Create all the counters for player panels
      */
     setupPlayersCounters() {
+      if (this.gamedatas.alphaBooster) {
+        PLAYER_COUNTERS.push('alphaCount');
+        ALL_PLAYER_COUNTERS.push('alphaCount');
+      }
+
       this._playerCounters = {};
       this._playerCountersMeeples = {};
       this._scoreCounters = {};

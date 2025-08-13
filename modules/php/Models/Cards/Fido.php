@@ -18,13 +18,7 @@ class Fido extends PawnCard
 
   public function getActionBloc(Player $player): array
   {
-    return [
-      'type' => NODE_XOR,
-      'childs' => [
-        ['action' => MOVE_TOKEN],
-        ['action' => MOVE_TOKEN, 'args' => ['n' => 2]],
-      ]
-    ];
+    return ['action' => MOVE_TOKEN, 'args' => ['n' => [1, 2]]];
   }
 
   public function canUseActionBloc(Player $player): bool
