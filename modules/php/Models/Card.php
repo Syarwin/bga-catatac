@@ -22,6 +22,7 @@ class Card extends \Bga\Games\Catatac\Helpers\DB_Model
     ['name', 'str'],
   ];
   protected array $tooltip = [];
+  protected int $sardines = 0;
 
   public function getNumber(): int
   {

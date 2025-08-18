@@ -12,29 +12,47 @@ trait EndOfGameTrait
   {
     // WHITE SCORE
     $pointsWhite = 0;
+    $auxScore = 0;
     $playerWhite = Players::getAll()->filter(fn($player) => $player->getTeam() == WHITE_SIDE)->first();
     $cards = Cards::getInLocation("points-1");
     foreach ($cards as $card) {
       $pointsWhite += $card->getPoints($playerWhite);
+      $auxScore += $card->getSardines();
       $card->setLocation('revealed-1');
     }
     foreach ($playerWhite->getTeamMembers() as $player) {
-      $player->setScore($pointsWhite);
+      $alpha = $player->getAlpha();
+      if (!is_null($alpha)) {
+        $auxScore += $alpha->getSardines();
+      }
     }
-    Notifications::revealPoints($cards, $pointsWhite, WHITE_SIDE);
+    foreach ($playerWhite->getTeamMembers() as $player) {
+      $player->setScore($pointsWhite);
+      $player->setScoreAux($auxScore);
+    }
+    Notifications::revealPoints($cards, $pointsWhite, WHITE_SIDE, $auxScore);
 
     // BLACK SCORE
     $pointsBlack = 0;
+    $auxScore = 0;
     $playerBlack = Players::getAll()->filter(fn($player) => $player->getTeam() == BLACK_SIDE)->first();
     $cards = Cards::getInLocation("points-0");
     foreach ($cards as $card) {
       $pointsBlack += $card->getPoints($playerBlack);
+      $auxScore += $card->getSardines();
       $card->setLocation('revealed-0');
+    }
+    foreach ($playerWhite->getTeamMembers() as $player) {
+      $alpha = $player->getAlpha();
+      if (!is_null($alpha)) {
+        $auxScore += $alpha->getSardines();
+      }
     }
     foreach ($playerBlack->getTeamMembers() as $player) {
       $player->setScore($pointsBlack);
+      $player->setScoreAux($auxScore);
     }
-    Notifications::revealPoints($cards, $pointsBlack, BLACK_SIDE);
+    Notifications::revealPoints($cards, $pointsBlack, BLACK_SIDE, $auxScore);
 
     $this->gamestate->jumpToState(ST_END_GAME);
   }

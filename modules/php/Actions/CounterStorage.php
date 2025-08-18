@@ -59,15 +59,17 @@ class CounterStorage extends \Bga\Games\Catatac\Models\Action
       $ball->setLocation(NEUTRAL_STREET);
       Notifications::postStorageFlip($ball);
 
-      $this->insertAsChild([
-        'pId' => $player->getId(),
-        'childs' => [
-          [
-            'action' => CHOOSE_CARD,
-            'pId' => $player->getId(),
+      if (!$player->getHand()->empty()) {
+        $this->insertAsChild([
+          'pId' => $player->getId(),
+          'childs' => [
+            [
+              'action' => CHOOSE_CARD,
+              'pId' => $player->getId(),
+            ],
           ],
-        ],
-      ]);
+        ]);
+      }
     }
 
     return true;

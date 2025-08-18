@@ -32,9 +32,11 @@ class SeqNode extends AbstractNode
    */
   public function isDoable(Player $player): bool
   {
-    return $this->childsReduceAnd(function ($child) use ($player) {
-      return $child->isDoable($player) || $child->isOptional();
-    });
+    $child = $this->childs[0];
+    return $child->isDoable($player) || $child->isOptional();
+    // return $this->childsReduceAnd(function ($child) use ($player) {
+    //   return $child->isDoable($player) || $child->isOptional();
+    // });
   }
 
   public function getUndoableMandatoryNode($player)

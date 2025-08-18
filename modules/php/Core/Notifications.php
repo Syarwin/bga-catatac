@@ -143,10 +143,10 @@ class Notifications
     ]);
   }
 
-  public static function revealPoints(Collection $cards, int $score, int $team)
+  public static function revealPoints(Collection $cards, int $score, int $team, int $sardines)
   {
     $msg = $team == WHITE_SIDE ? clienttranslate('<cat-white> White team has ${n} point card(s), scoring a total of ${score} points! <cat-white>') :
-      clienttranslate('<cat-black> White team has ${n} point card(s), scoring a total of ${score} points! <cat-black>');
+      clienttranslate('<cat-black> Black team has ${n} point card(s), scoring a total of ${score} points! <cat-black>');
 
     self::notifyAll('revealPoints', $msg, [
       'n' => $cards->count(),

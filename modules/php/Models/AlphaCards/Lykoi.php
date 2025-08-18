@@ -8,6 +8,8 @@ use Bga\Games\Catatac\Models\Player;
 
 class Lykoi extends AlphaCard
 {
+  protected int $sardines = 1;
+
   public function __construct($row)
   {
     parent::__construct($row);

@@ -8,6 +8,8 @@ use Bga\Games\Catatac\Models\PointCard;
 
 class PastaLeft extends PointCard
 {
+  protected int $sardines = 1;
+
   public static function getPoints(Player $player): int
   {
     $team = $player->getTeam();
