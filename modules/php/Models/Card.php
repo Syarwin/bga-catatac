@@ -20,6 +20,7 @@ class Card extends \Bga\Games\Catatac\Helpers\DB_Model
   protected array $staticAttributes = [
     ['tooltip', 'obj'],
     ['name', 'str'],
+    ['sardines', 'int'],
   ];
   protected array $tooltip = [];
   protected int $sardines = 0;

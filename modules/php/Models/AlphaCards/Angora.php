@@ -14,7 +14,7 @@ class Angora extends AlphaCard
     $this->name = clienttranslate("Angora");
     $this->tooltip = [
       clienttranslate('Condition: opponent owns the ball'),
-      clienttranslate('Effects: counter a storage attempt and randomly flip the ball')
+      clienttranslate('Effects: counter a storage attempt and steal the ball')
     ];
   }
 
@@ -26,7 +26,7 @@ class Angora extends AlphaCard
           'action' => COUNTER_STORAGE,
         ],
         [
-          'action' => TOSS_TOKEN
+          'action' => STEAL_TOKEN,
         ]
       ]
     ];
