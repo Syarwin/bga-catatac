@@ -11,7 +11,7 @@ class Bengail extends AlphaCard
   public function __construct($row)
   {
     parent::__construct($row);
-    $this->name = clienttranslate("Bengail");
+    $this->name = clienttranslate("Bengal");
     $this->tooltip = [
       clienttranslate('Condition: you own the ball'),
       clienttranslate('Effects: move the ball and skip next player\'s turn')
