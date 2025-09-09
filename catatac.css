@@ -553,47 +553,47 @@
     background-size: 600% 500%;
     background-position-x: 20%;
     background-position-y: 75%; }
-  .catatac-card[data-type="1-Synchro"] .catatac-card-wrapper {
+  .catatac-card[data-type="Alpha-Ragdol"] .catatac-card-wrapper {
     background-image: url("img/base-boosters.jpg");
     background-size: 600% 500%;
     background-position-x: 40%;
+    background-position-y: 75%; }
+  .catatac-card[data-type="1-Synchro"] .catatac-card-wrapper {
+    background-image: url("img/base-boosters.jpg");
+    background-size: 600% 500%;
+    background-position-x: 60%;
     background-position-y: 75%; }
   .catatac-card[data-type="2-Duo"] .catatac-card-wrapper {
     background-image: url("img/base-boosters.jpg");
     background-size: 600% 500%;
-    background-position-x: 60%;
+    background-position-x: 80%;
     background-position-y: 75%; }
   .catatac-card[data-type="3-Duo"] .catatac-card-wrapper {
     background-image: url("img/base-boosters.jpg");
     background-size: 600% 500%;
-    background-position-x: 80%;
+    background-position-x: 100%;
     background-position-y: 75%; }
   .catatac-card[data-type="4-Accident"] .catatac-card-wrapper {
     background-image: url("img/base-boosters.jpg");
     background-size: 600% 500%;
-    background-position-x: 100%;
-    background-position-y: 75%; }
-  .catatac-card[data-type="5-Reflexes"] .catatac-card-wrapper {
-    background-image: url("img/base-boosters.jpg");
-    background-size: 600% 500%;
     background-position-x: 0%;
     background-position-y: 100%; }
-  .catatac-card[data-type="6-Mission"] .catatac-card-wrapper {
+  .catatac-card[data-type="5-Reflexes"] .catatac-card-wrapper {
     background-image: url("img/base-boosters.jpg");
     background-size: 600% 500%;
     background-position-x: 20%;
     background-position-y: 100%; }
-  .catatac-card[data-type="7-Schrodinger"] .catatac-card-wrapper {
+  .catatac-card[data-type="6-Mission"] .catatac-card-wrapper {
     background-image: url("img/base-boosters.jpg");
     background-size: 600% 500%;
     background-position-x: 40%;
     background-position-y: 100%; }
-  .catatac-card[data-type="8-Agile"] .catatac-card-wrapper {
+  .catatac-card[data-type="7-Schrodinger"] .catatac-card-wrapper {
     background-image: url("img/base-boosters.jpg");
     background-size: 600% 500%;
     background-position-x: 60%;
     background-position-y: 100%; }
-  .catatac-card[data-type="Alpha-Ragdol"] .catatac-card-wrapper {
+  .catatac-card[data-type="8-Agile"] .catatac-card-wrapper {
     background-image: url("img/base-boosters.jpg");
     background-size: 600% 500%;
     background-position-x: 80%;

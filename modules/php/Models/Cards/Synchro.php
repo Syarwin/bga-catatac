@@ -16,6 +16,10 @@ class Synchro extends PawnCard
       clienttranslate('Effects: counter a storage attempt and play again')
     ];
   }
+  public function getName(): string|array
+  {
+    return clienttranslate('Challenge');
+  }
 
   public function getActionBloc(Player $player): array
   {
