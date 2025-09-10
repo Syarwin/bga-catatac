@@ -2,6 +2,7 @@
 
 namespace Bga\Games\Catatac\Actions;
 
+use Bga\Games\Catatac\Core\Globals;
 use Bga\Games\Catatac\Core\Notifications;
 use Bga\Games\Catatac\Managers\Cards;
 use Bga\Games\Catatac\Managers\Meeples;
@@ -61,5 +62,8 @@ class StorageAttempt extends \Bga\Games\Catatac\Models\Action
     $ball = Meeples::getBall();
     $ball->setLocation($player->getHideoutLocation());
     Notifications::storageAttempt($player, $ball);
+
+    // Prevent skipping next player
+    Globals::setDistracted(false);
   }
 }
