@@ -2,6 +2,7 @@
 
 namespace Bga\Games\Catatac\Actions;
 
+use Bga\Games\Catatac\Core\Globals;
 use Bga\Games\Catatac\Core\Notifications;
 use Bga\Games\Catatac\Managers\Cards;
 use Bga\Games\Catatac\Managers\Meeples;
@@ -32,6 +33,11 @@ class PairBonus extends \Bga\Games\Catatac\Models\Action
 
   public function isDoable(Player $player): bool
   {
+    // Distraction ends the turn
+    if (Globals::isDistracted()) {
+      return false;
+    }
+
     $ball = Meeples::getBall();
     return !in_array($ball->getLocation(), [WHITE_HIDEOUT, BLACK_HIDEOUT]);
   }
