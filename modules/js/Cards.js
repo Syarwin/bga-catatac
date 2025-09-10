@@ -130,6 +130,8 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
     tplCard(card, tooltip = false) {
       let uid = 'card-' + card.id;
       let type = card.type;
+      if (type == 'AlphaWhite-Bengail' || type == 'AlphaBlack-Bengail') type = 'Alpha-Bengail';
+      if (type == 'AlphaWhite-Ragdoll' || type == 'AlphaBlack-Ragdoll') type = 'Alpha-Ragdoll';
 
       return `<div id="${uid}" class='catatac-card' data-id='${card.id}' data-type='${type}'>
         <div class='catatac-card-wrapper'></div>
