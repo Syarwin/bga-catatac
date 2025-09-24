@@ -154,7 +154,8 @@ class Cards extends CachedPieces
   }
   public static function getPointsCardsCount(): int
   {
-    return self::countInLocation("deck-points") + self::countInLocation("points-0") + self::countInLocation("points-1");
+    return self::countInLocation("deck-points") + self::countInLocation("points-0") + self::countInLocation("points-1")
+      + self::countInLocation("revealed-0")  + self::countInLocation("revealed-1");
   }
 
   public static function getCardsLeft(): int
