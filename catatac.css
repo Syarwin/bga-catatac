@@ -1150,7 +1150,7 @@
     display: flex;
     height: 230.0961538462px;
     width: 1479px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     justify-content: center; }
     #catatac-main-container #catatac-cards-wrapper #catatac-deck-discard-wrapper {
       width: 490px;
@@ -1236,7 +1236,7 @@
             left: 0px; }
   #catatac-main-container #catatac-hand-wrapper {
     width: 1479px;
-    margin-top: 10px;
+    margin-top: 20px;
     background: #ffffffad;
     border: 1px solid black;
     box-shadow: 1px 1px 3px black;
