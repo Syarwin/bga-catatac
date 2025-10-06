@@ -71,19 +71,19 @@ $cardMargin: 10px;
     #catatac-board-wrapper {
         position: relative;
         width: 1479px;
-        height: 289px;
+        height: 269px;
 
         #catatac-board {
             position: relative;
             width: 1479px;
-            height: 289px;
+            height: 269px;
 
             #team-white,
             #team-black {
                 background: white;
                 border: 1px solid black;
                 position: absolute;
-                bottom: 4px;
+                bottom: 1px;
                 left: 8px;
                 border-radius: 5px;
                 padding: 2px 0px;
@@ -111,9 +111,9 @@ $cardMargin: 10px;
             .board-slot {
                 position: absolute;
                 z-index: 2;
-                width: 165px;
-                height: 222px;
-                top: 33px;
+                width: 180px;
+                height: 220px;
+                top: 25px;
                 border-radius: 10px;
                 display: flex;
                 justify-content: center;
@@ -128,25 +128,27 @@ $cardMargin: 10px;
                 }
 
                 &#white-points {
-                    left: 52px;
+                    left: 25px;
+                    width: 158px;
                 }
                 &#white-hideout {
-                    left: 253px;
+                    left: 210px;
                 }
                 &#white-street {
-                    left: 454px;
+                    left: 430px;
                 }
                 &#neutral-street {
-                    left: 655px;
+                    left: 650px;
                 }
                 &#black-street {
-                    left: 856px;
+                    left: 867px;
                 }
                 &#black-hideout {
-                    left: 1058px;
+                    left: 1088px;
                 }
                 &#black-points {
-                    left: 1256px;
+                    left: 1292px;
+                    width: 158px;
                 }
 
                 &#white-points,
@@ -391,7 +393,7 @@ $cardMargin: 10px;
     #catatac-main-container {
         #catatac-board-wrapper {
             width: 1479px * 0.7;
-            height: 289px * 0.7;
+            height: 269px * 0.7;
 
             #catatac-board {
                 transform: scale(0.7);
@@ -431,7 +433,7 @@ $cardMargin: 10px;
 
         #catatac-board-wrapper {
             height: 1479px * 0.7;
-            width: 289px * 0.7;
+            width: 269px * 0.7;
             flex-shrink: 0;
             grid-column: 1 / span 1;
             grid-row: 1 / span 3;
