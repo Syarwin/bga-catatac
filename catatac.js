@@ -290,7 +290,7 @@ define([
     notif_refreshUI(args) {
       debug('Notif: refreshing UI', args);
 
-      ['meeples', 'players', 'cards', 'flippedBoard'].forEach((value) => {
+      ['meeples', 'players', 'cards', 'flippedBoard', 'ownedPointsCards'].forEach((value) => {
         this.gamedatas[value] = args.datas[value];
       });
       this.setupCards();
