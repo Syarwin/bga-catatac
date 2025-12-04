@@ -17,14 +17,15 @@ trait EndOfGameTrait
     $cards = Cards::getInLocation("points-1");
     foreach ($cards as $card) {
       $pointsWhite += $card->getPoints($playerWhite);
-      $auxScore += $card->getSardines();
+      $auxScore += 100 * $card->getSardines();
       $card->setLocation('revealed-1');
     }
     foreach ($playerWhite->getTeamMembers() as $player) {
       $alpha = $player->getAlpha();
       if (!is_null($alpha)) {
-        $auxScore += $alpha->getSardines();
+        $auxScore += 100 * $alpha->getSardines();
       }
+      $auxScore += $player->getHand()->count();
     }
     foreach ($playerWhite->getTeamMembers() as $player) {
       $player->setScore($pointsWhite);
@@ -39,14 +40,15 @@ trait EndOfGameTrait
     $cards = Cards::getInLocation("points-0");
     foreach ($cards as $card) {
       $pointsBlack += $card->getPoints($playerBlack);
-      $auxScore += $card->getSardines();
+      $auxScore += 100 * $card->getSardines();
       $card->setLocation('revealed-0');
     }
     foreach ($playerWhite->getTeamMembers() as $player) {
       $alpha = $player->getAlpha();
       if (!is_null($alpha)) {
-        $auxScore += $alpha->getSardines();
+        $auxScore += 100 * $alpha->getSardines();
       }
+      $auxScore += $player->getHand()->count();
     }
     foreach ($playerBlack->getTeamMembers() as $player) {
       $player->setScore($pointsBlack);
