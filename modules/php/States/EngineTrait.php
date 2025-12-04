@@ -14,7 +14,6 @@ trait EngineTrait
 {
   function addCommonArgs(&$args)
   {
-    $args['previousEngineChoices'] = Globals::getEngineChoices();
     $args['previousSteps'] = Log::getUndoableSteps();
   }
 
@@ -82,10 +81,9 @@ trait EngineTrait
       throw new \BgaVisibleSystemException('You can\'t take this anytime action');
     }
 
-    Log::step();
     $flow = $args['anytimeActions'][$choiceId]['flow'];
     if (!$auto) {
-      Globals::incEngineChoices();
+      Log::step();
     }
 
     Engine::insertAtRoot($flow, false);
@@ -113,7 +111,6 @@ trait EngineTrait
       $this->gamestate->checkPossibleAction('actPassOptionalAction');
     } else {
       Log::step();
-      Globals::incEngineChoices();
       self::checkAction('actPassOptionalAction');
     }
 
@@ -190,7 +187,6 @@ trait EngineTrait
   public function argsConfirmTurn()
   {
     $data = [
-      'previousEngineChoices' => Globals::getEngineChoices(),
       'previousSteps' => Log::getUndoableSteps(),
       'automaticAction' => false,
     ];
@@ -227,7 +223,7 @@ trait EngineTrait
   public function actRestart()
   {
     self::checkAction('actRestart');
-    if (Globals::getEngineChoices() < 1) {
+    if (empty(Log::getUndoableSteps())) {
       throw new \BgaVisibleSystemException('No choice to undo');
     }
     Engine::restart();

@@ -54,7 +54,11 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
         return card.id;
       });
       document.querySelectorAll('.catatac-card').forEach((oCard) => {
-        if (!cardIds.includes(parseInt(oCard.getAttribute('data-id'))) && oCard.parentNode.id != 'catatac-hand') {
+        if (
+          !cardIds.includes(parseInt(oCard.getAttribute('data-id'))) &&
+          oCard.parentNode.id != 'catatac-hand' &&
+          oCard.parentNode.id != 'catatac-alpha'
+        ) {
           this.destroy(oCard);
         }
       });

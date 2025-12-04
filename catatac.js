@@ -225,12 +225,10 @@ define([
       }
 
       // Restart turn button
-      if (args.args && args.args.previousEngineChoices && args.args.previousEngineChoices >= 1 && !args.args.automaticAction) {
-        if (args.args && args.args.previousSteps) {
-          let lastStep = Math.max(...args.args.previousSteps);
-          if (lastStep > 0)
-            this.addDangerActionButton('btnUndoLastStep', _('Undo last step'), () => this.undoToStep(lastStep), 'restartAction');
-        }
+      if (args.args && args.args.previousSteps && args.args.previousSteps.length && !args.args.automaticAction) {
+        let lastStep = Math.max(...args.args.previousSteps);
+        if (lastStep > 0)
+          this.addDangerActionButton('btnUndoLastStep', _('Undo last step'), () => this.undoToStep(lastStep), 'restartAction');
 
         // Restart whole turn
         this.addDangerActionButton(

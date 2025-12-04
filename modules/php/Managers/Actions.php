@@ -72,7 +72,6 @@ class Actions
 
     // Check action
     if (!$automatic) {
-      Globals::incEngineChoices();
       Game::get()->checkAction($actionName);
       $stepId = Log::step();
       Notifications::newUndoableStep($player, $stepId);
