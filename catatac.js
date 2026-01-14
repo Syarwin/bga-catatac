@@ -362,7 +362,7 @@ define([
       });
 
       const OPTION_CONFIRM = 103;
-      let n = args.previousEngineChoices;
+      let n = args.previousSteps.length;
       let timer = Math.min(10 + 2 * n, 20);
       this.startActionTimer('btnConfirmTurn', timer, this.prefs[OPTION_CONFIRM].value);
     },
