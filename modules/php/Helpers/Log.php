@@ -122,7 +122,7 @@ class Log extends \APP_DbObject
   public static function undoTurn()
   {
     $checkpoint = static::getLastCheckpoint(true);
-    return self::revertTo($checkpoint + 1);
+    return self::revertTo($checkpoint);
   }
 
   /**
