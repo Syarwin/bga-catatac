@@ -12,7 +12,7 @@ class Ninja extends PawnCard
     parent::__construct($row);
     $this->tooltip = [
       clienttranslate('**Condition:** you own the ball'),
-      clienttranslate('**Effect:** make a storage attempt')
+      clienttranslate('**Effect:** make a hoarding attempt')
     ];
   }
 

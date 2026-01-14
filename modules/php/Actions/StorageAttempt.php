@@ -23,7 +23,7 @@ class StorageAttempt extends \Bga\Games\Catatac\Models\Action
 
   public function getDescription(): string|array
   {
-    return clienttranslate("Attempt storage");
+    return clienttranslate("Attempt hoarding");
   }
 
   public function isDoable(Player $player): bool

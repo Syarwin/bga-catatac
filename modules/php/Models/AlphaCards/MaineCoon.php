@@ -14,7 +14,7 @@ class MaineCoon extends AlphaCard
     $this->name = clienttranslate("Maine Coon");
     $this->tooltip = [
       clienttranslate('Condition: no condition'),
-      clienttranslate('Effects: steal the ball / move the ball / attempt storage')
+      clienttranslate('Effects: steal the ball / move the ball / hoarding attempt')
     ];
   }
 

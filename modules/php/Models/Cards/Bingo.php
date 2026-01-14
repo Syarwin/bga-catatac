@@ -12,7 +12,7 @@ class Bingo extends PawnCard
     parent::__construct($row);
     $this->tooltip = [
       clienttranslate('**Condition:** you own the ball'),
-      clienttranslate('**Effect:** either move the ball or make a storage attempt')
+      clienttranslate('**Effect:** either move the ball or make a hoarding attempt')
     ];
   }
 

@@ -14,7 +14,7 @@ class Laperm extends AlphaCard
     $this->name = clienttranslate("Laperm");
     $this->tooltip = [
       clienttranslate('Condition: no condition'),
-      clienttranslate('Effects: steal the ball / move the ball / attempt storage')
+      clienttranslate('Effects: steal the ball / move the ball / hoarding attempt')
     ];
   }
 

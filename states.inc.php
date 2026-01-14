@@ -150,8 +150,8 @@ $machinestates = [
 
   ST_COUNTER_STORAGE => [
     'name' => 'counterStorage',
-    'description' => clienttranslate('${actplayer} may counter the storage'),
-    'descriptionmyturn' => clienttranslate('${you} may counter the storage'),
+    'description' => clienttranslate('${actplayer} may counter the hoarding attempt'),
+    'descriptionmyturn' => clienttranslate('${you} may counter the hoarding attempt'),
     'args' => 'argsAtomicAction',
     'action' => 'stAtomicAction',
     'type' => 'activeplayer',

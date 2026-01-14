@@ -13,7 +13,7 @@ class Synchro extends PawnCard
     parent::__construct($row);
     $this->tooltip = [
       clienttranslate('Condition: opponent owns the ball'),
-      clienttranslate('Effects: counter a storage attempt and play again')
+      clienttranslate('Effects: counter a hoarding attempt and play again')
     ];
   }
   public function getName(): string|array

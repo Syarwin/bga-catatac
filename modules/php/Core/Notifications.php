@@ -95,7 +95,7 @@ class Notifications
   public static function storageAttempt($player, $ball)
   {
     $newLocation = $ball->getLocation();
-    self::notifyAll('moveBall', clienttranslate('${teamIcon}${player_name} makes a storage attempt!'), [
+    self::notifyAll('moveBall', clienttranslate('${teamIcon}${player_name} makes a hoarding attempt!'), [
       'player' => $player,
       'location' => $newLocation,
     ]);
@@ -104,7 +104,7 @@ class Notifications
   public static function counterStorage($player, $ball)
   {
     $newLocation = $ball->getLocation();
-    self::notifyAll('moveBall', clienttranslate('${teamIcon}${player_name} counters the storage attempt!'), [
+    self::notifyAll('moveBall', clienttranslate('${teamIcon}${player_name} counters the hoarding attempt!'), [
       'player' => $player,
       'location' => $newLocation,
     ]);

@@ -12,7 +12,7 @@ class Miracle extends PawnCard
     parent::__construct($row);
     $this->tooltip = [
       clienttranslate('**Condition:** opponent owns the ball'),
-      clienttranslate('**Effect:** counter the storage attempt')
+      clienttranslate('**Effect:** counter the hoarding attempt')
     ];
   }
 

@@ -13,7 +13,7 @@ class Bicycle extends PawnCard
     parent::__construct($row);
     $this->tooltip = [
       clienttranslate('Condition: opponent owns the ball'),
-      clienttranslate('Effects: counter a storage attempt and skip next player\'s turn')
+      clienttranslate('Effects: counter a hoarding attempt and skip next player\'s turn')
     ];
   }
 

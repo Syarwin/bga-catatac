@@ -13,7 +13,7 @@ class Stop extends PawnCard
     parent::__construct($row);
     $this->tooltip = [
       clienttranslate('Condition: opponent owns the ball'),
-      clienttranslate('Effects: counter a storage attempt and randomly flip the ball')
+      clienttranslate('Effects: counter a hoarding attempt and randomly flip the ball')
     ];
   }
 
