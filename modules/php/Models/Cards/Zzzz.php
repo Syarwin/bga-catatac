@@ -11,8 +11,8 @@ class Zzzz extends PawnCard
   {
     parent::__construct($row);
     $this->tooltip = [
-      clienttranslate('**Condition:** none'),
-      clienttranslate('**Effect:** skip next player\'s turn')
+      clienttranslate('**Condition:** No condition.'),
+      clienttranslate('**Effect:** skip next player\'s turn.')
     ];
   }
 

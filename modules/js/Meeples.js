@@ -87,7 +87,7 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
     },
 
     async notif_tossBall(args) {
-      debug('Notif: toss the ball', args);
+      debug('Notif: toss the yarn ball', args);
       let inner = $('meeple-1').querySelector('.catatac-meeple-inner');
       inner.style.transform = 'translateY(-150%) rotateY(1000deg)';
       await this.wait(600);

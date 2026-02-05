@@ -11,8 +11,8 @@ class Courage extends PawnCard
   {
     parent::__construct($row);
     $this->tooltip = [
-      clienttranslate('**Condition:** opponent owns the ball'),
-      clienttranslate('**Effect:** move the ball')
+      clienttranslate('**Condition:** Opponent owns the yarn ball.'),
+      clienttranslate('**Effect:** Move the yarn ball.')
     ];
   }
 

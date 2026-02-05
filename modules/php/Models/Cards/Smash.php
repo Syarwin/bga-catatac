@@ -11,7 +11,7 @@ class Smash extends PawnCard
   {
     parent::__construct($row);
     $this->tooltip = [
-      clienttranslate('**Condition:** you own the ball'),
+      clienttranslate('**Condition:** You own the yarn ball.'),
       clienttranslate('**Effect:** make a hoarding attempt')
     ];
   }

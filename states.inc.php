@@ -101,8 +101,8 @@ $machinestates = [
 
   ST_CONFIRM_PARTIAL_TURN => [
     'name' => 'confirmPartialTurn',
-    'description' => clienttranslate('${actplayer} must confirm the switch of player'),
-    'descriptionmyturn' => clienttranslate('${you} must confirm the switch of player. You will not be able to restart turn'),
+    'description' => clienttranslate('${actplayer} must confirm the player switch'),
+    'descriptionmyturn' => clienttranslate('${you} must confirm the player switch. You will not be able to restart turn'),
     'type' => 'activeplayer',
     'args' => 'argsConfirmTurn',
     'possibleactions' => ['actConfirmPartialTurn', 'actRestart'],
@@ -161,8 +161,8 @@ $machinestates = [
 
   ST_MOVE_TOKEN => [
     'name' => 'moveToken',
-    'description' => clienttranslate('${actplayer} must move the ball'),
-    'descriptionmyturn' => clienttranslate('${you} must move the ball'),
+    'description' => clienttranslate('${actplayer} must move the yarn ball'),
+    'descriptionmyturn' => clienttranslate('${you} must move the yarn ball'),
     'args' => 'argsAtomicAction',
     'action' => 'stAtomicAction',
     'type' => 'activeplayer',

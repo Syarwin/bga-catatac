@@ -11,8 +11,8 @@ class Reflexes extends PawnCard
   {
     parent::__construct($row);
     $this->tooltip = [
-      clienttranslate('**Condition:** you own the ball'),
-      clienttranslate('**Effect:** hoarding attempt from 1 or 2 steps')
+      clienttranslate('**Condition:** You own the yarn ball.'),
+      clienttranslate('**Effect:** Make a hoarding attempt from 1 or 2 alleys.')
     ];
   }
 

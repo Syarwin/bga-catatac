@@ -12,8 +12,8 @@ class Schrodinger extends PawnCard
   {
     parent::__construct($row);
     $this->tooltip = [
-      clienttranslate('Condition: opponent owns the ball / you own the ball'),
-      clienttranslate('Effects: counter a hoarding attempt / hoarding attempt from neutral street')
+      clienttranslate('**Condition:** Opponent owns the yarn ball / You own the yarn ball.'),
+      clienttranslate('**Effects:** Counter a hoarding attempt / Make a hoarding attempt from neutral alley.')
     ];
   }
 

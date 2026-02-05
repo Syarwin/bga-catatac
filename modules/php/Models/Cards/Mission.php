@@ -11,8 +11,8 @@ class Mission extends PawnCard
   {
     parent::__construct($row);
     $this->tooltip = [
-      clienttranslate('**Condition:** none'),
-      clienttranslate('**Effect:** randomly flip the ball and move it')
+      clienttranslate('**Condition:** No condition.'),
+      clienttranslate('**Effect:** Toss the yarn ball (heads or tails) and move it.')
     ];
   }
 

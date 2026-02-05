@@ -13,8 +13,8 @@ class Ragdoll extends AlphaCard
     parent::__construct($row);
     $this->name = clienttranslate("Ragdoll");
     $this->tooltip = [
-      clienttranslate('Condition: no condition'),
-      clienttranslate('Effects: move the ball, randomly flip the ball and replay')
+      clienttranslate('**Condition:** No condition.'),
+      clienttranslate('**Effects:** move the yarn ball, randomly toss the yarn ball (heads or tails) and replay.')
     ];
   }
 

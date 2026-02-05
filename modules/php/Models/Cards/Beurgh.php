@@ -11,8 +11,8 @@ class Beurgh extends PawnCard
   {
     parent::__construct($row);
     $this->tooltip = [
-      clienttranslate('**Condition:** opponent owns the ball'),
-      clienttranslate('**Effect:** steal the ball and skip next player\'s turn')
+      clienttranslate('**Condition:** Opponent owns the yarn ball.'),
+      clienttranslate('**Effect:** Steal the yarn ball and skip next player\'s turn.')
     ];
   }
 

@@ -52,7 +52,7 @@ trait TurnTrait
     if (in_array($player->getId(), $skipped)) {
       // Any other player left ??
       if (count($skipped) >= Players::count()) {
-        Notifications::message(clienttranslate("No more card in hand: end of game is triggered!"));
+        Notifications::message(clienttranslate("No more cards in hand: end of game is triggered!"));
         $this->gamestate->jumpToState(ST_PRE_END_OF_GAME);
         return;
       }

@@ -59,7 +59,7 @@ class Notifications
     self::notify(
       $player,
       'pDrawCards',
-      $privateMsg ?? clienttranslate('${player_name}: you draw ${card_names} from the deck'),
+      $privateMsg ?? clienttranslate('${player_name}: you draw ${card_names} from the  paw draw pile'),
       $args + [
         'player' => $player,
         'cards' => is_array($cards) ? $cards : $cards->toArray(),
@@ -67,7 +67,7 @@ class Notifications
     );
     self::notifyAll(
       'drawCards',
-      $publicMsg ?? clienttranslate('${player_name} draws ${n} card(s) from the deck'),
+      $publicMsg ?? clienttranslate('${player_name} draws ${n} card(s) from the  paw draw pile'),
       $args + [
         'player' => $player,
         'n' => count($cards),
@@ -79,9 +79,9 @@ class Notifications
   public static function moveBall(Player $player, int $n, Meeple $ball)
   {
     $msgs = [
-      WHITE_STREET => clienttranslate('${teamIcon}${player_name} moves the ball ${n} step(s) to the white street'),
-      NEUTRAL_STREET => clienttranslate('${teamIcon}${player_name} moves the ball ${n} step(s) to the neutral street'),
-      BLACK_STREET => clienttranslate('${teamIcon}${player_name} moves the ball ${n} step(s) to the black street'),
+      WHITE_STREET => clienttranslate('${teamIcon}${player_name} moves the yarn ball ${n} alley(s) to the white street'),
+      NEUTRAL_STREET => clienttranslate('${teamIcon}${player_name} moves the yarn ball ${n} alley(s) to the neutral street'),
+      BLACK_STREET => clienttranslate('${teamIcon}${player_name} moves the yarn ball ${n} alley(s) to the black street'),
     ];
 
     $newLocation = $ball->getLocation();
@@ -112,7 +112,7 @@ class Notifications
 
   public static function stealBall(Player $player, Meeple $ball)
   {
-    self::notifyAll('stealBall', clienttranslate('${teamIcon}${player_name} steals the ball'), [
+    self::notifyAll('stealBall', clienttranslate('${teamIcon}${player_name} steals the yarn ball'), [
       'player' => $player,
       'side' => $ball->getState(),
     ]);
@@ -120,7 +120,7 @@ class Notifications
 
   public static function tossBall(Player $player, Meeple $ball)
   {
-    self::notifyAll('tossBall', clienttranslate('${teamIcon}${player_name} tosses the ball'), [
+    self::notifyAll('tossBall', clienttranslate('${teamIcon}${player_name} tosses the yarn ball'), [
       'player' => $player,
       'ball' => $ball,
     ]);
@@ -128,8 +128,8 @@ class Notifications
 
   public static function storage(int $winnerTeam)
   {
-    $msg = $winnerTeam == WHITE_SIDE ? clienttranslate('Black team does not counter the storage, white team <cat-white> gains a points card!') :
-      clienttranslate('White team does not counter the storage, black team <cat-black> gains a points card!');
+    $msg = $winnerTeam == WHITE_SIDE ? clienttranslate('Black team does not counter the hoarding attempt, white team <cat-white> gains a points card!') :
+      clienttranslate('White team does not counter the hoarding attempt, black team <cat-black> gains a points card!');
 
     self::notifyAll('storage', $msg, [
       'team' => $winnerTeam
@@ -138,15 +138,15 @@ class Notifications
 
   public static function postStorageFlip(Meeple $ball)
   {
-    self::notifyAll('postStorageFlip', clienttranslate('Flipping and returning the ball to the center'), [
+    self::notifyAll('postStorageFlip', clienttranslate('Tossing (heads or tails) and returning the yarn ball to the center'), [
       'ball' => $ball,
     ]);
   }
 
   public static function revealPoints(Collection $cards, int $score, int $team, int $sardines)
   {
-    $msg = $team == WHITE_SIDE ? clienttranslate('<cat-white> White team has ${n} point card(s), scoring a total of ${score} points! <cat-white>') :
-      clienttranslate('<cat-black> Black team has ${n} point card(s), scoring a total of ${score} points! <cat-black>');
+    $msg = $team == WHITE_SIDE ? clienttranslate('<cat-white> White team has ${n} point card(s), for a total of ${score} points! <cat-white>') :
+      clienttranslate('<cat-black> Black team has ${n} point card(s), for a total of ${score} points! <cat-black>');
 
     self::notifyAll('revealPoints', $msg, [
       'n' => $cards->count(),

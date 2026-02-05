@@ -1343,7 +1343,7 @@ define(['dojo', 'dojo/_base/declare', g_gamethemeurl + 'modules/js/vendor/nouisl
 
       if ($('btnPass')) $('btnPass').remove();
       if (config.canPass) {
-        this.addSecondaryActionButton('btnPass', _('Pass action'), () => config.passCallback(), config.btnContainer);
+        this.addSecondaryActionButton('btnPass', _('Skip action'), () => config.passCallback(), config.btnContainer);
       }
 
       Object.keys(config.elements).forEach((id) => {

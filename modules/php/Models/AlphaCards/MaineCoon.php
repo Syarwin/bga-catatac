@@ -13,8 +13,8 @@ class MaineCoon extends AlphaCard
     parent::__construct($row);
     $this->name = clienttranslate("Maine Coon");
     $this->tooltip = [
-      clienttranslate('Condition: no condition'),
-      clienttranslate('Effects: steal the ball / move the ball / hoarding attempt')
+      clienttranslate('**Condition:** No condition.'),
+      clienttranslate('**Effects:** Steal the yarn ball / Move the yarn ball / Make a hoarding attempt.')
     ];
   }
 

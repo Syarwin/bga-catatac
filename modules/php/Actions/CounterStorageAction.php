@@ -22,7 +22,7 @@ class CounterStorageAction extends \Bga\Games\Catatac\Models\Action
 
   public function getDescription(): string|array
   {
-    return clienttranslate("Counter hoarding attempt");
+    return clienttranslate("Counter a hoarding attempt");
   }
 
   public function isDoable(Player $player): bool

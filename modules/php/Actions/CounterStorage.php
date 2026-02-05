@@ -52,9 +52,9 @@ class CounterStorage extends \Bga\Games\Catatac\Models\Action
     Notifications::storage($winnerTeam);
 
     if (Cards::countInLocation('deck-points') == 0) {
-      Notifications::message(clienttranslate("No more point card left in the deck: end of game is triggered!"));
+      Notifications::message(clienttranslate("No more point cards left in the point card pile: end of game is triggered!"));
     } else {
-      // Flip the ball and place it in the center
+      // Flip the yarn ball and place it in the center
       $ball->setState(bga_rand(0, 1));
       $ball->setLocation(NEUTRAL_STREET);
       Notifications::postStorageFlip($ball);

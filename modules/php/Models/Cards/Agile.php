@@ -11,8 +11,8 @@ class Agile extends PawnCard
   {
     parent::__construct($row);
     $this->tooltip = [
-      clienttranslate('**Condition:** opponent owns the ball'),
-      clienttranslate('**Effect:** steal the ball, move the ball and replay')
+      clienttranslate('**Condition:** Opponent owns the yarn ball.'),
+      clienttranslate('**Effect:** Steal the yarn ball, move the yarn ball and replay.')
     ];
   }
 

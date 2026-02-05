@@ -12,8 +12,8 @@ class Duo extends PawnCard
   {
     parent::__construct($row);
     $this->tooltip = [
-      clienttranslate('Condition: none'),
-      clienttranslate('Effects: play again')
+      clienttranslate('**Condition:** No condition.'),
+      clienttranslate('**Effects:** Play again.')
     ];
   }
 

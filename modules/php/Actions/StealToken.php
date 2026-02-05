@@ -22,7 +22,7 @@ class StealToken extends \Bga\Games\Catatac\Models\Action
 
   public function getDescription(): string|array
   {
-    return clienttranslate("Steal the ball");
+    return clienttranslate("Steal the yarn ball");
   }
 
   public function isDoable(Player $player): bool

@@ -11,8 +11,8 @@ class Brute extends PawnCard
   {
     parent::__construct($row);
     $this->tooltip = [
-      clienttranslate('**Condition:** you own the ball'),
-      clienttranslate('**Effect:** make a hoarding attempt from distance 3')
+      clienttranslate('**Condition:** You own the yarn ball.'),
+      clienttranslate('**Effect:** Make a hoarding attempt from 3 alleys.')
     ];
   }
 

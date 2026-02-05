@@ -13,8 +13,8 @@ class Bengail extends AlphaCard
     parent::__construct($row);
     $this->name = clienttranslate("Bengal");
     $this->tooltip = [
-      clienttranslate('Condition: you own the ball'),
-      clienttranslate('Effects: move the ball and skip next player\'s turn')
+      clienttranslate('**Condition:** You own the yarn ball.'),
+      clienttranslate('**Effects:** Move the yarn ball and skip next player\'s turn.')
     ];
   }
 

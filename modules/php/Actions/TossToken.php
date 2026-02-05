@@ -27,7 +27,7 @@ class TossToken extends \Bga\Games\Catatac\Models\Action
 
   public function getDescription(): string|array
   {
-    return clienttranslate("Flip the ball");
+    return clienttranslate("Toss the yarn ball (heads or tails)");
   }
 
   public function stTossToken()

@@ -15,8 +15,8 @@ class Lykoi extends AlphaCard
     parent::__construct($row);
     $this->name = clienttranslate("Lykoi");
     $this->tooltip = [
-      clienttranslate('Condition: no condition'),
-      clienttranslate('Effects: move the ball by 1 or 2 steps')
+      clienttranslate('**Condition:** No condition.'),
+      clienttranslate('**Effects:** Move the yarn ball by 1 or 2 alleys.')
     ];
   }
 
