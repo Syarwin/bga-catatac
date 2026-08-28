@@ -41,6 +41,19 @@
       }
     }
   },
+  "105": {
+    "name": "Board rotation",
+    "needReload": false,
+    "default": 1,
+    "values": {
+      "0": {
+        "name": "Default"
+      },
+      "1": {
+        "name": "My team on left"
+      }
+    }
+  },
 
   "111": {
     "name": "Animations speed",

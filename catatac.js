@@ -137,6 +137,24 @@ define([
 
     updateBoardSide() {
       $('catatac-board-background').dataset.side = this.gamedatas.flippedBoard ? 'night' : 'day';
+      this.updateBoardRotation();
+    },
+
+    updateBoardRotation() {
+      const OPTION_BOARD_ROTATION = 105;
+      const BOARD_ROTATION_MY_TEAM_LEFT = 1;
+
+      // Remove any existing rotation class
+      $('catatac-main-container').classList.remove('player-team-left');
+
+      // Check if current player wants their team on the left
+      const currentPlayer = this.gamedatas.players[this.player_id];
+      if (currentPlayer && currentPlayer.prefs && currentPlayer.prefs.boardRotation == BOARD_ROTATION_MY_TEAM_LEFT) {
+        // If player is on black team (0) and wants team on left, flip the board
+        if (currentPlayer.team == 0) {
+          $('catatac-main-container').classList.add('player-team-left');
+        }
+      }
     },
 
     // Generic automatic updating of infos
@@ -288,7 +306,7 @@ define([
     notif_refreshUI(args) {
       debug('Notif: refreshing UI', args);
 
-      ['meeples', 'players', 'cards', 'flippedBoard', 'ownedPointsCards'].forEach((value) => {
+      ['meeples', 'players', 'cards', 'flippedBoard', 'ownedPointsCards', 'deckCount', 'pointsDeckCount'].forEach((value) => {
         this.gamedatas[value] = args.datas[value];
       });
       this.setupCards();

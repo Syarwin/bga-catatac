@@ -383,6 +383,66 @@ $cardMargin: 10px;
             }
         }
     }
+
+    // Board rotation: my team on left (swap board slots and background)
+    &.player-team-left {
+        #catatac-board-wrapper #catatac-board {
+            // Board rotation: my team on left (swap team labels)
+            #team-white {
+                left: auto;
+                right: 8px;
+                background: black;
+                border: 1px solid rgb(196, 195, 195);
+                color: white;
+                box-shadow: 1px 1px 3px rgb(187, 187, 187);
+            }
+            #team-black {
+                left: 8px;
+                right: auto;
+                background: white;
+                border: 1px solid black;
+                color: black;
+                box-shadow: 1px 1px 3px black;
+            }
+
+            .board-slot {
+                &#white-points {
+                    left: 1292px;
+                    width: 158px;
+                }
+                &#white-hideout {
+                    left: 1088px;
+                }
+                &#white-street {
+                    left: 867px;
+                }
+                &#neutral-street {
+                    left: 650px;
+                }
+                &#black-street {
+                    left: 430px;
+                }
+                &#black-hideout {
+                    left: 210px;
+                }
+                &#black-points {
+                    left: 25px;
+                    width: 158px;
+                }
+            }
+
+            #catatac-board-background {
+                #catatac-board-background-inner {
+                    #catatac-board-background-day {
+                        transform: rotateX(0deg) scaleX(-1);
+                    }
+                    #catatac-board-background-night {
+                        transform: rotateX(180deg) scaleX(-1);
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 1600px) {

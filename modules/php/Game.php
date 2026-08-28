@@ -72,6 +72,7 @@ class Game extends \Table
     public function getAllDatas(): array
     {
         $currentPId = (int) $this->getCurrentPlayerId();
+        $currentPlayer = Players::get($currentPId);
 
         $datas =  [
             'players' => Players::getUiData($currentPId),
@@ -82,6 +83,8 @@ class Game extends \Table
             'meeples' => Meeples::getUiData(),
             'flippedBoard' => Globals::getFlippedBoard(),
             'alphaBooster' => Globals::isAlpha(),
+            'currentPlayerId' => $currentPId,
+            'currentPlayerTeam' => $currentPlayer->getTeam(),
         ];
 
         return $datas;
@@ -202,7 +205,8 @@ class Game extends \Table
     {
         $stateName = $state['name'];
         if ($state['type'] == 'activeplayer') {
-            die("Unsupported zombie mode for single active state");
+            // Skip zombie player's turn in activeplayer states
+            $this->gamestate->nextPlayer();
         } elseif ($state['type'] == 'multipleactiveplayer') {
             // Make sure player is in a non blocking status for role turn
             $this->gamestate->setPlayerNonMultiactive($activePlayer, 'zombiePass');

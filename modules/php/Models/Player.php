@@ -44,6 +44,10 @@ class Player extends \Bga\Games\Catatac\Helpers\DB_Model
     }
     $datas['handCount'] = $this->getHand()->count();
     $datas['alphaCount'] = is_null($this->getAlpha()) ? 0 : 1;
+    $datas['team'] = $this->getTeam();
+    $datas['prefs'] = [
+      'boardRotation' => $this->getPref(OPTION_BOARD_ROTATION),
+    ];
     return $datas;
   }
 

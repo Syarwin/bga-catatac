@@ -215,6 +215,8 @@ class Notifications
       'meeples' => $datas['meeples'],
       'flippedBoard' => $datas['flippedBoard'],
       'ownedPointsCards' => $datas['ownedPointsCards'],
+      'deckCount' => $datas['deckCount'],
+      'pointsDeckCount' => $datas['pointsDeckCount'],
     ];
 
     foreach ($fDatas['players'] as &$player) {
