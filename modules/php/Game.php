@@ -84,7 +84,7 @@ class Game extends \Table
             'flippedBoard' => Globals::getFlippedBoard(),
             'alphaBooster' => Globals::isAlpha(),
             'currentPlayerId' => $currentPId,
-            'currentPlayerTeam' => $currentPlayer->getTeam(),
+            'currentPlayerTeam' => is_null($currentPlayer) ? 0 : $currentPlayer->getTeam(),
         ];
 
         return $datas;

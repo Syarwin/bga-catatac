@@ -13,7 +13,7 @@ class Ragdoll extends AlphaCard
     parent::__construct($row);
     $this->name = clienttranslate("Ragdoll");
     $this->tooltip = [
-      clienttranslate('**Condition:** No condition.'),
+      clienttranslate('**Condition:** The Paw Draw Pile must not be depleted.'),
       clienttranslate('**Effects:** move the yarn ball, randomly toss the yarn ball (heads or tails) and replay.')
     ];
   }

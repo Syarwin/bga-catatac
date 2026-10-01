@@ -13,7 +13,7 @@ class Laperm extends AlphaCard
     parent::__construct($row);
     $this->name = clienttranslate("LaPerm");
     $this->tooltip = [
-      clienttranslate('**Condition:** No condition.'),
+      clienttranslate('**Condition:** The Paw Draw Pile must not be depleted.'),
       clienttranslate('**Effects:** Steal the yarn ball / Move the yarn ball / Make a hoarding attempt.')
     ];
   }

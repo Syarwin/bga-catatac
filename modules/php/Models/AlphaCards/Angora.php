@@ -13,7 +13,7 @@ class Angora extends AlphaCard
     parent::__construct($row);
     $this->name = clienttranslate("Angora");
     $this->tooltip = [
-      clienttranslate('**Condition:** Opponent owns the yarn ball.'),
+      clienttranslate('**Condition:** The Paw Draw Pile must not be depleted and opponent owns the yarn ball.'),
       clienttranslate('**Effects:** Counter a hoarding attempt and steal the yarn ball.')
     ];
   }

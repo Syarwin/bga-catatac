@@ -13,7 +13,7 @@ class Bengail extends AlphaCard
     parent::__construct($row);
     $this->name = clienttranslate("Bengal");
     $this->tooltip = [
-      clienttranslate('**Condition:** You own the yarn ball.'),
+      clienttranslate('**Condition:** The Paw Draw Pile must not be depleted and you own the yarn ball.'),
       clienttranslate('**Effects:** Move the yarn ball and skip next player\'s turn.')
     ];
   }
